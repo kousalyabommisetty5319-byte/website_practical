@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Unordered List</title>
+</head>
+<body>
+
+<h2>Subjects</h2>
+
+<ul id="subjectList"></ul>
+<br>
+<a href="../index/index.html">🏠 Home</a>
+<a href="index.html">⬅️ Back to JavaScript Programs</a>
+<script>
+let subjects = ["Python", "C Programming", "HTML", "CSS", "JavaScript"];
+
+let list = document.getElementById("subjectList");
+
+subjects.forEach(function(subject) {
+    let listItem = document.createElement("li");
+
+    listItem.textContent = subject;
+
+    list.appendChild(listItem);
+});
+</script>
+
+</body>
+</html>

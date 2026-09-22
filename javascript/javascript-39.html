@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript 39 - Spread and Rest</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f3e5f5;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .box {
+            background-color: white;
+            padding: 30px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navigation">
+    <a href="../index/index.html">🏠 Home</a> |
+    <a href="index.html">💻 JavaScript Programs</a>
+</div>
+
+<div class="box">
+
+    <h1>Spread and Rest Operators</h1>
+
+    <p id="output"></p>
+
+</div>
+
+<script>
+
+let first = [1, 2, 3];
+let second = [4, 5, 6];
+
+let combined = [...first, ...second];
+
+function addNumbers(...numbers) {
+
+    let sum = 0;
+
+    for (let number of numbers) {
+        sum += number;
+    }
+
+    return sum;
+}
+
+let result = addNumbers(10, 20, 30);
+
+document.getElementById("output").innerHTML =
+    "Spread Operator: " + combined +
+    "<br><br>" +
+    "Rest Operator Result: " + result;
+
+</script>
+
+</body>
+</html>

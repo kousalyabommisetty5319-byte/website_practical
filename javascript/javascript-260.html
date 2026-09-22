@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Preference</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e8f5e9;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin: 8px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Login Preference System</h2>
+
+    <input type="text" id="username" placeholder="Enter username">
+
+    <br>
+
+    <label>
+        <input type="checkbox" id="remember">
+        Remember Me
+    </label>
+
+    <br>
+
+    <button onclick="login()">Login</button>
+    <button onclick="logout()">Logout</button>
+
+    <p id="message"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+function login() {
+
+    let username = document.getElementById("username").value;
+    let remember = document.getElementById("remember").checked;
+
+    if (username === "") {
+        alert("Please enter username.");
+        return;
+    }
+
+    if (remember) {
+        localStorage.setItem("loggedInUser", username);
+        document.getElementById("message").innerHTML =
+            "Login preference saved for " + username;
+    } else {
+        localStorage.removeItem("loggedInUser");
+        document.getElementById("message").innerHTML =
+            "Logged in without saving preference.";
+    }
+}
+
+function logout() {
+
+    localStorage.removeItem("loggedInUser");
+
+    document.getElementById("message").innerHTML =
+        "Logged out successfully.";
+}
+
+window.onload = function() {
+
+    let username = localStorage.getItem("loggedInUser");
+
+    if (username !== null) {
+        document.getElementById("username").value = username;
+        document.getElementById("remember").checked = true;
+
+        document.getElementById("message").innerHTML =
+            "Welcome back, " + username;
+    }
+
+};
+
+</script>
+
+</body>
+</html>

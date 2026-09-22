@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Multiple Elements</title>
+</head>
+<body>
+
+    <h1>Change Multiple HTML Elements</h1>
+
+    <p class="message">Original paragraph 1</p>
+    <p class="message">Original paragraph 2</p>
+    <p class="message">Original paragraph 3</p>
+
+    <button onclick="changeAll()">Change All Paragraphs</button>
+
+    <br><br>
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+
+    <script>
+        function changeAll() {
+            let paragraphs = document.getElementsByClassName("message");
+
+            for (let i = 0; i < paragraphs.length; i++) {
+                paragraphs[i].textContent = "This paragraph was changed!";
+                paragraphs[i].style.color = "blue";
+                paragraphs[i].style.fontWeight = "bold";
+            }
+        }
+    </script>
+
+</body>
+</html>

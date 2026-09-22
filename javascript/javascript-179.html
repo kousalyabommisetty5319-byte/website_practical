@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Capturing</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f7fb;
+            padding: 30px;
+        }
+
+        .outer {
+            background: #bfdbfe;
+            padding: 50px;
+            border-radius: 15px;
+        }
+
+        .inner {
+            background: #ddd6fe;
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        button {
+            padding: 15px 25px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+
+        #output {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="outer" id="outer">
+
+    <h1>Event Capturing</h1>
+
+    <div class="inner" id="inner">
+
+        <button id="myButton">Click Me</button>
+
+    </div>
+
+</div>
+
+<p id="output">Click the button.</p>
+
+<p>
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+</p>
+
+<script>
+
+    document.getElementById("outer").addEventListener("click", function() {
+        document.getElementById("output").innerHTML +=
+            "<br>Outer DIV captured the event";
+    }, true);
+
+    document.getElementById("inner").addEventListener("click", function() {
+        document.getElementById("output").innerHTML +=
+            "<br>Inner DIV captured the event";
+    }, true);
+
+    document.getElementById("myButton").addEventListener("click", function() {
+        document.getElementById("output").innerHTML +=
+            "<br>Button clicked";
+    }, true);
+
+</script>
+
+</body>
+</html>

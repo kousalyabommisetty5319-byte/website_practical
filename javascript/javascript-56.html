@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript 56 - Second Largest</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #fce4ec;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            background: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>Second Largest Element</h1>
+
+    <input type="text" id="array"
+           placeholder="Example: 10, 20, 5, 40, 30">
+
+    <button onclick="findSecondLargest()">Find</button>
+
+    <div id="result"></div>
+
+    <div class="navigation">
+        <a href="../index/index.html">🏠 Home</a> |
+        <a href="index.html">💻 JavaScript Programs</a>
+    </div>
+</div>
+
+<script>
+function findSecondLargest() {
+    let arr = document.getElementById("array").value
+        .split(",")
+        .map(Number);
+
+    let unique = [...new Set(arr)];
+
+    unique.sort(function(a, b) {
+        return b - a;
+    });
+
+    if (unique.length < 2) {
+        document.getElementById("result").innerHTML =
+            "Need at least two different numbers.";
+    } else {
+        document.getElementById("result").innerHTML =
+            "Second Largest = " + unique[1];
+    }
+}
+</script>
+
+</body>
+</html>

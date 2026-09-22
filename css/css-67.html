@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS 67 - Loading Spinner</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .spinner {
+            width: 80px;
+            height: 80px;
+            margin: 50px auto;
+            border: 10px solid #ddd;
+            border-top: 10px solid #333;
+            border-radius: 50%;
+
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .back {
+            display: block;
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Loading Spinner</h1>
+
+<div class="spinner"></div>
+
+<p>Loading...</p>
+
+<a class="back" href="index.html">← Back to CSS Programs</a>
+<a href="../index/index.html">🏠 Home</a>
+
+</body>
+</html>

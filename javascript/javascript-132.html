@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Attributes</title>
+</head>
+<body>
+
+<img id="image"
+     src="https://picsum.photos/200"
+     width="200"
+     alt="Sample Image">
+
+<br><br>
+
+<button onclick="changeImage()">Change Image</button>
+<a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+<script>
+function changeImage() {
+    let image = document.getElementById("image");
+
+    image.setAttribute("src", "https://picsum.photos/300");
+    image.setAttribute("alt", "Updated Image");
+    image.setAttribute("width", "300");
+}
+</script>
+
+</body>
+</html>

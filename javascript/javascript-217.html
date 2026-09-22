@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Job Application Form</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #dbeafe, #fce7f3);
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background: #e0e7ff;
+            color: #3730a3;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .back:hover {
+            background: #c7d2fe;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #334155;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #6366f1;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .gender {
+            display: flex;
+            gap: 20px;
+        }
+
+        .gender label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .gender input {
+            width: auto;
+        }
+
+        .error {
+            color: #dc2626;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #4f46e5;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3730a3;
+        }
+
+        #successMessage {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Back to Main Index -->
+        <a href="../index/index.html" class="back">
+            ← Back to Home
+        </a>
+
+        <h1>Job Application Form</h1>
+
+        <p class="subtitle">
+            Apply for your desired position
+        </p>
+
+        <form id="jobForm">
+
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+
+                <input type="text"
+                       id="name"
+                       placeholder="Enter your full name">
+
+                <div class="error" id="nameError"></div>
+            </div>
+
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+
+                <input type="text"
+                       id="email"
+                       placeholder="example@gmail.com">
+
+                <div class="error" id="emailError"></div>
+            </div>
+
+
+            <!-- Phone -->
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+
+                <input type="text"
+                       id="phone"
+                       placeholder="Enter 10-digit phone number">
+
+                <div class="error" id="phoneError"></div>
+            </div>
+
+
+            <!-- Date of Birth -->
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+
+                <input type="date" id="dob">
+
+                <div class="error" id="dobError"></div>
+            </div>
+
+
+            <!-- Gender -->
+            <div class="form-group">
+
+                <label>Gender</label>
+
+                <div class="gender">
+
+                    <label>
+                        <input type="radio"
+                               name="gender"
+                               value="Male">
+                        Male
+                    </label>
+
+                    <label>
+                        <input type="radio"
+                               name="gender"
+                               value="Female">
+                        Female
+                    </label>
+
+                    <label>
+                        <input type="radio"
+                               name="gender"
+                               value="Other">
+                        Other
+                    </label>
+
+                </div>
+
+                <div class="error" id="genderError"></div>
+
+            </div>
+
+
+            <!-- Position -->
+            <div class="form-group">
+
+                <label for="position">
+                    Position Applied For
+                </label>
+
+                <select id="position">
+
+                    <option value="">
+                        -- Select Position --
+                    </option>
+
+                    <option value="Web Developer">
+                        Web Developer
+                    </option>
+
+                    <option value="Software Developer">
+                        Software Developer
+                    </option>
+
+                    <option value="Data Analyst">
+                        Data Analyst
+                    </option>
+
+                    <option value="AI/ML Engineer">
+                        AI/ML Engineer
+                    </option>
+
+                    <option value="UI/UX Designer">
+                        UI/UX Designer
+                    </option>
+
+                </select>
+
+                <div class="error" id="positionError"></div>
+
+            </div>
+
+
+            <!-- Qualification -->
+            <div class="form-group">
+
+                <label for="qualification">
+                    Highest Qualification
+                </label>
+
+                <select id="qualification">
+
+                    <option value="">
+                        -- Select Qualification --
+                    </option>
+
+                    <option value="Diploma">
+                        Diploma
+                    </option>
+
+                    <option value="B.Tech">
+                        B.Tech
+                    </option>
+
+                    <option value="B.Sc">
+                        B.Sc
+                    </option>
+
+                    <option value="BCA">
+                        BCA
+                    </option>
+
+                    <option value="M.Tech">
+                        M.Tech
+                    </option>
+
+                    <option value="MCA">
+                        MCA
+                    </option>
+
+                </select>
+
+                <div class="error" id="qualificationError"></div>
+
+            </div>
+
+
+            <!-- Experience -->
+            <div class="form-group">
+
+                <label for="experience">
+                    Years of Experience
+                </label>
+
+                <input type="number"
+                       id="experience"
+                       min="0"
+                       placeholder="Enter years of experience">
+
+                <div class="error" id="experienceError"></div>
+
+            </div>
+
+
+            <!-- Skills -->
+            <div class="form-group">
+
+                <label for="skills">
+                    Skills
+                </label>
+
+                <textarea id="skills"
+                          placeholder="Enter your skills"></textarea>
+
+                <div class="error" id="skillsError"></div>
+
+            </div>
+
+
+            <!-- Resume -->
+            <div class="form-group">
+
+                <label for="resume">
+                    Upload Resume
+                </label>
+
+                <input type="file"
+                       id="resume"
+                       accept=".pdf,.doc,.docx">
+
+                <div class="error" id="resumeError"></div>
+
+            </div>
+
+
+            <!-- Cover Letter -->
+            <div class="form-group">
+
+                <label for="cover">
+                    Cover Letter
+                </label>
+
+                <textarea id="cover"
+                          placeholder="Write a short cover letter"></textarea>
+
+                <div class="error" id="coverError"></div>
+
+            </div>
+
+
+            <!-- Submit -->
+            <button type="submit">
+                Submit Application
+            </button>
+
+        </form>
+
+
+        <!-- Success Message -->
+        <div id="successMessage">
+            Application submitted successfully!
+        </div>
+
+    </div>
+
+
+    <script>
+
+        document.getElementById("jobForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            document.querySelectorAll(".error").forEach(function(error) {
+                error.textContent = "";
+            });
+
+            let valid = true;
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let dob = document.getElementById("dob").value;
+
+            let position =
+                document.getElementById("position").value;
+
+            let qualification =
+                document.getElementById("qualification").value;
+
+            let experience =
+                document.getElementById("experience").value;
+
+            let skills =
+                document.getElementById("skills").value.trim();
+
+            let resume =
+                document.getElementById("resume").files[0];
+
+            let cover =
+                document.getElementById("cover").value.trim();
+
+            let gender =
+                document.querySelector(
+                    'input[name="gender"]:checked'
+                );
+
+
+            /* Name Validation */
+
+            if (name === "") {
+
+                document.getElementById("nameError").textContent =
+                    "Please enter your full name.";
+
+                valid = false;
+
+            } else if (name.length < 3) {
+
+                document.getElementById("nameError").textContent =
+                    "Name must contain at least 3 characters.";
+
+                valid = false;
+            }
+
+
+            /* Email Validation */
+
+            let emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email === "") {
+
+                document.getElementById("emailError").textContent =
+                    "Please enter your email.";
+
+                valid = false;
+
+            } else if (!emailPattern.test(email)) {
+
+                document.getElementById("emailError").textContent =
+                    "Please enter a valid email address.";
+
+                valid = false;
+            }
+
+
+            /* Phone Validation */
+
+            let phonePattern = /^[0-9]{10}$/;
+
+            if (phone === "") {
+
+                document.getElementById("phoneError").textContent =
+                    "Please enter your phone number.";
+
+                valid = false;
+
+            } else if (!phonePattern.test(phone)) {
+
+                document.getElementById("phoneError").textContent =
+                    "Phone number must contain exactly 10 digits.";
+
+                valid = false;
+            }
+
+
+            /* DOB Validation */
+
+            if (dob === "") {
+
+                document.getElementById("dobError").textContent =
+                    "Please select your date of birth.";
+
+                valid = false;
+            }
+
+
+            /* Gender Validation */
+
+            if (!gender) {
+
+                document.getElementById("genderError").textContent =
+                    "Please select your gender.";
+
+                valid = false;
+            }
+
+
+            /* Position Validation */
+
+            if (position === "") {
+
+                document.getElementById("positionError").textContent =
+                    "Please select a position.";
+
+                valid = false;
+            }
+
+
+            /* Qualification Validation */
+
+            if (qualification === "") {
+
+                document.getElementById("qualificationError").textContent =
+                    "Please select your qualification.";
+
+                valid = false;
+            }
+
+
+            /* Experience Validation */
+
+            if (experience === "") {
+
+                document.getElementById("experienceError").textContent =
+                    "Please enter your experience.";
+
+                valid = false;
+
+            } else if (experience < 0) {
+
+                document.getElementById("experienceError").textContent =
+                    "Experience cannot be negative.";
+
+                valid = false;
+            }
+
+
+            /* Skills Validation */
+
+            if (skills === "") {
+
+                document.getElementById("skillsError").textContent =
+                    "Please enter your skills.";
+
+                valid = false;
+            }
+
+
+            /* Resume Validation */
+
+            if (!resume) {
+
+                document.getElementById("resumeError").textContent =
+                    "Please upload your resume.";
+
+                valid = false;
+            }
+
+
+            /* Cover Letter Validation */
+
+            if (cover === "") {
+
+                document.getElementById("coverError").textContent =
+                    "Please enter a cover letter.";
+
+                valid = false;
+            }
+
+
+            /* Successful Submission */
+
+            if (valid) {
+
+                document.getElementById("successMessage").style.display =
+                    "block";
+
+                document.getElementById("jobForm").reset();
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
+

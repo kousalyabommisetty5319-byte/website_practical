@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM To-Do List</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f3e5f5;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            display: inline-block;
+            width: 400px;
+        }
+
+        input {
+            padding: 10px;
+            width: 60%;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        li {
+            margin: 10px;
+            text-align: left;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+    <div class="container">
+        <h1>To-Do List</h1>
+
+        <input type="text" id="taskInput" placeholder="Enter a task">
+        <button onclick="addTask()">Add</button>
+
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        function addTask() {
+            const taskInput = document.getElementById("taskInput");
+            const taskText = taskInput.value.trim();
+
+            if (taskText === "") {
+                alert("Please enter a task");
+                return;
+            }
+
+            const listItem = document.createElement("li");
+            listItem.textContent = taskText;
+
+            document.getElementById("taskList").appendChild(listItem);
+
+            taskInput.value = "";
+        }
+    </script>
+
+</body>
+</html>

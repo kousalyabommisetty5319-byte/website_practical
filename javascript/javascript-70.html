@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change CSS Styles</title>
+
+    <style>
+        #box {
+            width: 250px;
+            padding: 30px;
+            background-color: lightblue;
+            text-align: center;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Change CSS Styles Using JavaScript</h1>
+
+    <div id="box">Style Me!</div>
+
+    <button onclick="changeStyle()">Change Style</button>
+
+    <br><br>
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+
+    <script>
+        function changeStyle() {
+            let box = document.getElementById("box");
+
+            box.style.backgroundColor = "purple";
+            box.style.color = "white";
+            box.style.fontSize = "25px";
+            box.style.borderRadius = "20px";
+            box.style.padding = "40px";
+        }
+    </script>
+
+</body>
+</html>

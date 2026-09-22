@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript 38 - ES6</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e3f2fd;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navigation">
+    <a href="../index/index.html">🏠 Home</a> |
+    <a href="index.html">💻 JavaScript Programs</a>
+</div>
+
+<div class="box">
+
+    <h1>ES6 Features</h1>
+
+    <p id="output"></p>
+
+</div>
+
+<script>
+
+let name = "Kousalya";
+
+const age = 19;
+
+let message = `My name is ${name} and my age is ${age}.`;
+
+let student = {
+    name: "Kousalya",
+    course: "B.Tech CSE"
+};
+
+let { course } = student;
+
+document.getElementById("output").innerHTML =
+    "let: " + name +
+    "<br>const: " + age +
+    "<br>Template Literal: " + message +
+    "<br>Destructuring: " + course;
+
+</script>
+
+</body>
+</html>

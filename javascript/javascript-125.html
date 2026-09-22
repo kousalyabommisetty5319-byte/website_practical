@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Style</title>
+</head>
+<body>
+
+<h2 id="heading">Dynamic Styling</h2>
+
+<button onclick="changeStyle()">Change Style</button>
+<br>
+<a href="../index/index.html">🏠 Home</a>
+        <br><a href="index.html">⬅️ Back to JavaScript Programs</a>
+        <br>
+<script>
+function changeStyle() {
+    let heading = document.getElementById("heading");
+
+    heading.style.color = "blue";
+    heading.style.fontSize = "35px";
+    heading.style.backgroundColor = "lightyellow";
+}
+</script>
+
+</body>
+</html>

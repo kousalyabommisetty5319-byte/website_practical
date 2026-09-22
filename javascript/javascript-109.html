@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            text-align: center;
+            color: white;
+            padding-top: 100px;
+        }
+
+        input, button {
+            padding: 12px;
+            margin: 8px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        #display {
+            font-size: 50px;
+            margin: 30px;
+        }
+
+        a {
+            display: block;
+            color: white;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Countdown Timer</h1>
+
+    <input type="number" id="secondsInput" placeholder="Enter seconds">
+
+    <br>
+
+    <button onclick="startCountdown()">Start</button>
+    <button onclick="resetCountdown()">Reset</button>
+
+    <div id="display">00:00</div>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+
+    <script>
+        let remainingSeconds = 0;
+        let timer = null;
+
+        function updateDisplay() {
+            let minutes = Math.floor(remainingSeconds / 60);
+            let seconds = remainingSeconds % 60;
+
+            document.getElementById("display").textContent =
+                String(minutes).padStart(2, "0") + ":" +
+                String(seconds).padStart(2, "0");
+        }
+
+        function startCountdown() {
+            if (timer !== null) {
+                return;
+            }
+
+            remainingSeconds =
+                Number(document.getElementById("secondsInput").value);
+
+            if (remainingSeconds <= 0) {
+                alert("Enter a valid number of seconds.");
+                return;
+            }
+
+            updateDisplay();
+
+            timer = setInterval(function () {
+                remainingSeconds--;
+                updateDisplay();
+
+                if (remainingSeconds <= 0) {
+                    clearInterval(timer);
+                    timer = null;
+                    alert("Time is over!");
+                }
+            }, 1000);
+        }
+
+        function resetCountdown() {
+            clearInterval(timer);
+            timer = null;
+            remainingSeconds = 0;
+            updateDisplay();
+        }
+    </script>
+</body>
+</html>

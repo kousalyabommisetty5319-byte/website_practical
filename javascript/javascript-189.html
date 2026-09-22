@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4338ca;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            width: 100%;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        #success {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Login Form</h1>
+
+    <form id="loginForm" novalidate>
+
+        <label>Username:</label>
+        <input type="text" id="username">
+        <p class="error" id="usernameError"></p>
+
+        <label>Password:</label>
+        <input type="password" id="password">
+        <p class="error" id="passwordError"></p>
+
+        <button type="submit">Login</button>
+
+        <p id="success"></p>
+
+    </form>
+
+    <p>
+        <a href="../index/index.html">⬅ Back to Main Index</a>
+        <a href="index.html">💻 JavaScript Programs</a
+    </p>
+
+</div>
+
+<script>
+
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        let username = document.getElementById("username").value.trim();
+        let password = document.getElementById("password").value;
+
+        document.getElementById("usernameError").innerHTML = "";
+        document.getElementById("passwordError").innerHTML = "";
+        document.getElementById("success").innerHTML = "";
+
+        let valid = true;
+
+        if (username.length < 3) {
+            document.getElementById("usernameError").innerHTML =
+                "Username must contain at least 3 characters.";
+            valid = false;
+        }
+
+        if (password.length < 8) {
+            document.getElementById("passwordError").innerHTML =
+                "Password must contain at least 8 characters.";
+            valid = false;
+        }
+
+        if (valid) {
+            document.getElementById("success").innerHTML =
+                "Validation successful! Login demonstration completed.";
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

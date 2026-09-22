@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browser Language</title>
+<style>
+body {
+    font-family: Arial;
+    background: #fff1f2;
+    padding: 40px;
+    text-align: center;
+}
+.box {
+    background: white;
+    max-width: 500px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+}
+button {
+    padding: 10px;
+    background: #e11d48;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>Current Browser Language</h2>
+
+<button onclick="showLanguage()">Show Language</button>
+
+<p id="result"></p>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+</div>
+
+<script>
+function showLanguage() {
+    document.getElementById("result").innerHTML =
+        "Your browser language is: " + navigator.language;
+}
+</script>
+
+</body>
+</html>

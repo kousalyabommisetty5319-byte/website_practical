@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HTML Practical Programs</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #eef2ff, #fdf2f8, #ecfeff);
+            min-height: 100vh;
+            color: #1e293b;
+        }
+
+        /* HEADER */
+
+        header {
+            background: linear-gradient(135deg, #2563eb, #4f46e5, #9333ea);
+            color: white;
+            padding: 45px 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        /* TOP NAVIGATION */
+
+        .top-navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .top-navigation a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 18px 35px;
+            border-radius: 12px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        /* HOME */
+
+        .home-btn {
+            background: #343a40;
+        }
+
+        /* CSS */
+
+        .css-btn {
+            background: #075b58;
+        }
+
+        /* JAVASCRIPT */
+
+        .js-btn {
+            background: #075b58;
+        }
+
+        .top-navigation a:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        /* CONTAINER */
+
+        .container {
+            max-width: 1250px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .page-title h2 {
+            color: #4f46e5;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .page-title p {
+            color: #64748b;
+            font-size: 17px;
+        }
+
+        /* PROGRAM GRID */
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        /* CARD */
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.12);
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+
+            background: linear-gradient(
+                90deg,
+                #2563eb,
+                #7c3aed,
+                #db2777
+            );
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(79, 70, 229, 0.2);
+        }
+
+        /* NUMBER */
+
+        .number {
+            display: inline-block;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-weight: bold;
+            padding: 8px 13px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* CARD TITLE */
+
+        .card h3 {
+            font-size: 20px;
+            color: #1e293b;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        /* OPEN BUTTON */
+
+        .open-btn {
+            display: inline-block;
+            text-decoration: none;
+
+            background: linear-gradient(
+                135deg,
+                #4f46e5,
+                #7c3aed
+            );
+
+            color: white;
+            padding: 11px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .open-btn:hover {
+            background: linear-gradient(
+                135deg,
+                #db2777,
+                #7c3aed
+            );
+
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 50px;
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* TABLET */
+
+        @media (max-width: 900px) {
+
+            .program-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 35px 15px;
+            }
+
+            header h1 {
+                font-size: 27px;
+            }
+
+            header p {
+                font-size: 15px;
+            }
+
+            .top-navigation {
+                flex-direction: column;
+            }
+
+            .top-navigation a {
+                width: 220px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <h1>🌐 HTML Practical Programs</h1>
+
+    <p>
+        HTML, CSS & JavaScript Practical Assignment
+    </p>
+
+
+    <!-- TOP BUTTONS -->
+
+    <nav class="top-navigation">
+
+        <a href="../index/index.html" class="home-btn">
+            Home
+        </a>
+
+        <a href="../css/index.html" class="css-btn">
+            CSS Programs
+        </a>
+
+        <a href="../javascript/index.html" class="js-btn">
+            JavaScript Programs
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="container">
+
+    <div class="page-title">
+
+        <h2>📚 HTML Programs</h2>
+
+        <p>
+            15 HTML practical programs covering the fundamentals of web development
+        </p>
+
+    </div>
+
+
+    <div class="program-grid">
+
+
+        <!-- HTML 01 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 01
+            </span>
+
+            <h3>
+                Create a basic HTML webpage using headings,
+                paragraphs, and line breaks.
+            </h3>
+
+            <a href="html-01.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+        <!-- HTML 02 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 02
+            </span>
+
+            <h3>
+                Create an HTML page containing ordered,
+                unordered, and description lists.
+            </h3>
+
+            <a href="html-02.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+        <!-- HTML 03 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 03
+            </span>
+
+            <h3>
+                Create a webpage using tables with rows,
+                columns, borders, and merged cells.
+            </h3>
+
+            <a href="html-03.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+        <!-- HTML 04 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 04
+            </span>
+
+            <h3>
+                Create an HTML page containing images
+                and hyperlinks.
+            </h3>
+
+            <a href="html-04.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+        <!-- HTML 05 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 05
+            </span>
+
+            <h3>
+                Create a student registration form using
+                HTML form elements.
+            </h3>
+
+            <a href="html-05.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+        <!-- HTML 06 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 06
+            </span>
+
+            <h3>
+                Create a webpage using audio and
+                video elements.
+            </h3>
+
+            <a href="html-06.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+        <!-- HTML 07 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 07
+            </span>
+
+            <h3>
+                Create a webpage using frames and
+                iframes.
+            </h3>
+
+            <a href="html-07.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+        <!-- HTML 08 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 08
+            </span>
+
+            <h3>
+                Create an HTML page demonstrating
+                semantic elements.
+            </h3>
+
+            <a href="html-08.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+        <!-- HTML 09 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 09
+            </span>
+
+            <h3>
+                Create an HTML page using HTML5 input
+                types such as email, date, number, and password.
+            </h3>
+
+            <a href="html-09.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+        <!-- HTML 10 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 10
+            </span>
+
+            <h3>
+                Create a college timetable using
+                an HTML table.
+            </h3>
+
+            <a href="html-10.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+        <!-- HTML 11 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 11
+            </span>
+
+            <h3>
+                Create a webpage with internal and
+                external CSS styling.
+            </h3>
+
+            <a href="html-11.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+        <!-- HTML 12 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 12
+            </span>
+
+            <h3>
+                Create a webpage demonstrating CSS
+                selectors, colors, fonts, margins, padding,
+                and borders.
+            </h3>
+
+            <a href="html-12.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+        <!-- HTML 13 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 13
+            </span>
+
+            <h3>
+                Create a responsive webpage using
+                CSS media queries.
+            </h3>
+
+            <a href="html-13.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+        <!-- HTML 14 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 14
+            </span>
+
+            <h3>
+                Create a webpage using Bootstrap
+                components.
+            </h3>
+
+            <a href="html-14.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+        <!-- HTML 15 -->
+
+        <div class="card">
+
+            <span class="number">
+                HTML Program 15
+            </span>
+
+            <h3>
+                Create a simple personal portfolio
+                webpage using HTML and CSS.
+            </h3>
+
+            <a href="html-15.html" class="open-btn">
+                Open Program →
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 HTML, CSS & JavaScript Practical
+    </p>
+
+    <p>
+        B.Tech Computer Science Engineering
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

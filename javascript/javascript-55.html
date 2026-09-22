@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript 55 - Count Digits</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #e8f5e9;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>Count Number of Digits</h1>
+
+    <input type="number" id="num" placeholder="Enter a number">
+    <button onclick="countDigits()">Count</button>
+
+    <div id="result"></div>
+
+    <div class="navigation">
+        <a href="../index/index.html">🏠 Home</a> |
+        <a href="index.html">💻 JavaScript Programs</a>
+    </div>
+</div>
+
+<script>
+function countDigits() {
+    let num = Math.abs(Number(document.getElementById("num").value));
+
+    let count = num.toString().length;
+
+    document.getElementById("result").innerHTML =
+        "Number of digits = " + count;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard Press Counter</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #fff3e0;
+            padding: 40px;
+        }
+
+        input {
+            padding: 15px;
+            font-size: 18px;
+            width: 300px;
+        }
+
+        #count {
+            color: #e65100;
+            font-size: 35px;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅ Back to JavaScript</a>
+
+    <h1>Keyboard Key Press Counter</h1>
+
+    <input
+        type="text"
+        placeholder="Press keys here"
+        onkeydown="countKeyPresses()"
+    >
+
+    <h2>Total Key Presses</h2>
+    <div id="count">0</div>
+
+    <script>
+        let keyCount = 0;
+
+        function countKeyPresses() {
+            keyCount++;
+
+            document.getElementById("count").textContent =
+                keyCount;
+        }
+    </script>
+
+</body>
+</html>

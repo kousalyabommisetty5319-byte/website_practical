@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Controlled Object</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f7fb;
+            padding: 20px;
+        }
+
+        #gameArea {
+            width: 600px;
+            height: 350px;
+            border: 3px solid #4f46e5;
+            margin: 30px auto;
+            position: relative;
+            background: white;
+            overflow: hidden;
+        }
+
+        #player {
+            width: 50px;
+            height: 50px;
+            background: #4f46e5;
+            position: absolute;
+            left: 275px;
+            top: 150px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Keyboard Controlled Moving Object</h1>
+
+<p>Use the Arrow Keys to move the box.</p>
+
+<div id="gameArea">
+    <div id="player"></div>
+</div>
+
+<p id="position">Position: 275, 150</p>
+
+<p>
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+</p>
+
+<script>
+
+    let player = document.getElementById("player");
+
+    let x = 275;
+    let y = 150;
+
+    document.addEventListener("keydown", function(event) {
+
+        if (event.key === "ArrowUp") {
+            y -= 10;
+        }
+
+        if (event.key === "ArrowDown") {
+            y += 10;
+        }
+
+        if (event.key === "ArrowLeft") {
+            x -= 10;
+        }
+
+        if (event.key === "ArrowRight") {
+            x += 10;
+        }
+
+        if (x < 0) x = 0;
+        if (y < 0) y = 0;
+        if (x > 550) x = 550;
+        if (y > 300) y = 300;
+
+        player.style.left = x + "px";
+        player.style.top = y + "px";
+
+        document.getElementById("position").innerHTML =
+            "Position: " + x + ", " + y;
+
+    });
+
+</script>
+
+</body>
+</html>

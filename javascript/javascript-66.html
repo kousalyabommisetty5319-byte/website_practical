@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript 66 - Regular Expressions</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #e3f2fd;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            background: #2196f3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Regular Expressions</h1>
+
+    <p>Check whether the entered text contains only letters.</p>
+
+    <input type="text" id="text" placeholder="Enter text">
+
+    <button onclick="checkPattern()">Check</button>
+
+    <div id="result"></div>
+
+    <div class="navigation">
+        <a href="../index/index.html">🏠 Home</a> |
+        <a href="index.html">💻 JavaScript Programs</a>
+    </div>
+
+</div>
+
+<script>
+
+function checkPattern() {
+
+    let text = document.getElementById("text").value;
+
+    // Regular expression for only letters
+    let pattern = /^[A-Za-z]+$/;
+
+    if (pattern.test(text)) {
+
+        document.getElementById("result").innerHTML =
+            "Valid: The text contains only letters.";
+
+    } else {
+
+        document.getElementById("result").innerHTML =
+            "Invalid: The text contains numbers or special characters.";
+    }
+}
+
+</script>
+
+</body>
+</html>

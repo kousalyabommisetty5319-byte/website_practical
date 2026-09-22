@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove HTML Elements</title>
+</head>
+<body>
+
+    <h1>Remove HTML Elements Dynamically</h1>
+
+    <p id="paragraph">This paragraph can be removed.</p>
+
+    <button onclick="removeElement()">Remove Paragraph</button>
+
+    <br><br>
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+
+    <script>
+        function removeElement() {
+            let paragraph = document.getElementById("paragraph");
+
+            if (paragraph) {
+                paragraph.remove();
+            } else {
+                alert("Paragraph is already removed.");
+            }
+        }
+    </script>
+
+</body>
+</html>

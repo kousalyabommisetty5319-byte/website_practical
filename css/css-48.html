@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Three Column Flexbox</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 40px;
+            background-color: white;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #aaa;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+
+        .links {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Three Column Flexbox</h1>
+
+    <div class="container">
+
+        <div class="column">
+            <h2>Column 1</h2>
+            <p>HTML</p>
+        </div>
+
+        <div class="column">
+            <h2>Column 2</h2>
+            <p>CSS</p>
+        </div>
+
+        <div class="column">
+            <h2>Column 3</h2>
+            <p>JavaScript</p>
+        </div>
+
+    </div>
+
+    <div class="links">
+        <a href="../index/index.html">Home</a> |
+        <a href="index.html">CSS Programs</a>
+    </div>
+
+</body>
+</html>

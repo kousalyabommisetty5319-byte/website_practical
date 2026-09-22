@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Image Gallery</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            border: 1px solid gray;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 200px;
+            height: 130px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<a href="../index/index.html">🏠 Home</a>
+<a href="index.html">⬅️ Back to JavaScript Programs</a>
+<h2>Dynamic Image Gallery</h2>
+
+<div id="gallery" class="gallery"></div>
+
+<script>
+const images = [
+    {
+        src: "https://picsum.photos/id/1015/200/130",
+        title: "Mountain"
+    },
+    {
+        src: "https://picsum.photos/id/1025/200/130",
+        title: "Dog"
+    },
+    {
+        src: "https://picsum.photos/id/1035/200/130",
+        title: "River"
+    }
+];
+
+const gallery = document.getElementById("gallery");
+
+images.forEach(function(imageData) {
+    let card = document.createElement("div");
+    card.className = "card";
+
+    let image = document.createElement("img");
+    image.src = imageData.src;
+    image.alt = imageData.title;
+
+    let title = document.createElement("p");
+    title.textContent = imageData.title;
+
+    card.appendChild(image);
+    card.appendChild(title);
+
+    gallery.appendChild(card);
+});
+</script>
+
+</body>
+</html>

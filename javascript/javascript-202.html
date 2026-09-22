@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        textarea {
+            width: 90%;
+            height: 150px;
+            padding: 12px;
+            box-sizing: border-box;
+            resize: none;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin-top: 15px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Textarea Validation</h1>
+
+    <textarea id="messageText"
+        placeholder="Enter at least 20 characters"></textarea>
+
+    <br>
+
+    <button onclick="validateTextarea()">Validate</button>
+
+    <p id="message"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+    function validateTextarea() {
+
+        let text =
+            document.getElementById("messageText").value.trim();
+
+        let message =
+            document.getElementById("message");
+
+        if (text === "") {
+
+            message.innerHTML =
+                "Textarea cannot be empty.";
+
+            message.style.color = "red";
+
+        }
+        else if (text.length < 20) {
+
+            message.innerHTML =
+                "Please enter at least 20 characters.";
+
+            message.style.color = "red";
+
+        }
+        else {
+
+            message.innerHTML =
+                "Textarea is valid!";
+
+            message.style.color = "green";
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

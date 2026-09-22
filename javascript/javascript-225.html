@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Order Calculator</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #fff7ed;
+    padding: 40px;
+}
+
+.box {
+    background: white;
+    max-width: 550px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #aaa;
+}
+
+h2 {
+    text-align: center;
+    color: #ea580c;
+}
+
+select, input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #ea580c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+#result {
+    margin-top: 20px;
+    background: #ffedd5;
+    padding: 15px;
+    font-weight: bold;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Shopping Order</h2>
+
+<label>Product:</label>
+
+<select id="product">
+    <option value="">Select Product</option>
+    <option value="500">Notebook - ₹500</option>
+    <option value="1000">Headphones - ₹1000</option>
+    <option value="1500">Keyboard - ₹1500</option>
+    <option value="2000">Smart Watch - ₹2000</option>
+</select>
+
+<label>Quantity:</label>
+<input type="number" id="quantity" min="1">
+
+<button onclick="calculateTotal()">Calculate Total</button>
+
+<div id="result"></div>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+function calculateTotal() {
+
+    let price = Number(document.getElementById("product").value);
+    let quantity = Number(document.getElementById("quantity").value);
+
+    if (price === 0 || quantity <= 0) {
+
+        document.getElementById("result").innerHTML =
+            "Please select a product and enter a valid quantity.";
+
+        return;
+    }
+
+    let total = price * quantity;
+
+    document.getElementById("result").innerHTML =
+        "Price per item: ₹" + price + "<br>" +
+        "Quantity: " + quantity + "<br>" +
+        "Total Price: ₹" + total;
+
+}
+
+</script>
+
+</body>
+</html>

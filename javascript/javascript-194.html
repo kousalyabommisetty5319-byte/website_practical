@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Length Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        input {
+            padding: 12px;
+            width: 90%;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin-top: 15px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Password Validation</h1>
+
+    <p>Password must contain at least 8 characters.</p>
+
+    <input type="password" id="password" placeholder="Enter password">
+
+    <br>
+
+    <button onclick="validatePassword()">Validate</button>
+
+    <p id="message"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+    function validatePassword() {
+
+        let password = document.getElementById("password").value;
+        let message = document.getElementById("message");
+
+        if (password.length >= 8) {
+            message.innerHTML = "Valid password!";
+            message.style.color = "green";
+        }
+        else {
+            message.innerHTML =
+                "Password must contain at least 8 characters.";
+            message.style.color = "red";
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

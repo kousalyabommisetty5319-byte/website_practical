@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS 71 - Responsive Typography</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 8vw;
+        }
+
+        h2 {
+            font-size: 5vw;
+        }
+
+        p {
+            font-size: 2.5vw;
+            line-height: 1.6;
+        }
+
+        .box {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            background: #eeeeee;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+
+        .back {
+            display: block;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Responsive Typography</h1>
+
+    <div class="box">
+        <h2>CSS Responsive Text</h2>
+
+        <p>
+            The size of this text changes according to
+            the screen width.
+        </p>
+
+        <p>
+            Resize the browser window to see the effect.
+        </p>
+    </div>
+
+    <a class="back" href="index.html">
+        ← Back to CSS Programs
+    </a>
+    <a href="../index/index.html">🏠 Home</a>
+
+</body>
+</html>

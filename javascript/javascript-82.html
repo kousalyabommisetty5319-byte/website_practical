@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slideshow</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+        }
+
+        img {
+            width: 400px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Image Slideshow</h1>
+
+    <img
+        id="slide"
+        src="https://picsum.photos/id/1015/400/250"
+        alt="Slideshow image"
+    >
+
+    <br>
+
+    <button onclick="previousImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+
+    <br><br>
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+
+    <script>
+        const images = [
+            "https://picsum.photos/id/1015/400/250",
+            "https://picsum.photos/id/1016/400/250",
+            "https://picsum.photos/id/1018/400/250",
+            "https://picsum.photos/id/1025/400/250"
+        ];
+
+        let currentIndex = 0;
+
+        function showImage() {
+            document.getElementById("slide").src = images[currentIndex];
+        }
+
+        function nextImage() {
+            currentIndex++;
+
+            if (currentIndex >= images.length) {
+                currentIndex = 0;
+            }
+
+            showImage();
+        }
+
+        function previousImage() {
+            currentIndex--;
+
+            if (currentIndex < 0) {
+                currentIndex = images.length - 1;
+            }
+
+            showImage();
+        }
+
+        setInterval(nextImage, 3000);
+    </script>
+
+</body>
+</html>

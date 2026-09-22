@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Blog Grid</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .blog {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .article {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px #aaa;
+        }
+
+        .article img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article a {
+            color: #333;
+            font-weight: bold;
+        }
+
+        @media (max-width: 800px) {
+            .blog {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .blog {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        }
+
+        .links {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Daily News</h1>
+
+        <p>Latest articles and updates</p>
+
+    </header>
+
+    <section class="blog">
+
+        <article class="article">
+
+            <img src="https://picsum.photos/400/250?31" alt="News">
+
+            <div class="article-content">
+                <h2>Technology</h2>
+                <p>Latest developments in technology.</p>
+                <a href="#">Read More</a>
+            </div>
+
+        </article>
+
+        <article class="article">
+
+            <img src="https://picsum.photos/400/250?32" alt="News">
+
+            <div class="article-content">
+                <h2>Education</h2>
+                <p>New trends in education and learning.</p>
+                <a href="#">Read More</a>
+            </div>
+
+        </article>
+
+        <article class="article">
+
+            <img src="https://picsum.photos/400/250?33" alt="News">
+
+            <div class="article-content">
+                <h2>Science</h2>
+                <p>Interesting discoveries in science.</p>
+                <a href="#">Read More</a>
+            </div>
+
+        </article>
+
+    </section>
+
+    <div class="links">
+        <a href="../index/index.html">Home</a> |
+        <a href="index.html">CSS Programs</a>
+    </div>
+
+</body>
+</html>

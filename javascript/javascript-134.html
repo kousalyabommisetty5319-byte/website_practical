@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Ordered List</title>
+</head>
+<body>
+
+<h2>Enter Items</h2>
+
+<input type="text" id="itemInput" placeholder="Enter an item">
+
+<button onclick="addItem()">Add Item</button>
+
+<ol id="itemList"></ol>
+<br><a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+<script>
+function addItem() {
+    let input = document.getElementById("itemInput");
+    let value = input.value.trim();
+
+    if (value === "") {
+        alert("Please enter an item.");
+        return;
+    }
+
+    let listItem = document.createElement("li");
+    listItem.textContent = value;
+
+    document.getElementById("itemList").appendChild(listItem);
+
+    input.value = "";
+}
+</script>
+
+</body>
+</html>

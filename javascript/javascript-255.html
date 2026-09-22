@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Object Using JSON</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #fff8e1;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 8px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2>Store JavaScript Object</h2>
+
+        <button onclick="storeObject()">Store Object</button>
+
+        <button onclick="displayObject()">Display Object</button>
+
+        <p id="result"></p>
+
+        <a href="../index/index.html">⬅ Back to Main Index</a>
+        <a href="index.html">💻 JavaScript Programs</a
+    </div>
+
+    <script>
+        function storeObject() {
+            let student = {
+                name: "Kousalya",
+                age: 20,
+                course: "B.Tech CSE"
+            };
+
+            let objectData = JSON.stringify(student);
+
+            localStorage.setItem("student", objectData);
+
+            document.getElementById("result").innerHTML =
+                "Student object stored successfully.";
+        }
+
+        function displayObject() {
+            let storedData = localStorage.getItem("student");
+
+            if (storedData === null) {
+                document.getElementById("result").innerHTML =
+                    "No student object found.";
+            } else {
+                let student = JSON.parse(storedData);
+
+                document.getElementById("result").innerHTML =
+                    "Name: " + student.name + "<br>" +
+                    "Age: " + student.age + "<br>" +
+                    "Course: " + student.course;
+            }
+        }
+    </script>
+</body>
+</html>

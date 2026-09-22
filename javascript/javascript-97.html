@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form Validation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #fddb92, #d1fdff);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px gray;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00796b;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            box-sizing: border-box;
+            border: 2px solid #80cbc4;
+            border-radius: 8px;
+        }
+
+        input.invalid {
+            border: 2px solid red;
+        }
+
+        input.valid {
+            border: 2px solid green;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 20px;
+            background: #00796b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        a {
+            display: inline-block;
+            margin: 15px 5px;
+            padding: 10px;
+            background: #00796b;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>✅ Dynamic Form Validation</h1>
+
+    <form id="dynamicForm" novalidate>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter username">
+        <span class="error" id="usernameError"></span>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter email">
+        <span class="error" id="emailError"></span>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter password">
+        <span class="error" id="passwordError"></span>
+
+        <button type="submit">Validate Form</button>
+    </form>
+
+    <p class="success" id="successMessage"></p>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+</div>
+
+<script>
+    const form = document.getElementById("dynamicForm");
+
+    const username = document.getElementById("username");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+
+    function showError(input, errorId, message) {
+        input.classList.remove("valid");
+        input.classList.add("invalid");
+        document.getElementById(errorId).textContent = message;
+    }
+
+    function showSuccess(input, errorId) {
+        input.classList.remove("invalid");
+        input.classList.add("valid");
+        document.getElementById(errorId).textContent = "";
+    }
+
+    username.addEventListener("input", function() {
+        if (username.value.trim().length < 4) {
+            showError(
+                username,
+                "usernameError",
+                "Username must contain at least 4 characters."
+            );
+        } else {
+            showSuccess(username, "usernameError");
+        }
+    });
+
+    email.addEventListener("input", function() {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(email.value.trim())) {
+            showError(
+                email,
+                "emailError",
+                "Enter a valid email address."
+            );
+        } else {
+            showSuccess(email, "emailError");
+        }
+    });
+
+    password.addEventListener("input", function() {
+        if (password.value.length < 8) {
+            showError(
+                password,
+                "passwordError",
+                "Password must contain at least 8 characters."
+            );
+        } else {
+            showSuccess(password, "passwordError");
+        }
+    });
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        document.getElementById("successMessage").textContent = "";
+
+        if (
+            username.value.trim().length >= 4 &&
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()) &&
+            password.value.length >= 8
+        ) {
+            document.getElementById("successMessage").textContent =
+                "Form submitted successfully without page reload!";
+
+            form.reset();
+
+            username.classList.remove("valid");
+            email.classList.remove("valid");
+            password.classList.remove("valid");
+        } else {
+            document.getElementById("successMessage").textContent =
+                "Please correct the errors shown above.";
+        }
+    });
+</script>
+
+</body>
+</html>

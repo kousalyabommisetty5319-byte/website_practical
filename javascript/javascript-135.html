@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Student Table</title>
+</head>
+<body>
+
+<h2>Student Details</h2>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+        </tr>
+    </thead>
+
+    <tbody id="studentTable"></tbody>
+</table>
+<a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+<script>
+let students = [
+    { name: "Anu", age: 18, course: "CSE" },
+    { name: "Ravi", age: 19, course: "ECE" },
+    { name: "Kiran", age: 18, course: "IT" }
+];
+
+let tableBody = document.getElementById("studentTable");
+
+students.forEach(function(student) {
+    let row = document.createElement("tr");
+
+    let nameCell = document.createElement("td");
+    nameCell.textContent = student.name;
+
+    let ageCell = document.createElement("td");
+    ageCell.textContent = student.age;
+
+    let courseCell = document.createElement("td");
+    courseCell.textContent = student.course;
+
+    row.appendChild(nameCell);
+    row.appendChild(ageCell);
+    row.appendChild(courseCell);
+
+    tableBody.appendChild(row);
+});
+</script>
+
+</body>
+</html>

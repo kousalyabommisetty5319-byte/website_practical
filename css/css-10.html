@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>CSS Pseudo Classes</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            padding: 40px;
+            background-color: #f8fafc;
+        }
+
+        a {
+            display: inline-block;
+            padding: 15px;
+            margin: 10px;
+            color: white;
+            background-color: blue;
+            text-decoration: none;
+        }
+
+        /* Mouse over */
+        a:hover {
+            background-color: green;
+        }
+
+        /* While clicking */
+        a:active {
+            background-color: red;
+        }
+
+        /* Visited link */
+        a:visited {
+            color: yellow;
+        }
+
+        input {
+            padding: 12px;
+            border: 2px solid gray;
+        }
+
+        /* When input receives focus */
+        input:focus {
+            border-color: blue;
+            outline: none;
+            background-color: #eff6ff;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>CSS Pseudo-Classes</h1>
+
+    <h2>:hover</h2>
+
+    <a href="#">Hover Me</a>
+
+    <h2>:active</h2>
+
+    <a href="#">Click Me</a>
+
+    <h2>:focus</h2>
+
+    <input type="text" placeholder="Click inside me">
+
+    <h2>:visited</h2>
+
+    <a href="https://www.google.com" target="_blank">
+        Visit Google
+    </a>
+
+    <br><br>
+
+    <a href="../index/index.html">Home</a> |
+    <a href="index.html">CSS Programs</a>
+
+</body>
+</html>

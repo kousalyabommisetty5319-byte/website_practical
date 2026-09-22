@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling and Capturing</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px gray;
+        }
+
+        h1 {
+            color: #1565c0;
+        }
+
+        .parent {
+            background: #ffcc80;
+            padding: 35px;
+            border-radius: 15px;
+        }
+
+        .child {
+            background: #80deea;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #1565c0;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .output {
+            background: #e3f2fd;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        a {
+            display: inline-block;
+            margin: 15px 5px;
+            padding: 12px 18px;
+            background: #1565c0;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🔄 Event Bubbling and Capturing</h1>
+
+        <div class="parent" id="parent">
+            Parent Element
+
+            <div class="child" id="child">
+                Child Element
+
+                <br><br>
+
+                <button id="clickButton">Click Button</button>
+            </div>
+        </div>
+
+        <div class="output" id="output">
+            Click the button and check the event order.
+        </div>
+
+        <br>
+
+        <button onclick="showBubbling()">Show Bubbling Order</button>
+        <button onclick="showCapturing()">Show Capturing Order</button>
+
+        <br>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        const parent = document.getElementById("parent");
+        const child = document.getElementById("child");
+        const clickButton = document.getElementById("clickButton");
+        const output = document.getElementById("output");
+
+        parent.addEventListener("click", function() {
+            console.log("Parent clicked");
+        });
+
+        child.addEventListener("click", function() {
+            console.log("Child clicked");
+        });
+
+        clickButton.addEventListener("click", function() {
+            console.log("Button clicked");
+        });
+
+        function showBubbling() {
+            output.textContent =
+                "Bubbling order: Button → Child → Parent";
+        }
+
+        function showCapturing() {
+            output.textContent =
+                "Capturing order: Parent → Child → Button";
+        }
+    </script>
+
+</body>
+</html>

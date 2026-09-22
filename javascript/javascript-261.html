@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Light Theme</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: white;
+            color: black;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .box {
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 8px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .dark {
+            background-color: #222;
+            color: white;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Dark / Light Theme Switcher</h2>
+
+    <p>This theme preference is saved using localStorage.</p>
+
+    <button onclick="setLight()">Light Mode</button>
+    <button onclick="setDark()">Dark Mode</button>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+function setDark() {
+
+    document.body.classList.add("dark");
+
+    localStorage.setItem("theme", "dark");
+}
+
+function setLight() {
+
+    document.body.classList.remove("dark");
+
+    localStorage.setItem("theme", "light");
+}
+
+window.onload = function() {
+
+    let theme = localStorage.getItem("theme");
+
+    if (theme === "dark") {
+        document.body.classList.add("dark");
+    } else {
+        document.body.classList.remove("dark");
+    }
+
+};
+
+</script>
+
+</body>
+</html>

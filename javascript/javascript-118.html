@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Application</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 12px;
+            margin: 8px;
+            background: #6a11cb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .note {
+            background: #eeeeee;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Notes Application</h1>
+
+        <textarea id="noteInput" placeholder="Write your note"></textarea>
+
+        <button onclick="saveNote()">Save Note</button>
+
+        <div id="notes"></div>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        let notes = JSON.parse(localStorage.getItem("myNotes")) || [];
+
+        function saveNote() {
+            let noteText = document.getElementById("noteInput").value.trim();
+
+            if (noteText === "") {
+                alert("Please write a note.");
+                return;
+            }
+
+            notes.push(noteText);
+            localStorage.setItem("myNotes", JSON.stringify(notes));
+
+            document.getElementById("noteInput").value = "";
+
+            displayNotes();
+        }
+
+        function deleteNote(index) {
+            notes.splice(index, 1);
+            localStorage.setItem("myNotes", JSON.stringify(notes));
+            displayNotes();
+        }
+
+        function displayNotes() {
+            let notesContainer = document.getElementById("notes");
+            notesContainer.innerHTML = "";
+
+            notes.forEach(function (note, index) {
+                let div = document.createElement("div");
+                div.className = "note";
+
+                div.innerHTML =
+                    "<p>" + note + "</p>" +
+                    "<button onclick='deleteNote(" + index + ")'>" +
+                    "Delete</button>";
+
+                notesContainer.appendChild(div);
+            });
+        }
+
+        displayNotes();
+    </script>
+</body>
+</html>

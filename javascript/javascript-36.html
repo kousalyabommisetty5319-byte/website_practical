@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript 36 - Countdown Timer</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #fce4ec;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            max-width: 450px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        input {
+            padding: 10px;
+            width: 150px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        #timer {
+            font-size: 40px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navigation">
+    <a href="../index/index.html">🏠 Home</a> |
+    <a href="index.html">💻 JavaScript Programs</a>
+</div>
+
+<div class="box">
+
+    <h1>Countdown Timer</h1>
+
+    <input type="number" id="seconds" placeholder="Seconds">
+
+    <br>
+
+    <button onclick="startTimer()">Start</button>
+
+    <div id="timer">0</div>
+
+</div>
+
+<script>
+let countdown;
+
+function startTimer() {
+
+    clearInterval(countdown);
+
+    let seconds = Number(document.getElementById("seconds").value);
+
+    if (seconds <= 0) {
+        alert("Enter a valid number");
+        return;
+    }
+
+    document.getElementById("timer").innerHTML = seconds;
+
+    countdown = setInterval(function() {
+
+        seconds--;
+
+        document.getElementById("timer").innerHTML = seconds;
+
+        if (seconds <= 0) {
+
+            clearInterval(countdown);
+
+            document.getElementById("timer").innerHTML =
+                "Time's Up!";
+        }
+
+    }, 1000);
+}
+</script>
+
+</body>
+</html>

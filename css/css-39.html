@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Image Hover Effect</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+
+        .image-box {
+            width: 400px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .image-box img {
+            width: 100%;
+            display: block;
+            transition: 0.5s;
+            filter: grayscale(100%);
+        }
+
+        .image-box img:hover {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        a {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Image Hover Effect</h1>
+
+    <div class="image-box">
+
+        <img
+            src="https://picsum.photos/600/400"
+            alt="Sample Image"
+        >
+
+    </div>
+
+    <p>
+        Move your mouse over the image.
+    </p>
+
+    <a href="../index/index.html">Home</a> |
+    <a href="index.html">CSS Programs</a>
+
+</body>
+</html>

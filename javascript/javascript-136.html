@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Table Rows</title>
+</head>
+<body>
+
+<h2>Student Table</h2>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Course</th>
+        </tr>
+    </thead>
+
+    <tbody id="studentTable">
+        <tr>
+            <td>Anu</td>
+            <td>CSE</td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+
+<button onclick="addRow()">Add Row</button>
+<a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+<script>
+function addRow() {
+    let table = document.getElementById("studentTable");
+
+    let row = table.insertRow();
+
+    let nameCell = row.insertCell(0);
+    let courseCell = row.insertCell(1);
+
+    nameCell.textContent = "New Student";
+    courseCell.textContent = "CSE";
+}
+</script>
+
+</body>
+</html>

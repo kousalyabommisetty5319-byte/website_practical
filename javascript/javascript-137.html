@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Table Row</title>
+</head>
+<body>
+
+<h2>Student Table</h2>
+
+<table border="1" cellpadding="10" id="studentTable">
+    <tr>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Action</th>
+    </tr>
+
+    <tr>
+        <td>Anu</td>
+        <td>CSE</td>
+        <td>
+            <button onclick="deleteRow(this)">Delete</button>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Ravi</td>
+        <td>ECE</td>
+        <td>
+            <button onclick="deleteRow(this)">Delete</button>
+        </td>
+    </tr>
+</table>
+<a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+<script>
+function deleteRow(button) {
+    let row = button.parentNode.parentNode;
+
+    row.remove();
+}
+</script>
+
+</body>
+</html>

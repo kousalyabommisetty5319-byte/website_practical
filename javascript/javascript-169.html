@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Event</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #fce4ec;
+            padding: 40px;
+        }
+
+        input {
+            padding: 15px;
+            font-size: 18px;
+            width: 300px;
+        }
+
+        #output {
+            margin-top: 25px;
+            font-size: 22px;
+            color: #ad1457;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅ Back to JavaScript</a>
+
+    <h1>Input Event</h1>
+
+    <input
+        type="text"
+        placeholder="Type something"
+        oninput="showInput(event)"
+    >
+
+    <p id="output">Your text will appear here</p>
+
+    <script>
+        function showInput(event) {
+            document.getElementById("output").textContent =
+                "You typed: " + event.target.value;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admission Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px gray;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00695c;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            box-sizing: border-box;
+            border: 2px solid #80cbc4;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 20px;
+            background: #00695c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            margin: 15px 5px;
+            padding: 10px;
+            background: #00695c;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🏫 College Admission Form</h1>
+
+    <form id="admissionForm" novalidate>
+
+        <label for="name">Student Name:</label>
+        <input type="text" id="name" placeholder="Enter student name">
+        <span class="error" id="nameError"></span>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter email">
+        <span class="error" id="emailError"></span>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" placeholder="Enter 10-digit phone number">
+        <span class="error" id="phoneError"></span>
+
+        <label for="marks">12th Percentage:</label>
+        <input type="number" id="marks"
+               placeholder="Enter percentage" min="0" max="100">
+        <span class="error" id="marksError"></span>
+
+        <label for="course">Preferred Course:</label>
+        <select id="course">
+            <option value="">Select course</option>
+            <option value="CSE">Computer Science</option>
+            <option value="ECE">Electronics and Communication</option>
+            <option value="AI">Artificial Intelligence</option>
+            <option value="BBA">Business Administration</option>
+        </select>
+        <span class="error" id="courseError"></span>
+
+        <button type="submit">Apply for Admission</button>
+    </form>
+
+    <p class="success" id="successMessage"></p>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+</div>
+
+<script>
+    const admissionForm = document.getElementById("admissionForm");
+
+    admissionForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        document.querySelectorAll(".error").forEach(function(error) {
+            error.textContent = "";
+        });
+
+        document.getElementById("successMessage").textContent = "";
+
+        let isValid = true;
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const marks = document.getElementById("marks").value;
+        const course = document.getElementById("course").value;
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phonePattern = /^[0-9]{10}$/;
+
+        if (name === "") {
+            document.getElementById("nameError").textContent =
+                "Please enter the student name.";
+            isValid = false;
+        }
+
+        if (!emailPattern.test(email)) {
+            document.getElementById("emailError").textContent =
+                "Please enter a valid email.";
+            isValid = false;
+        }
+
+        if (!phonePattern.test(phone)) {
+            document.getElementById("phoneError").textContent =
+                "Enter a valid 10-digit phone number.";
+            isValid = false;
+        }
+
+        if (marks === "" || Number(marks) < 0 || Number(marks) > 100) {
+            document.getElementById("marksError").textContent =
+                "Percentage must be between 0 and 100.";
+            isValid = false;
+        }
+
+        if (course === "") {
+            document.getElementById("courseError").textContent =
+                "Please select a course.";
+            isValid = false;
+        }
+
+        if (isValid) {
+            document.getElementById("successMessage").textContent =
+                "Admission form submitted successfully!";
+            admissionForm.reset();
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px gray;
+        }
+
+        h1 {
+            color: #4b0082;
+        }
+
+        .mouse-box {
+            background: #ffb6c1;
+            padding: 60px 20px;
+            margin: 25px 0;
+            border-radius: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .output {
+            background: #f0e6ff;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            min-height: 30px;
+        }
+
+        a {
+            display: inline-block;
+            margin: 15px 5px;
+            padding: 12px 18px;
+            background: #4b0082;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        a:hover {
+            background: #764ba2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🖱️ Mouse Events Demonstration</h1>
+
+        <p>Perform different mouse actions inside the box.</p>
+
+        <div class="mouse-box" id="mouseBox">
+            Move, click, press, or release your mouse here
+        </div>
+
+        <div class="output" id="mouseOutput">
+            Mouse event details will appear here.
+        </div>
+
+        <br>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        const mouseBox = document.getElementById("mouseBox");
+        const mouseOutput = document.getElementById("mouseOutput");
+
+        mouseBox.addEventListener("click", function() {
+            mouseOutput.textContent = "Mouse clicked!";
+        });
+
+        mouseBox.addEventListener("mouseover", function() {
+            mouseOutput.textContent = "Mouse entered the box.";
+        });
+
+        mouseBox.addEventListener("mouseout", function() {
+            mouseOutput.textContent = "Mouse left the box.";
+        });
+
+        mouseBox.addEventListener("mousedown", function() {
+            mouseOutput.textContent = "Mouse button pressed.";
+        });
+
+        mouseBox.addEventListener("mouseup", function() {
+            mouseOutput.textContent = "Mouse button released.";
+        });
+
+        mouseBox.addEventListener("mousemove", function(event) {
+            mouseOutput.textContent =
+                "Mouse position: X = " + event.offsetX +
+                ", Y = " + event.offsetY;
+        });
+    </script>
+
+</body>
+</html>

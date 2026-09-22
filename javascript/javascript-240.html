@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigator Object</title>
+<style>
+body {
+    font-family: Arial;
+    background: #fefce8;
+    padding: 30px;
+}
+.box {
+    background: white;
+    max-width: 650px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+}
+button {
+    padding: 10px;
+    background: #ca8a04;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>Navigator Object</h2>
+
+<button onclick="showNavigator()">Show Navigator Details</button>
+
+<p id="result"></p>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+</div>
+
+<script>
+function showNavigator() {
+    document.getElementById("result").innerHTML =
+        "Browser Language: " + navigator.language + "<br>" +
+        "Platform: " + navigator.platform + "<br>" +
+        "Online Status: " + navigator.onLine + "<br>" +
+        "Cookies Enabled: " + navigator.cookieEnabled + "<br>" +
+        "User Agent: " + navigator.userAgent;
+}
+</script>
+
+</body>
+</html>

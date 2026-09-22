@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Background Color</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #ede7f6;
+            padding: 40px;
+            transition: background-color 0.5s;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            border: none;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅ Back to JavaScript</a>
+
+    <h1>Background Color Changer</h1>
+
+    <button onclick="changeColor()">Change Background Color</button>
+
+    <script>
+        const colors = [
+            "#ffcccc",
+            "#ccffcc",
+            "#ccccff",
+            "#ffffcc",
+            "#ffccff",
+            "#ccffff"
+        ];
+
+        let colorIndex = 0;
+
+        function changeColor() {
+            document.body.style.backgroundColor =
+                colors[colorIndex];
+
+            colorIndex++;
+
+            if (colorIndex === colors.length) {
+                colorIndex = 0;
+            }
+        }
+    </script>
+
+</body>
+</html>

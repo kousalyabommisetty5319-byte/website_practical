@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Page Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f3e5f5;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 550px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+            text-align: center;
+        }
+
+        input {
+            width: 85%;
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 8px;
+            background-color: #7b1fa2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Multi-Page Form</h2>
+
+    <div id="page1" class="page active">
+
+        <h3>Page 1 - Personal Details</h3>
+
+        <input type="text" id="name" placeholder="Enter name">
+
+        <input type="number" id="age" placeholder="Enter age">
+
+        <br>
+
+        <button onclick="nextPage()">Next</button>
+
+    </div>
+
+    <div id="page2" class="page">
+
+        <h3>Page 2 - Education Details</h3>
+
+        <input type="text" id="course" placeholder="Enter course">
+
+        <input type="text" id="college" placeholder="Enter college">
+
+        <br>
+
+        <button onclick="previousPage()">Previous</button>
+
+        <button onclick="submitForm()">Submit</button>
+
+    </div>
+
+    <div id="result"></div>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+function nextPage() {
+
+    let name = document.getElementById("name").value;
+    let age = document.getElementById("age").value;
+
+    sessionStorage.setItem("name", name);
+    sessionStorage.setItem("age", age);
+
+    document.getElementById("page1").classList.remove("active");
+    document.getElementById("page2").classList.add("active");
+}
+
+function previousPage() {
+
+    document.getElementById("page2").classList.remove("active");
+    document.getElementById("page1").classList.add("active");
+}
+
+function submitForm() {
+
+    let course = document.getElementById("course").value;
+    let college = document.getElementById("college").value;
+
+    sessionStorage.setItem("course", course);
+    sessionStorage.setItem("college", college);
+
+    let name = sessionStorage.getItem("name");
+    let age = sessionStorage.getItem("age");
+
+    document.getElementById("result").innerHTML =
+        "<h3>Form Submitted</h3>" +
+        "Name: " + name + "<br>" +
+        "Age: " + age + "<br>" +
+        "Course: " + course + "<br>" +
+        "College: " + college;
+}
+
+window.onload = function() {
+
+    document.getElementById("name").value =
+        sessionStorage.getItem("name") || "";
+
+    document.getElementById("age").value =
+        sessionStorage.getItem("age") || "";
+
+    document.getElementById("course").value =
+        sessionStorage.getItem("course") || "";
+
+    document.getElementById("college").value =
+        sessionStorage.getItem("college") || "";
+};
+
+</script>
+
+</body>
+</html>

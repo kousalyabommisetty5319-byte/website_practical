@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strong Password Validator</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            max-width: 550px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        input {
+            padding: 12px;
+            width: 90%;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin-top: 15px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+        }
+
+        li {
+            text-align: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Strong Password Validator</h1>
+
+    <p>
+        Password must contain uppercase, lowercase, number,
+        special character, and at least 8 characters.
+    </p>
+
+    <input type="password" id="password" placeholder="Enter password">
+
+    <br>
+
+    <button onclick="validatePassword()">Check Password</button>
+
+    <ul id="requirements"></ul>
+
+    <p id="message"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+    function validatePassword() {
+
+        let password = document.getElementById("password").value;
+
+        let requirements = document.getElementById("requirements");
+        let message = document.getElementById("message");
+
+        requirements.innerHTML = "";
+
+        let checks = [
+            {
+                text: "At least 8 characters",
+                valid: password.length >= 8
+            },
+            {
+                text: "At least one uppercase letter",
+                valid: /[A-Z]/.test(password)
+            },
+            {
+                text: "At least one lowercase letter",
+                valid: /[a-z]/.test(password)
+            },
+            {
+                text: "At least one number",
+                valid: /[0-9]/.test(password)
+            },
+            {
+                text: "At least one special character",
+                valid: /[^A-Za-z0-9]/.test(password)
+            }
+        ];
+
+        let allValid = true;
+
+        checks.forEach(function(check) {
+
+            let item = document.createElement("li");
+
+            item.innerHTML = (check.valid ? "✅ " : "❌ ") + check.text;
+
+            item.style.color = check.valid ? "green" : "red";
+
+            requirements.appendChild(item);
+
+            if (!check.valid) {
+                allValid = false;
+            }
+
+        });
+
+        if (allValid) {
+            message.innerHTML = "Strong password!";
+            message.style.color = "green";
+        }
+        else {
+            message.innerHTML = "Password is not strong enough.";
+            message.style.color = "red";
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

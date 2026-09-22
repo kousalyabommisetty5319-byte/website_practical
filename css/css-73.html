@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS 73 - Calc Function</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            width: calc(100% - 40px);
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .header {
+            width: calc(100% - 20px);
+            margin: 10px;
+            padding: 25px;
+            background: #eeeeee;
+            text-align: center;
+        }
+
+        .card {
+            width: calc(50% - 20px);
+            margin: 10px;
+            padding: 30px;
+            background: #dddddd;
+            display: inline-block;
+            vertical-align: top;
+            box-sizing: border-box;
+        }
+
+        .box {
+            height: calc(100vh - 300px);
+            min-height: 200px;
+            background: #eeeeee;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                width: calc(100% - 20px);
+            }
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS calc() Function</h1>
+
+    <div class="container">
+
+        <div class="header">
+            <h2>Header</h2>
+            <p>Width is calculated using calc().</p>
+        </div>
+
+        <div class="card">
+            <h3>Card 1</h3>
+            <p>50% width minus spacing.</p>
+        </div>
+
+        <div class="card">
+            <h3>Card 2</h3>
+            <p>50% width minus spacing.</p>
+        </div>
+
+        <div class="box">
+            <h2>Calculated Height</h2>
+        </div>
+
+    </div>
+
+    <a class="back" href="index.html">
+        ← Back to CSS Programs
+    </a>
+    <a href="../index/index.html">🏠 Home</a>
+
+</body>
+</html>

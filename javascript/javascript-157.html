@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Methods Demonstration</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #ede7f6;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        button {
+            padding: 12px;
+            margin: 8px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f3e5f5;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+    <div class="container">
+        <h1>DOM Methods Demonstration</h1>
+
+        <button onclick="createAndAppend()">
+            createElement() and appendChild()
+        </button>
+
+        <button onclick="removeElement()">
+            remove()
+        </button>
+
+        <button onclick="replaceElement()">
+            replaceChild()
+        </button>
+
+        <div id="output">
+            <p id="message">Original paragraph</p>
+        </div>
+    </div>
+
+    <script>
+        function createAndAppend() {
+            const newParagraph = document.createElement("p");
+
+            newParagraph.textContent = "New paragraph created and added!";
+
+            document.getElementById("output").appendChild(newParagraph);
+        }
+
+        function removeElement() {
+            const message = document.getElementById("message");
+
+            if (message) {
+                message.remove();
+            } else {
+                alert("The original paragraph has already been removed");
+            }
+        }
+
+        function replaceElement() {
+            const oldElement = document.getElementById("message");
+
+            if (oldElement) {
+                const newElement = document.createElement("p");
+                newElement.id = "message";
+                newElement.textContent = "The original paragraph was replaced!";
+
+                oldElement.parentNode.replaceChild(newElement, oldElement);
+            } else {
+                alert("The original paragraph is not available");
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Password</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        input {
+            padding: 12px;
+            width: 90%;
+            margin: 10px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Password Confirmation</h1>
+
+    <input type="password" id="password" placeholder="Enter password">
+
+    <input type="password" id="confirmPassword"
+        placeholder="Confirm password">
+
+    <br>
+
+    <button onclick="validatePasswords()">Validate</button>
+
+    <p id="message"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+    function validatePasswords() {
+
+        let password = document.getElementById("password").value;
+        let confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+        let message = document.getElementById("message");
+
+        if (password === "" || confirmPassword === "") {
+            message.innerHTML = "Both fields are required.";
+            message.style.color = "red";
+        }
+        else if (password === confirmPassword) {
+            message.innerHTML = "Passwords match!";
+            message.style.color = "green";
+        }
+        else {
+            message.innerHTML = "Passwords do not match.";
+            message.style.color = "red";
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double-Click Event</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px gray;
+        }
+
+        h1 {
+            color: #6a1b9a;
+        }
+
+        .double-box {
+            background: #e1bee7;
+            padding: 80px 20px;
+            margin: 30px 0;
+            border-radius: 15px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .output {
+            background: #f3e5f5;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        a {
+            display: inline-block;
+            margin: 15px 5px;
+            padding: 12px 18px;
+            background: #6a1b9a;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🖱️ Double-Click Event</h1>
+
+        <p>Double-click the box below.</p>
+
+        <div class="double-box" id="doubleBox">
+            Double-click me!
+        </div>
+
+        <div class="output" id="output">
+            Waiting for a double-click...
+        </div>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        const doubleBox = document.getElementById("doubleBox");
+        const output = document.getElementById("output");
+
+        doubleBox.addEventListener("dblclick", function() {
+            doubleBox.textContent = "Double-click detected!";
+            doubleBox.style.backgroundColor = "#81c784";
+            output.textContent =
+                "The double-click event was successfully triggered.";
+        });
+    </script>
+
+</body>
+</html>

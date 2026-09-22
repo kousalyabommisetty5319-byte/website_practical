@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Modal Popup</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #modal {
+            position: fixed;
+            top: 30%;
+            left: 30%;
+            width: 300px;
+            padding: 25px;
+            background-color: white;
+            border: 2px solid black;
+            box-shadow: 0 0 10px gray;
+        }
+    </style>
+</head>
+<body>
+
+<a href="../index/index.html">🏠 Home</a>
+<a href="index.html">⬅️ Back to JavaScript Programs</a>
+<h2>Modal Popup Example</h2>
+
+<button id="openButton">Open Modal</button>
+
+<div id="modal" hidden>
+    <h3>Welcome!</h3>
+    <p>This is a modal popup created using JavaScript.</p>
+    <button id="closeButton">Close</button>
+</div>
+
+<script>
+const modal = document.getElementById("modal");
+const openButton = document.getElementById("openButton");
+const closeButton = document.getElementById("closeButton");
+
+openButton.addEventListener("click", function() {
+    modal.hidden = false;
+});
+
+closeButton.addEventListener("click", function() {
+    modal.hidden = true;
+});
+</script>
+
+</body>
+</html>

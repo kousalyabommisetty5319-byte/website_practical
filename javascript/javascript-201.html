@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        label {
+            display: block;
+            margin: 15px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Checkbox Validation</h1>
+
+    <p>Select at least one skill:</p>
+
+    <label>
+        <input type="checkbox" name="skill" value="HTML">
+        HTML
+    </label>
+
+    <label>
+        <input type="checkbox" name="skill" value="CSS">
+        CSS
+    </label>
+
+    <label>
+        <input type="checkbox" name="skill" value="JavaScript">
+        JavaScript
+    </label>
+
+    <label>
+        <input type="checkbox" name="skill" value="Python">
+        Python
+    </label>
+
+    <button onclick="validateCheckbox()">Submit</button>
+
+    <p id="message"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+    function validateCheckbox() {
+
+        let selected = document.querySelectorAll(
+            'input[name="skill"]:checked'
+        );
+
+        let message = document.getElementById("message");
+
+        if (selected.length === 0) {
+
+            message.innerHTML =
+                "Please select at least one skill.";
+
+            message.style.color = "red";
+
+        }
+        else {
+
+            let skills = [];
+
+            selected.forEach(function(item) {
+                skills.push(item.value);
+            });
+
+            message.innerHTML =
+                "Selected skills: " + skills.join(", ");
+
+            message.style.color = "green";
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

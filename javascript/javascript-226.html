@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Form Fields</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #fdf4ff;
+    padding: 40px;
+}
+
+.box {
+    background: white;
+    max-width: 550px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #aaa;
+}
+
+h2 {
+    text-align: center;
+    color: #a21caf;
+}
+
+select, input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    box-sizing: border-box;
+}
+
+.dynamic {
+    display: none;
+    background: #fae8ff;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #a21caf;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+#result {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Dynamic Form Fields</h2>
+
+<label>Select User Type:</label>
+
+<select id="userType" onchange="showFields()">
+    <option value="">Select</option>
+    <option value="student">Student</option>
+    <option value="employee">Employee</option>
+</select>
+
+<div id="studentFields" class="dynamic">
+
+    <h3>Student Details</h3>
+
+    <label>College Name:</label>
+    <input type="text" id="college">
+
+    <label>Course:</label>
+    <input type="text" id="course">
+
+</div>
+
+<div id="employeeFields" class="dynamic">
+
+    <h3>Employee Details</h3>
+
+    <label>Company Name:</label>
+    <input type="text" id="company">
+
+    <label>Job Role:</label>
+    <input type="text" id="role">
+
+</div>
+
+<br>
+
+<button onclick="submitForm()">Submit</button>
+
+<p id="result"></p>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+function showFields() {
+
+    let type = document.getElementById("userType").value;
+
+    document.getElementById("studentFields").style.display = "none";
+    document.getElementById("employeeFields").style.display = "none";
+
+    if (type === "student") {
+        document.getElementById("studentFields").style.display = "block";
+    }
+
+    if (type === "employee") {
+        document.getElementById("employeeFields").style.display = "block";
+    }
+
+}
+
+function submitForm() {
+
+    let type = document.getElementById("userType").value;
+    let result = document.getElementById("result");
+
+    if (type === "") {
+        result.innerHTML = "Please select a user type.";
+        result.style.color = "red";
+        return;
+    }
+
+    if (type === "student") {
+
+        let college = document.getElementById("college").value;
+        let course = document.getElementById("course").value;
+
+        if (college === "" || course === "") {
+            result.innerHTML = "Please fill student details.";
+            result.style.color = "red";
+        } else {
+            result.innerHTML = "✓ Student details submitted.";
+            result.style.color = "green";
+        }
+
+    }
+
+    if (type === "employee") {
+
+        let company = document.getElementById("company").value;
+        let role = document.getElementById("role").value;
+
+        if (company === "" || role === "") {
+            result.innerHTML = "Please fill employee details.";
+            result.style.color = "red";
+        } else {
+            result.innerHTML = "✓ Employee details submitted.";
+            result.style.color = "green";
+        }
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

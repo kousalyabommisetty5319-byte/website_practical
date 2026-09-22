@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Table</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Search Student Records</h1>
+
+    <input
+        type="text"
+        id="search"
+        placeholder="Search by name"
+        onkeyup="filterTable()"
+    >
+
+    <table id="studentTable">
+        <tr>
+            <th>Name</th>
+            <th>Course</th>
+        </tr>
+
+        <tr>
+            <td>Kousalya</td>
+            <td>CSE</td>
+        </tr>
+
+        <tr>
+            <td>Anu</td>
+            <td>ECE</td>
+        </tr>
+
+        <tr>
+            <td>Ravi</td>
+            <td>IT</td>
+        </tr>
+
+        <tr>
+            <td>Priya</td>
+            <td>CSE</td>
+        </tr>
+    </table>
+
+    <br>
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+
+    <script>
+        function filterTable() {
+            let filter = document.getElementById("search").value.toLowerCase();
+
+            let table = document.getElementById("studentTable");
+            let rows = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < rows.length; i++) {
+                let name = rows[i].cells[0].textContent.toLowerCase();
+
+                rows[i].style.display =
+                    name.includes(filter) ? "" : "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Date and Time</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #fff3e0;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .clock {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 0 10px gray;
+        }
+
+        #dateTime {
+            font-size: 25px;
+            color: #e65100;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+    <div class="clock">
+        <h1>Current Date and Time</h1>
+        <p id="dateTime"></p>
+    </div>
+
+    <script>
+        function displayDateTime() {
+            const now = new Date();
+
+            document.getElementById("dateTime").textContent =
+                now.toLocaleString();
+        }
+
+        displayDateTime();
+
+        setInterval(displayDateTime, 1000);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Filters</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .blur {
+            filter: blur(4px);
+        }
+
+        .gray {
+            filter: grayscale(100%);
+        }
+
+        .bright {
+            filter: brightness(150%);
+        }
+
+        .contrast {
+            filter: contrast(180%);
+        }
+
+        a {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Image Filters</h1>
+
+    <div class="gallery">
+
+        <div>
+            <h3>Blur</h3>
+            <img class="blur"
+                 src="https://picsum.photos/250/180?1"
+                 alt="Blur">
+        </div>
+
+        <div>
+            <h3>Grayscale</h3>
+            <img class="gray"
+                 src="https://picsum.photos/250/180?2"
+                 alt="Grayscale">
+        </div>
+
+        <div>
+            <h3>Brightness</h3>
+            <img class="bright"
+                 src="https://picsum.photos/250/180?3"
+                 alt="Brightness">
+        </div>
+
+        <div>
+            <h3>Contrast</h3>
+            <img class="contrast"
+                 src="https://picsum.photos/250/180?4"
+                 alt="Contrast">
+        </div>
+
+    </div>
+
+    <br>
+
+    <a href="../index/index.html">Home</a> |
+    <a href="index.html">CSS Programs</a>
+
+</body>
+</html>

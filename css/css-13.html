@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Styled Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e8f0fe;
+            padding: 30px;
+        }
+
+        .form-box {
+            background-color: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #999;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border: 2px solid blue;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-box">
+
+    <h1>Registration Form</h1>
+
+    <form>
+
+        <label>Name</label>
+        <input type="text" placeholder="Enter your name">
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+
+        <label>Password</label>
+        <input type="password" placeholder="Enter password">
+
+        <label>Course</label>
+        <select>
+            <option>CSE</option>
+            <option>AIML</option>
+            <option>ECE</option>
+        </select>
+
+        <label>Address</label>
+        <textarea rows="4" placeholder="Enter address"></textarea>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <a href="../index/index.html">Home</a> |
+    <a href="index.html">CSS Programs</a>
+
+</div>
+
+</body>
+</html>

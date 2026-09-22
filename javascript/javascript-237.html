@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Current URL</title>
+<style>
+body {
+    font-family: Arial;
+    background: #f0fdf4;
+    padding: 40px;
+}
+.box {
+    background: white;
+    max-width: 600px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+}
+button {
+    padding: 10px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>Current Webpage URL</h2>
+
+<button onclick="displayURL()">Display URL</button>
+
+<p id="result"></p>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+</div>
+
+<script>
+function displayURL() {
+    document.getElementById("result").innerHTML =
+        "Current URL: " + window.location.href;
+}
+</script>
+
+</body>
+</html>

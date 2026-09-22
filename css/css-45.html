@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Card Based Flexbox</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            width: 250px;
+            background-color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #aaa;
+        }
+
+        .card button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #333;
+            color: white;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Card-Based Flexbox</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>HTML</h2>
+            <p>Learn webpage structure.</p>
+            <button>Learn</button>
+        </div>
+
+        <div class="card">
+            <h2>CSS</h2>
+            <p>Learn webpage styling.</p>
+            <button>Learn</button>
+        </div>
+
+        <div class="card">
+            <h2>JavaScript</h2>
+            <p>Learn webpage interaction.</p>
+            <button>Learn</button>
+        </div>
+
+        <div class="card">
+            <h2>Python</h2>
+            <p>Learn programming.</p>
+            <button>Learn</button>
+        </div>
+
+    </div>
+
+    <div class="links">
+        <a href="../index/index.html">Home</a> |
+        <a href="index.html">CSS Programs</a>
+    </div>
+
+</body>
+</html>

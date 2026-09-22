@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-Step Registration</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #f0f9ff;
+    padding: 40px;
+}
+
+.box {
+    background: white;
+    max-width: 550px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #aaa;
+}
+
+h2 {
+    text-align: center;
+    color: #0284c7;
+}
+
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background: #0284c7;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+#result {
+    font-weight: bold;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Multi-Step Registration</h2>
+
+<form id="form">
+
+<div class="step active">
+
+<h3>Step 1: Personal Details</h3>
+
+<label>Name:</label>
+<input type="text" id="name">
+
+<label>Age:</label>
+<input type="number" id="age">
+
+<button type="button" onclick="nextStep()">Next</button>
+
+</div>
+
+<div class="step">
+
+<h3>Step 2: Contact Details</h3>
+
+<label>Email:</label>
+<input type="email" id="email">
+
+<label>Mobile:</label>
+<input type="text" id="mobile">
+
+<button type="button" onclick="previousStep()">Previous</button>
+<button type="button" onclick="nextStep()">Next</button>
+
+</div>
+
+<div class="step">
+
+<h3>Step 3: Course</h3>
+
+<label>Course:</label>
+
+<select id="course">
+    <option value="">Select Course</option>
+    <option>B.Tech CSE</option>
+    <option>B.Tech ECE</option>
+    <option>BCA</option>
+</select>
+
+<br><br>
+
+<button type="button" onclick="previousStep()">Previous</button>
+<button type="submit">Register</button>
+
+</div>
+
+</form>
+
+<p id="result"></p>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+let currentStep = 0;
+
+let steps = document.querySelectorAll(".step");
+
+function showStep() {
+
+    steps.forEach(function(step) {
+        step.classList.remove("active");
+    });
+
+    steps[currentStep].classList.add("active");
+}
+
+function nextStep() {
+
+    if (currentStep === 0) {
+
+        let name = document.getElementById("name").value;
+        let age = document.getElementById("age").value;
+
+        if (name === "" || age === "") {
+            alert("Please fill all fields.");
+            return;
+        }
+    }
+
+    if (currentStep === 1) {
+
+        let email = document.getElementById("email").value;
+        let mobile = document.getElementById("mobile").value;
+
+        if (email === "" || mobile === "") {
+            alert("Please fill all fields.");
+            return;
+        }
+    }
+
+    if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep();
+    }
+}
+
+function previousStep() {
+
+    if (currentStep > 0) {
+        currentStep--;
+        showStep();
+    }
+
+}
+
+document.getElementById("form").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let course = document.getElementById("course").value;
+
+    if (course === "") {
+        document.getElementById("result").innerHTML =
+            "Please select a course.";
+        document.getElementById("result").style.color = "red";
+    } else {
+        document.getElementById("result").innerHTML =
+            "✓ Registration completed successfully!";
+        document.getElementById("result").style.color = "green";
+    }
+
+});
+
+</script>
+
+</body>
+</html>

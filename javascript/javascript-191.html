@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 15px;
+        }
+
+        input {
+            padding: 12px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Age Validation</h1>
+
+    <label>Enter your age:</label><br><br>
+
+    <input type="number" id="age">
+
+    <br>
+
+    <button onclick="validateAge()">Validate Age</button>
+
+    <p id="message"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+    function validateAge() {
+
+        let age = document.getElementById("age").value;
+        let message = document.getElementById("message");
+
+        if (age === "") {
+            message.innerHTML = "Please enter your age.";
+            message.style.color = "red";
+        }
+        else if (Number(age) >= 18 && Number(age) <= 100) {
+            message.innerHTML = "Valid age. You are an adult.";
+            message.style.color = "green";
+        }
+        else {
+            message.innerHTML = "Enter an age between 18 and 100.";
+            message.style.color = "red";
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

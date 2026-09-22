@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio Multiple Sections</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        section {
+            padding: 60px 30px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        #home {
+            text-align: center;
+            background-color: #eee;
+            max-width: none;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            background-color: #333;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 20px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            background-color: #eee;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 700px) {
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .links {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Kousalya's Portfolio</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+    <section id="home">
+
+        <h1>Hello, I'm Kousalya</h1>
+
+        <p>B.Tech Computer Science Engineering Student</p>
+
+    </section>
+
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <p>
+            I am interested in programming, web development,
+            artificial intelligence and software development.
+        </p>
+
+    </section>
+
+    <section id="skills">
+
+        <h2>Skills</h2>
+
+        <div class="skills">
+
+            <div class="skill">C</div>
+            <div class="skill">Python</div>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">DSA</div>
+
+        </div>
+
+    </section>
+
+    <section id="projects">
+
+        <h2>Projects</h2>
+
+        <div class="projects">
+
+            <div class="project">
+                <h3>Online Shopping</h3>
+                <p>Shopping system project.</p>
+            </div>
+
+            <div class="project">
+                <h3>Personal Website</h3>
+                <p>Responsive portfolio website.</p>
+            </div>
+
+            <div class="project">
+                <h3>Algorithm Lab</h3>
+                <p>Collection of algorithms.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contact">
+
+        <h2>Contact</h2>
+
+        <p>Email: student@example.com</p>
+
+        <p>Phone: 9876543210</p>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Kousalya's Portfolio</p>
+    </footer>
+
+    <div class="links">
+        <a href="../index/index.html">Home</a> |
+        <a href="index.html">CSS Programs</a>
+    </div>
+
+</body>
+</html>

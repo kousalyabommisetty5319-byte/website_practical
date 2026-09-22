@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Coordinate Tracker</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f7fb;
+            padding: 30px;
+        }
+
+        #area {
+            width: 80%;
+            height: 300px;
+            margin: 30px auto;
+            background: #ddd6fe;
+            border: 3px solid #4f46e5;
+            border-radius: 15px;
+        }
+
+        #coordinates {
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Mouse Coordinate Tracker</h1>
+
+<div id="area"></div>
+
+<p id="coordinates">Move your mouse inside the box.</p>
+
+<p>
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+</p>
+
+<script>
+
+    let area = document.getElementById("area");
+
+    area.addEventListener("mousemove", function(event) {
+
+        document.getElementById("coordinates").innerHTML =
+            "Mouse X: " + event.clientX +
+            " | Mouse Y: " + event.clientY;
+
+    });
+
+</script>
+
+</body>
+</html>

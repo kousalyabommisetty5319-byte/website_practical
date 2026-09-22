@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS 69 - CSS Only Modal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .open-button {
+            display: inline-block;
+            padding: 15px 25px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal:target {
+            display: flex;
+        }
+
+        .content {
+            background: white;
+            padding: 40px;
+            width: 350px;
+            border-radius: 10px;
+        }
+
+        .close {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+        }
+
+        .back {
+            display: block;
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>CSS-Only Modal</h1>
+
+<a class="open-button" href="#popup">
+    Open Popup
+</a>
+
+<div id="popup" class="modal">
+
+    <div class="content">
+        <h2>Hello!</h2>
+        <p>This popup is created using only HTML and CSS.</p>
+
+        <a class="close" href="#">
+            Close
+        </a>
+    </div>
+
+</div>
+
+<a class="back" href="index.html">← Back to CSS Programs</a>
+<a href="../index/index.html">🏠 Home</a>
+
+</body>
+</html>

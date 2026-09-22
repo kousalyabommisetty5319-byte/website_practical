@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px gray;
+        }
+
+        h1 {
+            text-align: center;
+            color: #8e24aa;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            box-sizing: border-box;
+            border: 2px solid #ce93d8;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 20px;
+            background: #8e24aa;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            margin: 15px 5px;
+            padding: 10px;
+            background: #8e24aa;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>💬 Feedback Form</h1>
+
+    <form id="feedbackForm" novalidate>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+        <span class="error" id="nameError"></span>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email">
+        <span class="error" id="emailError"></span>
+
+        <label for="rating">Rating:</label>
+        <select id="rating">
+            <option value="">Select a rating</option>
+            <option value="5">Excellent</option>
+            <option value="4">Very Good</option>
+            <option value="3">Good</option>
+            <option value="2">Average</option>
+            <option value="1">Poor</option>
+        </select>
+        <span class="error" id="ratingError"></span>
+
+        <label for="message">Feedback:</label>
+        <textarea id="message" placeholder="Write your feedback"></textarea>
+        <span class="error" id="messageError"></span>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+    <p class="success" id="successMessage"></p>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+</div>
+
+<script>
+    const feedbackForm = document.getElementById("feedbackForm");
+
+    feedbackForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        document.querySelectorAll(".error").forEach(function(error) {
+            error.textContent = "";
+        });
+
+        document.getElementById("successMessage").textContent = "";
+
+        let isValid = true;
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const rating = document.getElementById("rating").value;
+        const message = document.getElementById("message").value.trim();
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (name === "") {
+            document.getElementById("nameError").textContent =
+                "Please enter your name.";
+            isValid = false;
+        }
+
+        if (!emailPattern.test(email)) {
+            document.getElementById("emailError").textContent =
+                "Please enter a valid email.";
+            isValid = false;
+        }
+
+        if (rating === "") {
+            document.getElementById("ratingError").textContent =
+                "Please select a rating.";
+            isValid = false;
+        }
+
+        if (message.length < 10) {
+            document.getElementById("messageError").textContent =
+                "Feedback must contain at least 10 characters.";
+            isValid = false;
+        }
+
+        if (isValid) {
+            document.getElementById("successMessage").textContent =
+                "Thank you for your feedback!";
+            feedbackForm.reset();
+        }
+    });
+</script>
+
+</body>
+</html>

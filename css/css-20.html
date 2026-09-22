@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+            background-color: white;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+        }
+
+        .section {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            background-color: #333;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 20px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            padding: 20px;
+            background-color: #eee;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 700px) {
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+
+        .links {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>My Portfolio</h1>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+<section class="hero">
+
+    <h1>Hello, I'm Kousalya</h1>
+
+    <p>B.Tech Computer Science Engineering Student</p>
+
+</section>
+
+<section class="section" id="about">
+
+    <h2>About Me</h2>
+
+    <p>
+        I am a Computer Science Engineering student interested in
+        programming, web development and artificial intelligence.
+    </p>
+
+</section>
+
+<section class="section" id="skills">
+
+    <h2>My Skills</h2>
+
+    <div class="skills">
+        <div class="skill">C</div>
+        <div class="skill">Python</div>
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">DSA</div>
+    </div>
+
+</section>
+
+<section class="section" id="projects">
+
+    <h2>My Projects</h2>
+
+    <div class="projects">
+
+        <div class="project">
+            <h3>Online Shopping System</h3>
+            <p>A simple shopping application.</p>
+        </div>
+
+        <div class="project">
+            <h3>Personal Website</h3>
+            <p>A responsive personal portfolio.</p>
+        </div>
+
+        <div class="project">
+            <h3>Algorithm Lab</h3>
+            <p>Collection of algorithm implementations.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="contact">
+
+    <h2>Contact</h2>
+
+    <p>Email: student@example.com</p>
+    <p>Phone: 9876543210</p>
+
+</section>
+
+<footer>
+    <p>© 2026 My Portfolio</p>
+</footer>
+
+<div class="links">
+    <a href="../index/index.html">Home</a> |
+    <a href="index.html">CSS Programs</a>
+</div>
+
+</body>
+</html>

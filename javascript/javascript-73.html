@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Selectors</title>
+</head>
+<body>
+
+    <h1 id="heading">Original Heading</h1>
+
+    <p class="text">Paragraph 1</p>
+    <p class="text">Paragraph 2</p>
+    <p class="text">Paragraph 3</p>
+
+    <button onclick="useSelectors()">Run Selectors</button>
+
+    <br><br>
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+
+    <script>
+        function useSelectors() {
+            let heading = document.querySelector("#heading");
+
+            heading.textContent = "Changed using querySelector()";
+
+            let paragraphs = document.querySelectorAll(".text");
+
+            paragraphs.forEach(function(paragraph) {
+                paragraph.style.backgroundColor = "yellow";
+                paragraph.style.color = "red";
+            });
+        }
+    </script>
+
+</body>
+</html>

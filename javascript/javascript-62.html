@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript 62 - String Palindrome</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #e1f5fe;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            background: #0288d1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>String Palindrome</h1>
+
+    <input type="text" id="text" placeholder="Enter a string">
+
+    <button onclick="checkPalindrome()">Check</button>
+
+    <div id="result"></div>
+
+    <div class="navigation">
+        <a href="../index/index.html">🏠 Home</a> |
+        <a href="index.html">💻 JavaScript Programs</a>
+    </div>
+</div>
+
+<script>
+function checkPalindrome() {
+    let text = document.getElementById("text").value;
+
+    let original = text.toLowerCase();
+    let reversed = original.split("").reverse().join("");
+
+    if (original === reversed) {
+        document.getElementById("result").innerHTML =
+            "It is a Palindrome.";
+    } else {
+        document.getElementById("result").innerHTML =
+            "It is not a Palindrome.";
+    }
+}
+</script>
+
+</body>
+</html>

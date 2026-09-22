@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigator Object</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            text-align: center;
+            padding: 30px;
+            color: white;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: auto;
+            background: white;
+            color: black;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        button, a {
+            padding: 12px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #0072ff;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            background: #eeeeee;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Navigator Object Demonstration</h1>
+
+        <button onclick="showNavigatorDetails()">
+            Show Browser Details
+        </button>
+
+        <div id="output">Click the button to display navigator information.</div>
+
+        <br>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        function showNavigatorDetails() {
+            let details = `
+                <strong>User Agent:</strong> ${navigator.userAgent}<br>
+                <strong>Platform:</strong> ${navigator.platform}<br>
+                <strong>Language:</strong> ${navigator.language}<br>
+                <strong>Online Status:</strong> ${navigator.onLine}<br>
+                <strong>Cookies Enabled:</strong> ${navigator.cookieEnabled}<br>
+                <strong>CPU Cores:</strong> ${navigator.hardwareConcurrency || "Not available"}<br>
+                <strong>Browser Vendor:</strong> ${navigator.vendor}
+            `;
+
+            document.getElementById("output").innerHTML = details;
+        }
+    </script>
+</body>
+</html>

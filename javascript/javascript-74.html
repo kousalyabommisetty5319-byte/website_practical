@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic CSS Classes</title>
+
+    <style>
+        .highlight {
+            background-color: yellow;
+            color: red;
+            padding: 20px;
+            font-size: 25px;
+            border: 3px solid orange;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="message">This is a message</h1>
+
+    <button onclick="addClass()">Add Class</button>
+    <button onclick="removeClass()">Remove Class</button>
+    <button onclick="toggleClass()">Toggle Class</button>
+
+    <br><br>
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+
+    <script>
+        let message = document.getElementById("message");
+
+        function addClass() {
+            message.classList.add("highlight");
+        }
+
+        function removeClass() {
+            message.classList.remove("highlight");
+        }
+
+        function toggleClass() {
+            message.classList.toggle("highlight");
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Application</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #fff3e0;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        textarea {
+            width: 95%;
+            height: 100px;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .note {
+            background-color: #fff8e1;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Notes Application</h2>
+
+    <textarea id="note" placeholder="Write your note here..."></textarea>
+
+    <br>
+
+    <button onclick="addNote()">Save Note</button>
+
+    <div id="notes"></div>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+function addNote() {
+
+    let note = document.getElementById("note").value;
+
+    if (note === "") {
+        alert("Please write a note.");
+        return;
+    }
+
+    let notes = JSON.parse(localStorage.getItem("notes")) || [];
+
+    notes.push(note);
+
+    localStorage.setItem("notes", JSON.stringify(notes));
+
+    document.getElementById("note").value = "";
+
+    displayNotes();
+}
+
+function displayNotes() {
+
+    let notes = JSON.parse(localStorage.getItem("notes")) || [];
+
+    let output = document.getElementById("notes");
+
+    output.innerHTML = "<h3>Saved Notes</h3>";
+
+    notes.forEach(function(note, index) {
+
+        output.innerHTML += `
+            <div class="note">
+                <b>Note ${index + 1}</b>
+                <p>${note}</p>
+                <button onclick="deleteNote(${index})">Delete</button>
+            </div>
+        `;
+
+    });
+}
+
+function deleteNote(index) {
+
+    let notes = JSON.parse(localStorage.getItem("notes")) || [];
+
+    notes.splice(index, 1);
+
+    localStorage.setItem("notes", JSON.stringify(notes));
+
+    displayNotes();
+}
+
+displayNotes();
+
+</script>
+
+</body>
+</html>

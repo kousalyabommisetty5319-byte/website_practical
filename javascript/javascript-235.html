@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Location Object</title>
+<style>
+body {
+    font-family: Arial;
+    background: #ecfeff;
+    padding: 30px;
+}
+.box {
+    background: white;
+    max-width: 600px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+}
+button {
+    padding: 10px;
+    background: #0891b2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>Location Object</h2>
+
+<button onclick="showLocation()">Show Location Details</button>
+
+<p id="result"></p>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+</div>
+
+<script>
+function showLocation() {
+    document.getElementById("result").innerHTML =
+        "Href: " + location.href + "<br>" +
+        "Hostname: " + location.hostname + "<br>" +
+        "Pathname: " + location.pathname + "<br>" +
+        "Protocol: " + location.protocol + "<br>" +
+        "Port: " + location.port;
+}
+</script>
+
+</body>
+</html>

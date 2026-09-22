@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Searchable Table</title>
+</head>
+<body>
+
+<h2>Search Student Records</h2>
+
+<input type="text" id="search" placeholder="Search..." onkeyup="filterTable()">
+
+<br><br>
+
+<table border="1" cellpadding="10" id="studentTable">
+    <tr>
+        <th>Name</th>
+        <th>Course</th>
+    </tr>
+
+    <tr>
+        <td>Anu</td>
+        <td>CSE</td>
+    </tr>
+
+    <tr>
+        <td>Ravi</td>
+        <td>ECE</td>
+    </tr>
+
+    <tr>
+        <td>Kiran</td>
+        <td>IT</td>
+    </tr>
+
+    <tr>
+        <td>Meena</td>
+        <td>CSE</td>
+    </tr>
+</table>
+<a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+<script>
+function filterTable() {
+    let searchValue = document.getElementById("search").value.toLowerCase();
+
+    let rows = document.querySelectorAll(
+        "#studentTable tr:not(:first-child)"
+    );
+
+    rows.forEach(function(row) {
+        let text = row.textContent.toLowerCase();
+
+        if (text.includes(searchValue)) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+}
+</script>
+
+</body>
+</html>

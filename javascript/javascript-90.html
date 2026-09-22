@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px gray;
+        }
+
+        h1 {
+            color: #00695c;
+        }
+
+        .drag-item {
+            background: #26a69a;
+            color: white;
+            padding: 25px;
+            width: 150px;
+            margin: 30px auto;
+            border-radius: 12px;
+            cursor: grab;
+            font-size: 20px;
+        }
+
+        .drop-zone {
+            background: #eeeeee;
+            border: 3px dashed #00695c;
+            padding: 50px 20px;
+            border-radius: 12px;
+            font-size: 20px;
+        }
+
+        .output {
+            background: #e0f2f1;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        a {
+            display: inline-block;
+            margin: 15px 5px;
+            padding: 12px 18px;
+            background: #00695c;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🖐️ Drag-and-Drop Application</h1>
+
+        <p>Drag the item and drop it into the box.</p>
+
+        <div class="drag-item" id="dragItem" draggable="true">
+            Drag Me
+        </div>
+
+        <div class="drop-zone" id="dropZone">
+            Drop the item here
+        </div>
+
+        <div class="output" id="output">
+            Drag-and-drop status will appear here.
+        </div>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        const dragItem = document.getElementById("dragItem");
+        const dropZone = document.getElementById("dropZone");
+        const output = document.getElementById("output");
+
+        dragItem.addEventListener("dragstart", function(event) {
+            event.dataTransfer.setData("text", event.target.id);
+            output.textContent = "Dragging the item...";
+        });
+
+        dropZone.addEventListener("dragover", function(event) {
+            event.preventDefault();
+            dropZone.style.backgroundColor = "#b2dfdb";
+        });
+
+        dropZone.addEventListener("dragleave", function() {
+            dropZone.style.backgroundColor = "#eeeeee";
+        });
+
+        dropZone.addEventListener("drop", function(event) {
+            event.preventDefault();
+
+            const itemId = event.dataTransfer.getData("text");
+            const item = document.getElementById(itemId);
+
+            dropZone.appendChild(item);
+            dropZone.style.backgroundColor = "#c8e6c9";
+            output.textContent = "Item dropped successfully!";
+        });
+    </script>
+
+</body>
+</html>

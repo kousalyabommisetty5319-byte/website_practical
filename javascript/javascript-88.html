@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px gray;
+        }
+
+        h1 {
+            color: #e65100;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            background: #ffe0b2;
+            padding: 18px;
+            margin: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        li:hover {
+            background: #ffb74d;
+        }
+
+        .output {
+            background: #fff3e0;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        a {
+            display: inline-block;
+            margin: 15px 5px;
+            padding: 12px 18px;
+            background: #e65100;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>📋 Event Delegation</h1>
+
+        <p>Click any item in the list.</p>
+
+        <ul id="itemList">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>Java</li>
+        </ul>
+
+        <div class="output" id="output">
+            Selected item will appear here.
+        </div>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        const itemList = document.getElementById("itemList");
+        const output = document.getElementById("output");
+
+        itemList.addEventListener("click", function(event) {
+            if (event.target.tagName === "LI") {
+                output.textContent =
+                    "You selected: " + event.target.textContent;
+            }
+        });
+    </script>
+
+</body>
+</html>

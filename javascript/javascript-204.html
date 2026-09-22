@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Individual Error Messages</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+        }
+
+        .error {
+            color: red;
+            margin-left: 10px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Individual Field Errors</h1>
+
+    <form id="form">
+
+        <div class="field">
+            <label>Name:</label>
+            <input type="text" id="name">
+            <span class="error" id="nameError"></span>
+        </div>
+
+        <div class="field">
+            <label>Email:</label>
+            <input type="text" id="email">
+            <span class="error" id="emailError"></span>
+        </div>
+
+        <div class="field">
+            <label>Mobile:</label>
+            <input type="text" id="mobile">
+            <span class="error" id="mobileError"></span>
+        </div>
+
+        <button type="submit">Validate</button>
+
+    </form>
+
+    <br>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+    document.getElementById("form").addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+            let valid = true;
+
+            document.getElementById("nameError").innerHTML = "";
+            document.getElementById("emailError").innerHTML = "";
+            document.getElementById("mobileError").innerHTML = "";
+
+            let name =
+                document.getElementById("name").value.trim();
+
+            let email =
+                document.getElementById("email").value.trim();
+
+            let mobile =
+                document.getElementById("mobile").value.trim();
+
+            if (!/^[A-Za-z ]+$/.test(name)) {
+
+                document.getElementById("nameError").innerHTML =
+                    "Invalid name";
+
+                valid = false;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+
+                document.getElementById("emailError").innerHTML =
+                    "Invalid email";
+
+                valid = false;
+            }
+
+            if (!/^[6-9][0-9]{9}$/.test(mobile)) {
+
+                document.getElementById("mobileError").innerHTML =
+                    "Invalid mobile";
+
+                valid = false;
+            }
+
+            if (valid) {
+                alert("All fields are valid!");
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>

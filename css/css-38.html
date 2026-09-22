@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Dropdown Menu</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+        }
+
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+
+        .dropdown-button {
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0 5px 10px #aaa;
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: black;
+            padding: 12px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #eee;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            text-align: center;
+            padding: 60px;
+        }
+
+        .links {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+
+        <a href="#">Home</a>
+
+        <div class="dropdown">
+
+            <span class="dropdown-button">Courses ▼</span>
+
+            <div class="dropdown-content">
+                <a href="#">C Programming</a>
+                <a href="#">Python</a>
+                <a href="#">Web Development</a>
+                <a href="#">AI & ML</a>
+            </div>
+
+        </div>
+
+        <a href="#">Contact</a>
+
+    </nav>
+
+    <div class="content">
+
+        <h1>CSS Dropdown Menu</h1>
+
+        <p>Move your mouse over "Courses".</p>
+
+    </div>
+
+    <div class="links">
+        <a href="../index/index.html">Home</a> |
+        <a href="index.html">CSS Programs</a>
+    </div>
+
+</body>
+</html>

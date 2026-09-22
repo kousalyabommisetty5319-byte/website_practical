@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript 60 - Common Elements</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #e8eaf6;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            background: #3f51b5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>Common Elements</h1>
+
+    <input type="text" id="array1"
+           placeholder="Array 1: 1,2,3,4">
+
+    <br>
+
+    <input type="text" id="array2"
+           placeholder="Array 2: 3,4,5,6">
+
+    <br>
+
+    <button onclick="findCommon()">Find Common</button>
+
+    <div id="result"></div>
+
+    <div class="navigation">
+        <a href="../index/index.html">🏠 Home</a> |
+        <a href="index.html">💻 JavaScript Programs</a>
+    </div>
+</div>
+
+<script>
+function findCommon() {
+    let arr1 = document.getElementById("array1").value
+        .split(",")
+        .map(Number);
+
+    let arr2 = document.getElementById("array2").value
+        .split(",")
+        .map(Number);
+
+    let common = arr1.filter(function(value) {
+        return arr2.includes(value);
+    });
+
+    common = [...new Set(common)];
+
+    document.getElementById("result").innerHTML =
+        "Common Elements: " + common.join(", ");
+}
+</script>
+
+</body>
+</html>

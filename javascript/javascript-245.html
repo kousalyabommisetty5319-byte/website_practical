@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geolocation Demonstration</title>
+<style>
+body {
+    font-family: Arial;
+    background: #ecfeff;
+    padding: 40px;
+    text-align: center;
+}
+.box {
+    background: white;
+    max-width: 550px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+}
+button {
+    padding: 10px;
+    background: #0891b2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>Browser Geolocation</h2>
+
+<button onclick="getLocation()">Get My Location</button>
+
+<p id="result"></p>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+</div>
+
+<script>
+function getLocation() {
+    let result = document.getElementById("result");
+
+    if (navigator.geolocation) {
+        result.innerHTML = "Requesting location permission...";
+
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                result.innerHTML =
+                    "Location access granted.";
+            },
+            function() {
+                result.innerHTML =
+                    "Unable to access your location.";
+            }
+        );
+    } else {
+        result.innerHTML =
+            "Geolocation is not supported by this browser.";
+    }
+}
+</script>
+
+</body>
+</html>

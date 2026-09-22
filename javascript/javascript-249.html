@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieve localStorage Data</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #fff3e0;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2>Retrieve Username</h2>
+
+        <button onclick="displayUsername()">Display Username</button>
+
+        <p id="result"></p>
+
+        <a href="../index/index.html">⬅ Back to Main Index</a>
+        <a href="index.html">💻 JavaScript Programs</a
+    </div>
+
+    <script>
+        function displayUsername() {
+            let username = localStorage.getItem("username");
+
+            if (username === null) {
+                document.getElementById("result").innerHTML =
+                    "No username found in localStorage.";
+            } else {
+                document.getElementById("result").innerHTML =
+                    "Stored Username: " + username;
+            }
+        }
+    </script>
+</body>
+</html>

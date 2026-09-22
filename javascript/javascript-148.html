@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tabs Interface</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #tabContent {
+            border: 1px solid gray;
+            padding: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<a href="../index/index.html">🏠 Home</a>
+<a href="index.html">⬅️ Back to JavaScript Programs</a>
+<h2>Tabs Interface</h2>
+
+<div id="tabButtons"></div>
+
+<div id="tabContent"></div>
+
+<script>
+const tabs = [
+    {
+        name: "HTML",
+        content: "HTML is used to create the structure of webpages."
+    },
+    {
+        name: "CSS",
+        content: "CSS is used to style and design webpages."
+    },
+    {
+        name: "JavaScript",
+        content: "JavaScript is used to add interactivity to webpages."
+    }
+];
+
+const tabButtons = document.getElementById("tabButtons");
+const tabContent = document.getElementById("tabContent");
+
+tabs.forEach(function(tab, index) {
+    let button = document.createElement("button");
+
+    button.textContent = tab.name;
+
+    button.addEventListener("click", function() {
+        tabContent.textContent = tab.content;
+    });
+
+    tabButtons.appendChild(button);
+
+    if (index === 0) {
+        tabContent.textContent = tab.content;
+    }
+});
+</script>
+
+</body>
+</html>

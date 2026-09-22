@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouseover and Mouseout</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f3e5f5;
+            padding: 40px;
+        }
+
+        #box {
+            background: #7e57c2;
+            color: white;
+            padding: 50px;
+            margin: 30px auto;
+            width: 250px;
+            border-radius: 15px;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+    <h1>onmouseover and onmouseout</h1>
+
+    <div id="box"
+         onmouseover="mouseOverMessage()"
+         onmouseout="mouseOutMessage()">
+        Move your mouse over this box
+    </div>
+
+    <h2 id="result">Move your mouse over the box</h2>
+
+    <script>
+        function mouseOverMessage() {
+            document.getElementById("result").textContent =
+                "Mouse is over the box!";
+        }
+
+        function mouseOutMessage() {
+            document.getElementById("result").textContent =
+                "Mouse left the box!";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS 72 - Clamp Min Max</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            /*
+                Minimum: 30px
+                Preferred: 8vw
+                Maximum: 70px
+            */
+            font-size: clamp(30px, 8vw, 70px);
+        }
+
+        .container {
+            width: min(90%, 800px);
+            margin: auto;
+        }
+
+        .box {
+            width: max(250px, 50%);
+            min-height: 150px;
+            margin: 30px auto;
+            padding: 30px;
+            background: #eeeeee;
+            border-radius: 10px;
+        }
+
+        .back {
+            display: block;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS clamp(), min() and max()</h1>
+
+    <div class="container">
+
+        <div class="box">
+            <h2>Responsive Box</h2>
+
+            <p>
+                This box uses min() and max()
+                to control its size.
+            </p>
+        </div>
+
+        <p>
+            The heading uses clamp() to change
+            its size responsively.
+        </p>
+
+    </div>
+
+    <a class="back" href="index.html">
+        ← Back to CSS Programs
+    </a>
+    <a href="../index/index.html">🏠 Home</a>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Clock</title>
+<style>
+body {
+    font-family: Arial;
+    background: #111827;
+    color: white;
+    padding: 50px;
+    text-align: center;
+}
+.clock {
+    font-size: 45px;
+    background: #374151;
+    padding: 30px;
+    border-radius: 15px;
+    display: inline-block;
+}
+a {
+    display: block;
+    margin-top: 30px;
+    color: white;
+}
+</style>
+</head>
+<body>
+
+<h2>Digital Clock</h2>
+
+<div class="clock" id="clock"></div>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+
+<script>
+function showTime() {
+    let now = new Date();
+
+    let hours = String(now.getHours()).padStart(2, "0");
+    let minutes = String(now.getMinutes()).padStart(2, "0");
+    let seconds = String(now.getSeconds()).padStart(2, "0");
+
+    document.getElementById("clock").innerHTML =
+        hours + ":" + minutes + ":" + seconds;
+}
+
+setInterval(showTime, 1000);
+showTime();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Array Using JSON</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f3e5f5;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 8px;
+            background-color: #673ab7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2>Store Array Using JSON</h2>
+
+        <button onclick="storeArray()">Store Array</button>
+
+        <button onclick="displayArray()">Display Array</button>
+
+        <p id="result"></p>
+
+        <a href="../index/index.html">⬅ Back to Main Index</a>
+        <a href="index.html">💻 JavaScript Programs</a
+    </div>
+
+    <script>
+        function storeArray() {
+            let subjects = ["HTML", "CSS", "JavaScript", "Python"];
+
+            let arrayData = JSON.stringify(subjects);
+
+            localStorage.setItem("subjects", arrayData);
+
+            document.getElementById("result").innerHTML =
+                "Array stored successfully.";
+        }
+
+        function displayArray() {
+            let storedData = localStorage.getItem("subjects");
+
+            if (storedData === null) {
+                document.getElementById("result").innerHTML =
+                    "No array found.";
+            } else {
+                let subjects = JSON.parse(storedData);
+
+                document.getElementById("result").innerHTML =
+                    "Subjects: " + subjects.join(", ");
+            }
+        }
+    </script>
+</body>
+</html>

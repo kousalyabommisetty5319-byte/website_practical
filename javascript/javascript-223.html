@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marks Calculator</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #eff6ff;
+    padding: 30px;
+}
+
+.box {
+    background: white;
+    max-width: 550px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #aaa;
+}
+
+h2 {
+    text-align: center;
+    color: #2563eb;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+#result {
+    margin-top: 20px;
+    background: #dbeafe;
+    padding: 15px;
+    line-height: 1.8;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Marks Calculator</h2>
+
+<label>Subject 1:</label>
+<input type="number" id="mark1">
+
+<label>Subject 2:</label>
+<input type="number" id="mark2">
+
+<label>Subject 3:</label>
+<input type="number" id="mark3">
+
+<label>Subject 4:</label>
+<input type="number" id="mark4">
+
+<label>Subject 5:</label>
+<input type="number" id="mark5">
+
+<button onclick="calculateMarks()">Calculate</button>
+
+<div id="result"></div>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+function calculateMarks() {
+
+    let m1 = Number(document.getElementById("mark1").value);
+    let m2 = Number(document.getElementById("mark2").value);
+    let m3 = Number(document.getElementById("mark3").value);
+    let m4 = Number(document.getElementById("mark4").value);
+    let m5 = Number(document.getElementById("mark5").value);
+
+    if (
+        m1 < 0 || m1 > 100 ||
+        m2 < 0 || m2 > 100 ||
+        m3 < 0 || m3 > 100 ||
+        m4 < 0 || m4 > 100 ||
+        m5 < 0 || m5 > 100
+    ) {
+        document.getElementById("result").innerHTML =
+            "Please enter marks between 0 and 100.";
+        return;
+    }
+
+    let total = m1 + m2 + m3 + m4 + m5;
+
+    let average = total / 5;
+
+    let grade;
+
+    if (average >= 90) {
+        grade = "A+";
+    }
+    else if (average >= 80) {
+        grade = "A";
+    }
+    else if (average >= 70) {
+        grade = "B";
+    }
+    else if (average >= 60) {
+        grade = "C";
+    }
+    else if (average >= 50) {
+        grade = "D";
+    }
+    else {
+        grade = "F";
+    }
+
+    document.getElementById("result").innerHTML =
+        "<strong>Total:</strong> " + total + "/500<br>" +
+        "<strong>Average:</strong> " + average.toFixed(2) + "<br>" +
+        "<strong>Grade:</strong> " + grade;
+
+}
+
+</script>
+
+</body>
+</html>

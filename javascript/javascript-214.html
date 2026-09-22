@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Show Hide Password</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #eff6ff;
+    padding: 40px;
+}
+
+.box {
+    background: white;
+    max-width: 450px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #aaa;
+}
+
+h2 {
+    text-align: center;
+    color: #2563eb;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Show / Hide Password</h2>
+
+<input type="password" id="password" placeholder="Enter password">
+
+<button onclick="togglePassword()">Show Password</button>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+function togglePassword() {
+
+    let password = document.getElementById("password");
+    let button = document.querySelector("button");
+
+    if (password.type === "password") {
+        password.type = "text";
+        button.innerHTML = "Hide Password";
+    } else {
+        password.type = "password";
+        button.innerHTML = "Show Password";
+    }
+
+}
+
+</script>
+
+</body>
+</html>

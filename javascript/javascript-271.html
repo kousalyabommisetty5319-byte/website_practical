@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Database</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #ede7f6;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 700px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            background-color: #5e35b1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid gray;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #5e35b1;
+            color: white;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Student Marks Database</h2>
+
+    <input type="text" id="name" placeholder="Student Name">
+
+    <input type="number" id="mark" placeholder="Mark">
+
+    <br>
+
+    <button onclick="addStudent()">Add Student</button>
+
+    <button onclick="clearDatabase()">Clear Database</button>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Mark</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+
+        <tbody id="studentTable"></tbody>
+
+    </table>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+function addStudent() {
+
+    let name = document.getElementById("name").value;
+    let mark = document.getElementById("mark").value;
+
+    if (name === "" || mark === "") {
+        alert("Please enter name and mark.");
+        return;
+    }
+
+    let students =
+        JSON.parse(localStorage.getItem("marksDatabase")) || [];
+
+    let student = {
+        name: name,
+        mark: Number(mark)
+    };
+
+    students.push(student);
+
+    localStorage.setItem(
+        "marksDatabase",
+        JSON.stringify(students)
+    );
+
+    document.getElementById("name").value = "";
+    document.getElementById("mark").value = "";
+
+    displayStudents();
+}
+
+function displayStudents() {
+
+    let students =
+        JSON.parse(localStorage.getItem("marksDatabase")) || [];
+
+    let table = document.getElementById("studentTable");
+
+    table.innerHTML = "";
+
+    students.forEach(function(student) {
+
+        let result;
+
+        if (student.mark >= 40) {
+            result = "Pass";
+        } else {
+            result = "Fail";
+        }
+
+        table.innerHTML += `
+            <tr>
+                <td>${student.name}</td>
+                <td>${student.mark}</td>
+                <td>${result}</td>
+            </tr>
+        `;
+
+    });
+}
+
+function clearDatabase() {
+
+    localStorage.removeItem("marksDatabase");
+
+    displayStudents();
+}
+
+displayStudents();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Hello World</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .navigation {
+            margin-bottom: 30px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: #dd2476;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .navigation a:hover {
+            color: #ff512f;
+        }
+
+        .box {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #dd2476;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ff512f;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #dd2476;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navigation">
+        <a href="../index/index.html">🏠 Home</a> |
+        <a href="index.html">💻 JavaScript Programs</a>
+    </div>
+
+    <div class="box">
+        <h1>Hello World</h1>
+
+        <p>Click the button to display a message.</p>
+
+        <button onclick="showMessage()">Click Me</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("output").textContent =
+                "Hello, World!";
+        }
+    </script>
+
+</body>
+</html>

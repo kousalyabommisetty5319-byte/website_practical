@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Offline Detection</title>
+<style>
+body {
+    font-family: Arial;
+    background: #eff6ff;
+    padding: 40px;
+    text-align: center;
+}
+.box {
+    background: white;
+    max-width: 500px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+}
+#status {
+    font-size: 25px;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>Internet Connection Status</h2>
+
+<p id="status"></p>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+</div>
+
+<script>
+function checkConnection() {
+    if (navigator.onLine) {
+        document.getElementById("status").innerHTML = "You are Online";
+        document.getElementById("status").style.color = "green";
+    } else {
+        document.getElementById("status").innerHTML = "You are Offline";
+        document.getElementById("status").style.color = "red";
+    }
+}
+
+window.addEventListener("online", checkConnection);
+window.addEventListener("offline", checkConnection);
+
+checkConnection();
+</script>
+
+</body>
+</html>

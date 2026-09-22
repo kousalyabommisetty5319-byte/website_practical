@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Accordion</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        .question {
+            display: block;
+            width: 300px;
+            padding: 12px;
+            margin-top: 5px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .answer {
+            width: 270px;
+            padding: 15px;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+<a href="../index/index.html">🏠 Home</a>
+<a href="index.html">⬅️ Back to JavaScript Programs</a>
+<h2>Accordion Example</h2>
+
+<div id="accordion"></div>
+
+<script>
+const questions = [
+    {
+        question: "What is HTML?",
+        answer: "HTML is used to structure webpages."
+    },
+    {
+        question: "What is CSS?",
+        answer: "CSS is used to style webpages."
+    },
+    {
+        question: "What is JavaScript?",
+        answer: "JavaScript adds interactivity to webpages."
+    }
+];
+
+const accordion = document.getElementById("accordion");
+
+questions.forEach(function(item) {
+    let questionButton = document.createElement("button");
+    questionButton.className = "question";
+    questionButton.textContent = item.question;
+
+    let answer = document.createElement("div");
+    answer.className = "answer";
+    answer.textContent = item.answer;
+    answer.hidden = true;
+
+    questionButton.addEventListener("click", function() {
+        answer.hidden = !answer.hidden;
+    });
+
+    accordion.appendChild(questionButton);
+    accordion.appendChild(answer);
+});
+</script>
+
+</body>
+</html>

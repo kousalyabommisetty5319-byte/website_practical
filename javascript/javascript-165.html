@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Pressed Key</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #e3f2fd;
+            padding: 40px;
+        }
+
+        input {
+            padding: 15px;
+            font-size: 18px;
+            width: 300px;
+        }
+
+        #result {
+            color: #1565c0;
+            margin-top: 30px;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅ Back to JavaScript</a>
+
+    <h1>Display the Key Pressed</h1>
+
+    <input
+        type="text"
+        placeholder="Press any key"
+        onkeydown="displayKey(event)"
+    >
+
+    <h2 id="result">The pressed key will appear here</h2>
+
+    <script>
+        function displayKey(event) {
+            document.getElementById("result").textContent =
+                "You pressed: " + event.key;
+        }
+    </script>
+
+</body>
+</html>

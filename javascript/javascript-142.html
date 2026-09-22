@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Select Options</title>
+</head>
+<body>
+
+<h2>Add Course Options</h2>
+
+<select id="courseList">
+    <option value="CSE">CSE</option>
+</select>
+
+<br><br>
+
+<input type="text" id="courseInput" placeholder="Enter course name">
+
+<button onclick="addOption()">Add Option</button>
+<a href="../index/index.html">🏠 Home</a>
+<a href="index.html">⬅️ Back to JavaScript Programs</a>
+<script>
+function addOption() {
+    let input = document.getElementById("courseInput");
+    let courseName = input.value.trim();
+
+    if (courseName === "") {
+        alert("Please enter a course name.");
+        return;
+    }
+
+    let option = document.createElement("option");
+
+    option.textContent = courseName;
+    option.value = courseName;
+
+    document.getElementById("courseList").appendChild(option);
+
+    input.value = "";
+}
+</script>
+
+</body>
+</html>

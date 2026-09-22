@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preferred Font Size</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e3f2fd;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 650px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #content {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Preferred Font Size</h2>
+
+    <button onclick="changeSize('14px')">Small</button>
+    <button onclick="changeSize('20px')">Medium</button>
+    <button onclick="changeSize('28px')">Large</button>
+
+    <div id="content">
+        <p>
+            This is sample text. Your preferred font size will be
+            saved using localStorage and restored when you open the page again.
+        </p>
+    </div>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+function changeSize(size) {
+
+    document.getElementById("content").style.fontSize = size;
+
+    localStorage.setItem("fontSize", size);
+}
+
+window.onload = function() {
+
+    let savedSize = localStorage.getItem("fontSize");
+
+    if (savedSize !== null) {
+        document.getElementById("content").style.fontSize = savedSize;
+    }
+
+};
+
+</script>
+
+</body>
+</html>

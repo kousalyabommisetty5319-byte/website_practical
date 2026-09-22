@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add and Delete Rows</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Add and Delete Table Rows</h1>
+
+    <input type="text" id="name" placeholder="Enter name">
+    <input type="number" id="age" placeholder="Enter age">
+
+    <button onclick="addRow()">Add Row</button>
+
+    <table id="studentTable">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Action</th>
+        </tr>
+    </table>
+
+    <br>
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+
+    <script>
+        function addRow() {
+            let name = document.getElementById("name").value.trim();
+            let age = document.getElementById("age").value;
+
+            if (name === "" || age === "") {
+                alert("Please fill all fields.");
+                return;
+            }
+
+            let table = document.getElementById("studentTable");
+            let row = table.insertRow();
+
+            row.insertCell(0).textContent = name;
+            row.insertCell(1).textContent = age;
+
+            let actionCell = row.insertCell(2);
+
+            let deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+
+            deleteButton.onclick = function() {
+                row.remove();
+            };
+
+            actionCell.appendChild(deleteButton);
+
+            document.getElementById("name").value = "";
+            document.getElementById("age").value = "";
+        }
+    </script>
+
+</body>
+</html>

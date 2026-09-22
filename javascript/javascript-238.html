@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>History Object</title>
+<style>
+body {
+    font-family: Arial;
+    background: #eff6ff;
+    padding: 40px;
+    text-align: center;
+}
+button {
+    padding: 10px;
+    margin: 5px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+<h2>History Object</h2>
+
+<p id="result"></p>
+
+<button onclick="showHistory()">Show History Length</button>
+<button onclick="goBack()">Go Back</button>
+
+<br><br>
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+
+<script>
+function showHistory() {
+    document.getElementById("result").innerHTML =
+        "Number of pages in history: " + history.length;
+}
+
+function goBack() {
+    history.back();
+}
+</script>
+
+</body>
+</html>

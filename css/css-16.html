@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Webpage</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .box {
+            flex: 1;
+            padding: 40px;
+            background-color: #ddd;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .box {
+                padding: 25px;
+            }
+
+            header {
+                font-size: 14px;
+            }
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Responsive Webpage</h1>
+    <p>Resize the browser window</p>
+</header>
+
+<div class="container">
+
+    <div class="box">
+        <h2>Box 1</h2>
+        <p>Responsive content</p>
+    </div>
+
+    <div class="box">
+        <h2>Box 2</h2>
+        <p>Responsive content</p>
+    </div>
+
+    <div class="box">
+        <h2>Box 3</h2>
+        <p>Responsive content</p>
+    </div>
+
+</div>
+
+<a href="../index/index.html">Home</a>
+<a href="index.html">CSS Programs</a>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Objects</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .navigation {
+            margin-bottom: 30px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: #dd2476;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .box {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #dd2476;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            line-height: 2;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navigation">
+        <a href="../index/index.html">🏠 Home</a> |
+        <a href="index.html">💻 JavaScript Programs</a>
+    </div>
+
+    <div class="box">
+        <h1>JavaScript Objects</h1>
+
+        <button onclick="displayObject()">Display Student</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function displayObject() {
+
+            let student = {
+                name: "Kousalya",
+                age: 19,
+                course: "B.Tech CSE",
+                year: 2
+            };
+
+            document.getElementById("result").innerHTML =
+                "<b>Name:</b> " + student.name +
+                "<br><b>Age:</b> " + student.age +
+                "<br><b>Course:</b> " + student.course +
+                "<br><b>Year:</b> " + student.year;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript 32 - Quiz</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #eef2ff;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navigation">
+    <a href="../index/index.html">🏠 Home</a> |
+    <a href="index.html">💻 JavaScript Programs</a>
+</div>
+
+<div class="box">
+
+    <h1>Simple Quiz</h1>
+
+    <h2>What is the capital of India?</h2>
+
+    <button onclick="checkAnswer('Chennai')">Chennai</button>
+    <button onclick="checkAnswer('Delhi')">Delhi</button>
+    <button onclick="checkAnswer('Mumbai')">Mumbai</button>
+    <button onclick="checkAnswer('Kolkata')">Kolkata</button>
+
+    <h2 id="result"></h2>
+
+</div>
+
+<script>
+function checkAnswer(answer) {
+
+    if (answer == "Delhi") {
+        document.getElementById("result").innerHTML = "Correct Answer!";
+    } else {
+        document.getElementById("result").innerHTML = "Wrong Answer!";
+    }
+}
+</script>
+
+</body>
+</html>

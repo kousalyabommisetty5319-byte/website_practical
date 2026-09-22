@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript 42 - Callbacks Promises Async Await</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #ede7f6;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .box {
+            background-color: white;
+            padding: 30px;
+            max-width: 650px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 12px 25px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            line-height: 2;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navigation">
+    <a href="../index/index.html">🏠 Home</a> |
+    <a href="index.html">💻 JavaScript Programs</a>
+</div>
+
+<div class="box">
+
+    <h1>Callbacks, Promises and Async/Await</h1>
+
+    <button onclick="runProgram()">Run Program</button>
+
+    <div id="output"></div>
+
+</div>
+
+<script>
+
+function callbackExample(callback) {
+
+    setTimeout(function() {
+        callback("Callback completed!");
+    }, 1000);
+}
+
+function promiseExample() {
+
+    return new Promise(function(resolve) {
+
+        setTimeout(function() {
+            resolve("Promise completed!");
+        }, 1000);
+
+    });
+}
+
+async function asyncAwaitExample() {
+
+    let result = await promiseExample();
+
+    return result;
+}
+
+function runProgram() {
+
+    document.getElementById("output").innerHTML =
+        "Running...";
+
+    callbackExample(function(callbackResult) {
+
+        document.getElementById("output").innerHTML =
+            "Callback: " + callbackResult;
+
+        promiseExample().then(function(promiseResult) {
+
+            document.getElementById("output").innerHTML +=
+                "<br>Promise: " + promiseResult;
+
+        });
+
+        asyncAwaitExample().then(function(asyncResult) {
+
+            document.getElementById("output").innerHTML +=
+                "<br>Async/Await: " + asyncResult;
+
+        });
+
+    });
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update localStorage Data</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e8f5e9;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+            text-align: center;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2>Update Username</h2>
+
+        <input type="text" id="newUsername" placeholder="Enter new username">
+
+        <br>
+
+        <button onclick="updateUsername()">Update Username</button>
+
+        <p id="message"></p>
+
+        <a href="../index/index.html">⬅ Back to Main Index</a>
+        <a href="index.html">💻 JavaScript Programs</a
+    </div>
+
+    <script>
+        function updateUsername() {
+            let newUsername = document.getElementById("newUsername").value;
+
+            if (newUsername === "") {
+                document.getElementById("message").innerHTML =
+                    "Please enter a new username.";
+            } else {
+                localStorage.setItem("username", newUsername);
+
+                document.getElementById("message").innerHTML =
+                    "Username updated successfully!";
+            }
+        }
+    </script>
+</body>
+</html>

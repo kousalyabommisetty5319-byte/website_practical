@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add and Remove Classes</title>
+
+    <style>
+        .highlight {
+            color: white;
+            background-color: blue;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h2 id="heading">CSS Class Example</h2>
+
+<button onclick="addClass()">Add Class</button>
+<button onclick="removeClass()">Remove Class</button>
+<br>
+<a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+        <br>
+<script>
+function addClass() {
+    document.getElementById("heading").classList.add("highlight");
+}
+
+function removeClass() {
+    document.getElementById("heading").classList.remove("highlight");
+}
+</script>
+
+</body>
+</html>

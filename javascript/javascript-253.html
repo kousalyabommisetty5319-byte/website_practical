@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Multiple Values</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e0f7fa;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, button {
+            width: 90%;
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            background-color: #0097a7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2>Store Multiple Values</h2>
+
+        <input type="text" id="name" placeholder="Enter name">
+
+        <input type="email" id="email" placeholder="Enter email">
+
+        <input type="text" id="course" placeholder="Enter course">
+
+        <button onclick="storeValues()">Store Values</button>
+
+        <button onclick="displayValues()">Display Values</button>
+
+        <p id="result"></p>
+
+        <a href="../index/index.html">⬅ Back to Main Index</a>
+        <a href="index.html">💻 JavaScript Programs</a
+    </div>
+
+    <script>
+        function storeValues() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let course = document.getElementById("course").value;
+
+            localStorage.setItem("studentName", name);
+            localStorage.setItem("studentEmail", email);
+            localStorage.setItem("studentCourse", course);
+
+            document.getElementById("result").innerHTML =
+                "All values stored successfully.";
+        }
+
+        function displayValues() {
+            let name = localStorage.getItem("studentName");
+            let email = localStorage.getItem("studentEmail");
+            let course = localStorage.getItem("studentCourse");
+
+            document.getElementById("result").innerHTML =
+                "Name: " + name + "<br>" +
+                "Email: " + email + "<br>" +
+                "Course: " + course;
+        }
+    </script>
+</body>
+</html>

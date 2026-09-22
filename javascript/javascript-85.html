@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Events</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px gray;
+        }
+
+        h1 {
+            color: #c2185b;
+        }
+
+        input, select {
+            width: 85%;
+            padding: 12px;
+            margin: 12px;
+            font-size: 16px;
+            border: 2px solid #c2185b;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #c2185b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .output {
+            background: #ffe4ec;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        a {
+            display: inline-block;
+            margin: 15px 5px;
+            padding: 12px 18px;
+            background: #c2185b;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>📝 Form Events Demonstration</h1>
+
+        <form id="studentForm">
+
+            <input type="text" id="nameInput"
+                   placeholder="Enter your name">
+
+            <select id="courseSelect">
+                <option value="">Select a course</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Artificial Intelligence">
+                    Artificial Intelligence
+                </option>
+                <option value="Data Science">Data Science</option>
+            </select>
+
+            <br>
+
+            <button type="submit">Submit Form</button>
+        </form>
+
+        <div class="output" id="formOutput">
+            Form event details will appear here.
+        </div>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        const studentForm = document.getElementById("studentForm");
+        const nameInput = document.getElementById("nameInput");
+        const courseSelect = document.getElementById("courseSelect");
+        const formOutput = document.getElementById("formOutput");
+
+        nameInput.addEventListener("focus", function() {
+            formOutput.textContent = "Name field is focused.";
+        });
+
+        nameInput.addEventListener("blur", function() {
+            formOutput.textContent = "Name field lost focus.";
+        });
+
+        courseSelect.addEventListener("change", function() {
+            formOutput.textContent =
+                "Selected course: " + courseSelect.value;
+        });
+
+        studentForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            formOutput.textContent =
+                "Form submitted successfully! Name: " +
+                nameInput.value;
+        });
+    </script>
+
+</body>
+</html>

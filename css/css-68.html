@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS 68 - Sliding Animation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .slider {
+            width: 300px;
+            margin: 50px auto;
+            overflow: hidden;
+            border: 3px solid black;
+        }
+
+        .cards {
+            display: flex;
+            width: 900px;
+            animation: slide 6s infinite;
+        }
+
+        .card {
+            width: 300px;
+            height: 180px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            background: #ddd;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+
+            30% {
+                transform: translateX(0);
+            }
+
+            35% {
+                transform: translateX(-300px);
+            }
+
+            65% {
+                transform: translateX(-300px);
+            }
+
+            70% {
+                transform: translateX(-600px);
+            }
+
+            95% {
+                transform: translateX(-600px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .back {
+            display: block;
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Sliding Card Animation</h1>
+
+<div class="slider">
+
+    <div class="cards">
+
+        <div class="card">
+            Card 1
+        </div>
+
+        <div class="card">
+            Card 2
+        </div>
+
+        <div class="card">
+            Card 3
+        </div>
+
+    </div>
+
+</div>
+
+<p>Cards automatically slide from left to right.</p>
+
+<a class="back" href="index.html">← Back to CSS Programs</a>
+<a href="../index/index.html">🏠 Home</a>
+
+</body>
+</html>

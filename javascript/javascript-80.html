@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Dropdown</title>
+</head>
+<body>
+
+    <h1>Dynamic Dropdown List</h1>
+
+    <input type="text" id="item" placeholder="Enter an option">
+
+    <button onclick="addOption()">Add Option</button>
+
+    <br><br>
+
+    <select id="dropdown">
+        <option value="">Select an option</option>
+    </select>
+
+    <br><br>
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+
+    <script>
+        function addOption() {
+            let input = document.getElementById("item");
+            let value = input.value.trim();
+
+            if (value === "") {
+                alert("Enter an option.");
+                return;
+            }
+
+            let option = document.createElement("option");
+
+            option.value = value;
+            option.textContent = value;
+
+            document.getElementById("dropdown").appendChild(option);
+
+            input.value = "";
+        }
+    </script>
+
+</body>
+</html>

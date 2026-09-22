@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reset Event</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #fff8e1;
+            padding: 40px;
+        }
+
+        form {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        input {
+            padding: 12px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            color: #f57f17;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅ Back to JavaScript</a>
+
+    <h1>Reset Event</h1>
+
+    <form onreset="resetForm()">
+        <input
+            type="text"
+            placeholder="Enter your name"
+            id="name"
+        >
+        <br>
+
+        <input
+            type="email"
+            placeholder="Enter your email"
+            id="email"
+        >
+        <br>
+
+        <button type="reset">Reset Form</button>
+    </form>
+
+    <h2 id="result">Enter details and click Reset</h2>
+
+    <script>
+        function resetForm() {
+            document.getElementById("result").textContent =
+                "The form has been reset!";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Web Practical Programs</title>
+
+    <style>
+
+        /* ---------- GENERAL ---------- */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(135deg, #667eea, #764ba2);
+
+            color: white;
+        }
+
+
+        /* ---------- HEADER ---------- */
+
+        header {
+            text-align: center;
+            padding: 70px 20px 50px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        header h1 span {
+            color: #ffe66d;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #eeeeee;
+        }
+
+
+        /* ---------- MAIN CONTAINER ---------- */
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+            padding-bottom: 60px;
+        }
+
+
+        /* ---------- CARDS ---------- */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            position: relative;
+
+            padding: 35px 30px;
+
+            border-radius: 25px;
+
+            background: rgba(255, 255, 255, 0.15);
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            backdrop-filter: blur(15px);
+
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+
+            transition: 0.4s;
+        }
+
+
+        /* Card hover */
+
+        .card:hover {
+            transform: translateY(-12px);
+
+            box-shadow:
+                0 25px 45px rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* ---------- ICON ---------- */
+
+        .icon {
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            font-size: 32px;
+
+            margin-bottom: 25px;
+
+            background: white;
+        }
+
+
+        /* Different icon colors */
+
+        .html-card .icon {
+            color: #e44d26;
+        }
+
+        .css-card .icon {
+            color: #264de4;
+        }
+
+        .js-card .icon {
+            color: #f7df1e;
+        }
+
+
+        /* ---------- CARD TEXT ---------- */
+
+        .card h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #eeeeee;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 80px;
+        }
+
+
+        /* ---------- BUTTON ---------- */
+
+        .btn {
+            display: inline-block;
+
+            padding: 12px 22px;
+
+            background: white;
+
+            color: #333;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            border-radius: 30px;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+
+        /* Button colors */
+
+        .html-card .btn:hover {
+            background: #ff7043;
+            color: white;
+        }
+
+        .css-card .btn:hover {
+            background: #2962ff;
+            color: white;
+        }
+
+        .js-card .btn:hover {
+            background: #f7df1e;
+            color: #222;
+        }
+
+
+        /* ---------- BOTTOM INFO ---------- */
+
+        .info {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .info p {
+            font-size: 16px;
+            color: #eeeeee;
+        }
+
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            text-align: center;
+
+            padding: 25px;
+
+            background: rgba(0, 0, 0, 0.2);
+
+            color: #eeeeee;
+
+            font-size: 14px;
+        }
+
+
+        /* ---------- RESPONSIVE ---------- */
+
+        @media (max-width: 900px) {
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 38px;
+            }
+
+            .card {
+                max-width: 500px;
+                margin: auto;
+                width: 100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="tag">
+            💻 Web Development Practical
+        </div>
+
+        <h1>
+            HTML <span>CSS</span> & JavaScript
+        </h1>
+
+        <p>
+            Practical Programs & Mini Projects
+        </p>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="container">
+
+
+        <div class="cards">
+
+
+            <!-- HTML CARD -->
+
+            <div class="card html-card">
+
+                <div class="icon">
+                    🌐
+                </div>
+
+                <h2>
+                    HTML Programs
+                </h2>
+
+                <p>
+                    Learn and practice HTML fundamentals,
+                    lists, tables, forms, images, links,
+                    media and semantic elements.
+                </p>
+
+                <a href="../html/index.html" class="btn">
+                    View HTML Programs →
+                </a>
+
+            </div>
+
+
+
+            <!-- CSS CARD -->
+
+            <div class="card css-card">
+
+                <div class="icon">
+                    🎨
+                </div>
+
+                <h2>
+                    CSS Programs
+                </h2>
+
+                <p>
+                    Practice CSS styling, colors, fonts,
+                    layouts, positioning, animations
+                    and responsive web design.
+                </p>
+
+                <a href="../css/index.html" class="btn">
+                    View CSS Programs →
+                </a>
+
+            </div>
+
+
+
+            <!-- JAVASCRIPT CARD -->
+
+            <div class="card js-card">
+
+                <div class="icon">
+                    ⚡
+                </div>
+
+                <h2>
+                    JavaScript Programs
+                </h2>
+
+                <p>
+                    Explore JavaScript programming,
+                    DOM manipulation, events, forms,
+                    browser features and mini projects.
+                </p>
+
+                <a href="../javascript/index.html" class="btn">
+                    View JavaScript Programs →
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- INFO -->
+
+        <div class="info">
+
+            <p>
+                🚀 Select a section above to explore the practical programs.
+            </p>
+
+        </div>
+
+
+    </main>
+    <!-- Student Information -->
+<style>
+    .student-info {
+        text-align: center;
+        margin: 60px auto 40px;
+    }
+
+    .student-info h2 {
+        color: white;
+        font-size: 30px;
+        margin-bottom: 25px;
+    }
+
+    .student-box {
+        width: 500px;
+        max-width: 85%;
+        margin: auto;
+        padding: 25px 35px;
+
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 20px;
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+
+        color: white;
+        text-align: left;
+    }
+
+    .student-box p {
+        font-size: 17px;
+        margin: 0;
+        padding: 13px 5px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .student-box p:last-child {
+        border-bottom: none;
+    }
+
+    .student-box strong {
+        display: inline-block;
+        width: 170px;
+    }
+
+    @media (max-width: 600px) {
+        .student-box {
+            width: 90%;
+            padding: 20px;
+        }
+
+        .student-box strong {
+            width: 140px;
+        }
+    }
+</style>
+
+<section class="student-info">
+
+    <h2>🎓 Student Information</h2>
+
+    <div class="student-box">
+
+        <p>
+            <strong>Name:</strong>
+            Kousalya Bommisetty
+        </p>
+
+        <p>
+            <strong>Register Number:</strong>
+            250200114
+        </p>
+
+        <p>
+            <strong>Class / Section:</strong>
+            07
+        </p>
+
+        <p>
+            <strong>Subject:</strong>
+            Web
+        </p>
+
+        <p>
+            <strong>Assignment:</strong>
+            Web Practical Programs
+        </p>
+
+    </div>
+
+</section>
+</main><footer>© 2026 Kousalya Bommisetty | Web Practical Assignment</footer>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            HTML • CSS • JavaScript | Practical Programs
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

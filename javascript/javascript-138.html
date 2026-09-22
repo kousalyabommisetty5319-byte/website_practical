@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Table Data</title>
+</head>
+<body>
+
+<h2>Edit Student Data</h2>
+
+<table border="1" cellpadding="10" id="studentTable">
+    <tr>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Action</th>
+    </tr>
+
+    <tr>
+        <td>Anu</td>
+        <td>CSE</td>
+        <td><button onclick="editRow(this)">Edit</button></td>
+    </tr>
+
+    <tr>
+        <td>Ravi</td>
+        <td>ECE</td>
+        <td><button onclick="editRow(this)">Edit</button></td>
+    </tr>
+</table>
+<a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+<script>
+function editRow(button) {
+    let row = button.parentElement.parentElement;
+
+    let name = prompt("Enter new name:", row.cells[0].textContent);
+    let course = prompt("Enter new course:", row.cells[1].textContent);
+
+    if (name !== null && course !== null) {
+        row.cells[0].textContent = name;
+        row.cells[1].textContent = course;
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Combinator Selectors</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 30px;
+        }
+
+        .container p {
+            color: blue;
+        }
+
+        .container > h2 {
+            color: red;
+        }
+
+        h2 + p {
+            background-color: yellow;
+        }
+
+        h2 ~ p {
+            padding: 5px;
+        }
+
+        .container {
+            padding: 25px;
+            border: 2px solid #333;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Combinator Selectors</h1>
+
+<div class="container">
+
+    <h2>Heading</h2>
+
+    <p>First paragraph.</p>
+
+    <p>Second paragraph.</p>
+
+    <div>
+        <p>Paragraph inside another div.</p>
+    </div>
+
+</div>
+
+<a href="../index/index.html">Home</a> |
+<a href="index.html">CSS Programs</a>
+
+</body>
+</html>

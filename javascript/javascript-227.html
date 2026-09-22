@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation Without Reload</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #fef2f2;
+    padding: 40px;
+}
+
+.box {
+    background: white;
+    max-width: 550px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #aaa;
+}
+
+h2 {
+    text-align: center;
+    color: #dc2626;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 3px;
+    box-sizing: border-box;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    min-height: 18px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#success {
+    color: green;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Form Validation</h2>
+
+<form id="form">
+
+<label>Name:</label>
+<input type="text" id="name">
+<p id="nameError" class="error"></p>
+
+<label>Email:</label>
+<input type="text" id="email">
+<p id="emailError" class="error"></p>
+
+<label>Mobile:</label>
+<input type="text" id="mobile">
+<p id="mobileError" class="error"></p>
+
+<button type="submit">Submit</button>
+
+</form>
+
+<p id="success"></p>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+document.getElementById("form").addEventListener("submit", function(event) {
+
+    // Prevent page reload
+    event.preventDefault();
+
+    // Clear old messages
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("mobileError").innerHTML = "";
+    document.getElementById("success").innerHTML = "";
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let mobile = document.getElementById("mobile").value.trim();
+
+    let valid = true;
+
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    let mobilePattern = /^[6-9][0-9]{9}$/;
+
+    if (name === "") {
+        document.getElementById("nameError").innerHTML =
+            "Name is required.";
+        valid = false;
+    }
+
+    if (!emailPattern.test(email)) {
+        document.getElementById("emailError").innerHTML =
+            "Enter a valid email.";
+        valid = false;
+    }
+
+    if (!mobilePattern.test(mobile)) {
+        document.getElementById("mobileError").innerHTML =
+            "Enter a valid 10-digit mobile number.";
+        valid = false;
+    }
+
+    if (valid) {
+
+        document.getElementById("success").innerHTML =
+            "✓ Form submitted successfully without page reload!";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

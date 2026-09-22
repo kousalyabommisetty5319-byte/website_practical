@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular Expression Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Regular Expression Validation</h1>
+
+    <form id="form">
+
+        <input type="text" id="name" placeholder="Name">
+
+        <input type="email" id="email" placeholder="Email">
+
+        <input type="text" id="phone" placeholder="10-digit phone">
+
+        <button type="submit">Validate</button>
+
+    </form>
+
+    <p id="message"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+    document.getElementById("form").addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+            let name =
+                document.getElementById("name").value.trim();
+
+            let email =
+                document.getElementById("email").value.trim();
+
+            let phone =
+                document.getElementById("phone").value.trim();
+
+            let namePattern = /^[A-Za-z ]+$/;
+
+            let emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            let phonePattern =
+                /^[6-9][0-9]{9}$/;
+
+            let message =
+                document.getElementById("message");
+
+            if (!namePattern.test(name)) {
+
+                message.innerHTML =
+                    "Invalid name.";
+
+                message.className = "error";
+
+            }
+            else if (!emailPattern.test(email)) {
+
+                message.innerHTML =
+                    "Invalid email.";
+
+                message.className = "error";
+
+            }
+            else if (!phonePattern.test(phone)) {
+
+                message.innerHTML =
+                    "Invalid phone number.";
+
+                message.className = "error";
+
+            }
+            else {
+
+                message.innerHTML =
+                    "All fields are valid!";
+
+                message.className = "success";
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>

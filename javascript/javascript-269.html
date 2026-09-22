@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restore Form Data</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e0f7fa;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 550px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 8px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #00838f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Restore Form Data</h2>
+
+    <input type="text" id="name" placeholder="Enter name">
+
+    <input type="email" id="email" placeholder="Enter email">
+
+    <textarea id="message" placeholder="Enter message"></textarea>
+
+    <br>
+
+    <button onclick="saveForm()">Save Form</button>
+
+    <button onclick="clearForm()">Clear Form</button>
+
+    <p id="result"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+function saveForm() {
+
+    localStorage.setItem(
+        "savedName",
+        document.getElementById("name").value
+    );
+
+    localStorage.setItem(
+        "savedEmail",
+        document.getElementById("email").value
+    );
+
+    localStorage.setItem(
+        "savedMessage",
+        document.getElementById("message").value
+    );
+
+    document.getElementById("result").innerHTML =
+        "Form data saved. Refresh the page to test restoration.";
+}
+
+function restoreForm() {
+
+    document.getElementById("name").value =
+        localStorage.getItem("savedName") || "";
+
+    document.getElementById("email").value =
+        localStorage.getItem("savedEmail") || "";
+
+    document.getElementById("message").value =
+        localStorage.getItem("savedMessage") || "";
+}
+
+function clearForm() {
+
+    localStorage.removeItem("savedName");
+    localStorage.removeItem("savedEmail");
+    localStorage.removeItem("savedMessage");
+
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
+
+    document.getElementById("result").innerHTML =
+        "Saved data cleared.";
+}
+
+window.onload = restoreForm;
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Event</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #e8f5e9;
+            padding: 40px;
+        }
+
+        select {
+            padding: 12px;
+            font-size: 18px;
+        }
+
+        #result {
+            margin-top: 25px;
+            font-size: 22px;
+            color: #2e7d32;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅ Back to JavaScript</a>
+
+    <h1>Change Event</h1>
+
+    <label for="course">Choose a course:</label>
+
+    <select id="course" onchange="showCourse()">
+        <option value="">Select a course</option>
+        <option value="Python">Python</option>
+        <option value="Java">Java</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="C++">C++</option>
+    </select>
+
+    <p id="result">Your selection will appear here</p>
+
+    <script>
+        function showCourse() {
+            const selectedCourse =
+                document.getElementById("course").value;
+
+            document.getElementById("result").textContent =
+                "You selected: " + selectedCourse;
+        }
+    </script>
+
+</body>
+</html>

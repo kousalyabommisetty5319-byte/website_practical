@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Time Game</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f7fb;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        #gameButton {
+            width: 250px;
+            height: 150px;
+            border: none;
+            border-radius: 15px;
+            background: #4f46e5;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Reaction-Time Game</h1>
+
+    <p>Click START and wait until the button says CLICK!</p>
+
+    <button id="gameButton">START</button>
+
+    <p id="result"></p>
+
+    <p>
+        <a href="../index/index.html">⬅ Back to Main Index</a>
+        <a href="index.html">💻 JavaScript Programs</a
+    </p>
+
+</div>
+
+<script>
+
+    let startTime;
+    let timer;
+    let waiting = false;
+
+    let gameButton = document.getElementById("gameButton");
+    let result = document.getElementById("result");
+
+    gameButton.addEventListener("click", function() {
+
+        if (!waiting) {
+
+            gameButton.innerHTML = "WAIT...";
+
+            result.innerHTML = "";
+
+            waiting = true;
+
+            let delay = Math.random() * 3000 + 2000;
+
+            timer = setTimeout(function() {
+
+                gameButton.innerHTML = "CLICK!";
+
+                startTime = new Date().getTime();
+
+            }, delay);
+
+        } else {
+
+            if (!startTime) {
+
+                clearTimeout(timer);
+
+                gameButton.innerHTML = "START";
+
+                result.innerHTML = "Too early! Try again.";
+
+                waiting = false;
+
+                return;
+
+            }
+
+            let endTime = new Date().getTime();
+
+            let reactionTime = endTime - startTime;
+
+            result.innerHTML =
+                "Your reaction time is " + reactionTime + " milliseconds.";
+
+            gameButton.innerHTML = "START";
+
+            waiting = false;
+
+            startTime = null;
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

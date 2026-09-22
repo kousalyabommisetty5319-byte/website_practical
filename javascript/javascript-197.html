@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date of Birth Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        input {
+            padding: 12px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin-top: 15px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Date of Birth Validation</h1>
+
+    <label>Select your date of birth:</label><br><br>
+
+    <input type="date" id="dob">
+
+    <br>
+
+    <button onclick="validateDOB()">Validate Date</button>
+
+    <p id="message"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+    function validateDOB() {
+
+        let dob = document.getElementById("dob").value;
+        let message = document.getElementById("message");
+
+        if (dob === "") {
+            message.innerHTML = "Please select your date of birth.";
+            message.style.color = "red";
+            return;
+        }
+
+        let selectedDate = new Date(dob + "T00:00:00");
+        let today = new Date();
+
+        today.setHours(0, 0, 0, 0);
+
+        if (selectedDate > today) {
+            message.innerHTML = "Date of birth cannot be in the future.";
+            message.style.color = "red";
+        }
+        else {
+            message.innerHTML = "Valid date of birth!";
+            message.style.color = "green";
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

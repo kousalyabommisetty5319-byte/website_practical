@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Counter</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f7fb;
+            padding: 50px;
+        }
+
+        .box {
+            background: white;
+            padding: 40px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 15px;
+        }
+
+        button {
+            padding: 15px 30px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #counter {
+            font-size: 40px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Click Counter</h1>
+
+    <p id="counter">0</p>
+
+    <button id="clickButton">Click Me</button>
+
+    <br><br>
+
+    <button onclick="resetCounter()">Reset</button>
+
+    <p>
+        <a href="../index/index.html">⬅ Back to Main Index</a>
+        <a href="index.html">💻 JavaScript Programs</a
+    </p>
+
+</div>
+
+<script>
+
+    let count = 0;
+
+    document.getElementById("clickButton").addEventListener("click", function() {
+
+        count++;
+
+        document.getElementById("counter").innerHTML = count;
+
+    });
+
+    function resetCounter() {
+
+        count = 0;
+
+        document.getElementById("counter").innerHTML = count;
+
+    }
+
+</script>
+
+</body>
+</html>

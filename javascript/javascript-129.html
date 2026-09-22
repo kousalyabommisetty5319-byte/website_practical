@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Replace Element</title>
+</head>
+<body>
+
+<h2 id="oldHeading">Old Heading</h2>
+
+<button onclick="replaceElement()">Replace Heading</button>
+<br><a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+<script>
+function replaceElement() {
+    let newHeading = document.createElement("h2");
+
+    newHeading.textContent = "New Heading";
+
+    let oldHeading = document.getElementById("oldHeading");
+
+    oldHeading.replaceWith(newHeading);
+}
+</script>
+
+</body>
+</html>

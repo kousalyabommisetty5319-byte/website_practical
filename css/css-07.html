@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>CSS Positioning</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            padding: 30px;
+            height: 1200px;
+        }
+
+        .box {
+            padding: 20px;
+            margin: 15px;
+            width: 250px;
+            background-color: #bfdbfe;
+        }
+
+        .static {
+            position: static;
+        }
+
+        .relative {
+            position: relative;
+            left: 50px;
+        }
+
+        .parent {
+            position: relative;
+            height: 180px;
+            background-color: #fef3c7;
+        }
+
+        .absolute {
+            position: absolute;
+            right: 20px;
+            top: 50px;
+            background-color: #fecaca;
+            padding: 20px;
+        }
+
+        .fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #16a34a;
+            color: white;
+            padding: 15px;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            background-color: #7c3aed;
+            color: white;
+            padding: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>CSS Positioning</h1>
+
+    <div class="box static">
+        Static Position
+    </div>
+
+    <div class="box relative">
+        Relative Position
+    </div>
+
+    <div class="parent">
+
+        Parent Element
+
+        <div class="absolute">
+            Absolute Position
+        </div>
+
+    </div>
+
+    <div class="sticky">
+        Sticky Position
+    </div>
+
+    <div class="fixed">
+        Fixed Position
+    </div>
+
+    <p>
+        Scroll the webpage to observe the positioning effects.
+    </p>
+
+    <br><br><br>
+
+    <a href="../index/index.html">Home</a> |
+    <a href="index.html">CSS Programs</a>
+
+</body>
+</html>

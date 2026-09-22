@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Event Listener</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f7fb;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #4f46e5;
+            color: white;
+            cursor: pointer;
+        }
+
+        #output {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Remove Event Listener</h1>
+
+    <p>
+        <a href="../index/index.html">⬅ Back to Main Index</a>
+        <a href="index.html">💻 JavaScript Programs</a
+    </p>
+
+    <button id="clickButton">Click Me</button>
+
+    <button id="removeButton">Remove Listener</button>
+
+    <p id="output">Click the first button.</p>
+
+</div>
+
+<script>
+
+    let clickButton = document.getElementById("clickButton");
+    let removeButton = document.getElementById("removeButton");
+    let output = document.getElementById("output");
+
+    function showMessage() {
+        output.innerHTML = "Event listener is working!";
+    }
+
+    clickButton.addEventListener("click", showMessage);
+
+    removeButton.addEventListener("click", function() {
+        clickButton.removeEventListener("click", showMessage);
+        output.innerHTML = "Event listener removed.";
+    });
+
+</script>
+
+</body>
+</html>

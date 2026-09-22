@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Grid Template Areas</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        .layout {
+            min-height: 600px;
+
+            display: grid;
+
+            grid-template-columns: 200px 1fr;
+
+            grid-template-rows: 80px 1fr 70px;
+
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+        }
+
+        header {
+            grid-area: header;
+            background-color: #222;
+            color: white;
+            padding: 20px;
+        }
+
+        aside {
+            grid-area: sidebar;
+            background-color: #ddd;
+            padding: 25px;
+        }
+
+        main {
+            grid-area: main;
+            padding: 30px;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .card {
+            padding: 25px;
+            background-color: #eee;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+
+            .layout {
+                grid-template-columns: 1fr;
+
+                grid-template-rows: auto auto 1fr auto;
+
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main"
+                    "footer";
+            }
+        }
+
+        .links {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <header>
+            <h2>My Website</h2>
+        </header>
+
+        <aside>
+
+            <h3>Menu</h3>
+
+            <p>Home</p>
+            <p>About</p>
+            <p>Projects</p>
+            <p>Contact</p>
+
+        </aside>
+
+        <main>
+
+            <h1>CSS Grid Template Areas</h1>
+
+            <div class="card">
+                <h2>Main Content</h2>
+                <p>
+                    Grid template areas allow us to name different
+                    sections of a CSS Grid layout.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Responsive Layout</h2>
+                <p>
+                    Resize the browser to see the layout change.
+                </p>
+            </div>
+
+        </main>
+
+        <footer>
+            © 2026 My Website
+        </footer>
+
+    </div>
+
+    <div class="links">
+        <a href="../index/index.html">Home</a> |
+        <a href="index.html">CSS Programs</a>
+    </div>
+
+</body>
+</html>

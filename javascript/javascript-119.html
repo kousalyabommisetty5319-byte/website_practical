@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #232526, #414345);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            color: black;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        input, button {
+            padding: 12px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+        }
+
+        button {
+            background: #414345;
+            color: white;
+            cursor: pointer;
+        }
+
+        #password {
+            font-size: 22px;
+            overflow-wrap: anywhere;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Random Password Generator</h1>
+
+        <label>Password Length:</label>
+        <input type="number" id="length" value="12" min="4" max="50">
+
+        <br>
+
+        <button onclick="generatePassword()">Generate Password</button>
+        <button onclick="copyPassword()">Copy</button>
+
+        <h2 id="password">Your password appears here</h2>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        function generatePassword() {
+            let length = Number(document.getElementById("length").value);
+
+            let characters =
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+                "abcdefghijklmnopqrstuvwxyz" +
+                "0123456789!@#$%^&*()";
+
+            let password = "";
+
+            for (let i = 0; i < length; i++) {
+                let index = Math.floor(Math.random() * characters.length);
+                password += characters[index];
+            }
+
+            document.getElementById("password").textContent = password;
+        }
+
+        function copyPassword() {
+            let password =
+                document.getElementById("password").textContent;
+
+            if (password === "Your password appears here") {
+                alert("Generate a password first.");
+                return;
+            }
+
+            navigator.clipboard.writeText(password);
+            alert("Password copied!");
+        }
+    </script>
+</body>
+</html>

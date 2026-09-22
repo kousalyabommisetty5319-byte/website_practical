@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>keydown Event</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #e0f7fa;
+            padding: 40px;
+        }
+
+        input {
+            padding: 15px;
+            font-size: 18px;
+            width: 300px;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+    <h1>keydown Event</h1>
+
+    <input
+        type="text"
+        placeholder="Press any key"
+        onkeydown="keyDownMessage(event)">
+
+    <h2 id="result">Press a key inside the input box</h2>
+
+    <script>
+        function keyDownMessage(event) {
+            document.getElementById("result").textContent =
+                "Key pressed: " + event.key;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Click Counter</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f7fb;
+            padding: 50px;
+        }
+
+        .box {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        button {
+            padding: 20px 40px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #counter {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Double-Click Counter</h1>
+
+    <p>Double-click the button.</p>
+
+    <button id="button">Double Click Me</button>
+
+    <p id="counter">0</p>
+
+    <p>
+        Double Clicks: <span id="message">0</span>
+    </p>
+
+    <p>
+        <a href="../index/index.html">⬅ Back to Main Index</a>
+        <a href="index.html">💻 JavaScript Programs</a
+    </p>
+
+</div>
+
+<script>
+
+    let count = 0;
+
+    document.getElementById("button").addEventListener("dblclick", function() {
+
+        count++;
+
+        document.getElementById("counter").innerHTML = count;
+        document.getElementById("message").innerHTML = count;
+
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse Down and Mouse Up</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #e8f5e9;
+            padding: 40px;
+        }
+
+        button {
+            padding: 20px 35px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+    <h1>onmousedown and onmouseup</h1>
+
+    <button
+        onmousedown="mouseDownMessage()"
+        onmouseup="mouseUpMessage()">
+        Press and Release Me
+    </button>
+
+    <h2 id="result">Waiting for mouse action...</h2>
+
+    <script>
+        function mouseDownMessage() {
+            document.getElementById("result").textContent =
+                "Mouse button is pressed!";
+        }
+
+        function mouseUpMessage() {
+            document.getElementById("result").textContent =
+                "Mouse button is released!";
+        }
+    </script>
+
+</body>
+</html>

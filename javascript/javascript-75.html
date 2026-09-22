@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        th {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dynamic Student Table</h1>
+
+    <button onclick="createTable()">Create Table</button>
+
+    <div id="tableContainer"></div>
+
+    <br>
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+
+    <script>
+        function createTable() {
+            let students = [
+                { name: "Kousalya", age: 19, course: "CSE" },
+                { name: "Anu", age: 20, course: "ECE" },
+                { name: "Ravi", age: 19, course: "IT" }
+            ];
+
+            let table = document.createElement("table");
+
+            let headerRow = document.createElement("tr");
+
+            let headers = ["Name", "Age", "Course"];
+
+            headers.forEach(function(header) {
+                let th = document.createElement("th");
+                th.textContent = header;
+                headerRow.appendChild(th);
+            });
+
+            table.appendChild(headerRow);
+
+            students.forEach(function(student) {
+                let row = document.createElement("tr");
+
+                Object.values(student).forEach(function(value) {
+                    let cell = document.createElement("td");
+                    cell.textContent = value;
+                    row.appendChild(cell);
+                });
+
+                table.appendChild(row);
+            });
+
+            let container = document.getElementById("tableContainer");
+            container.innerHTML = "";
+            container.appendChild(table);
+        }
+    </script>
+
+</body>
+</html>

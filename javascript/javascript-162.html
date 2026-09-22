@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onmousemove Event</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #fce4ec;
+            padding: 30px;
+        }
+
+        #area {
+            height: 250px;
+            background: #f06292;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+    <h1>onmousemove Event</h1>
+
+    <div id="area" onmousemove="showMousePosition(event)">
+        Move your mouse inside this area
+        <h2 id="result">Mouse position will appear here</h2>
+    </div>
+
+    <script>
+        function showMousePosition(event) {
+            document.getElementById("result").textContent =
+                "X: " + event.clientX + " | Y: " + event.clientY;
+        }
+    </script>
+
+</body>
+</html>

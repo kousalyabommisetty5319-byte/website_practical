@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Object</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9966, #ff5e62);
+            text-align: center;
+            padding: 30px;
+            color: white;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: auto;
+            background: white;
+            color: black;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        button, a {
+            padding: 12px;
+            margin: 8px;
+            border: none;
+            border-radius: 8px;
+            background: #ff5e62;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            background: #eeeeee;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            line-height: 1.8;
+            overflow-wrap: anywhere;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Location Object Demonstration</h1>
+
+        <button onclick="showLocation()">Show Location Details</button>
+        <button onclick="changeHash()">Change URL Hash</button>
+        <button onclick="reloadPage()">Reload Page</button>
+
+        <div id="output">Click a button to see location details.</div>
+
+        <br>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        function showLocation() {
+            let details = `
+                <strong>Complete URL:</strong> ${location.href}<br>
+                <strong>Protocol:</strong> ${location.protocol}<br>
+                <strong>Host:</strong> ${location.host}<br>
+                <strong>Hostname:</strong> ${location.hostname}<br>
+                <strong>Port:</strong> ${location.port || "Default"}<br>
+                <strong>Pathname:</strong> ${location.pathname}<br>
+                <strong>Search:</strong> ${location.search || "None"}<br>
+                <strong>Hash:</strong> ${location.hash || "None"}
+            `;
+
+            document.getElementById("output").innerHTML = details;
+        }
+
+        function changeHash() {
+            location.hash = "javascript-demo";
+            showLocation();
+        }
+
+        function reloadPage() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>

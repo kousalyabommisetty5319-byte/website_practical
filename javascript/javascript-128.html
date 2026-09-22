@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remove Element</title>
+</head>
+<body>
+
+<h2 id="heading">This heading will be removed.</h2>
+
+<button onclick="removeElement()">Remove Heading</button>
+<a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+<script>
+function removeElement() {
+    let heading = document.getElementById("heading");
+
+    heading.remove();
+}
+</script>
+
+</body>
+</html>

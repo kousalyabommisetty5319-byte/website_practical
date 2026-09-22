@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #8e2de2, #4a00e0);
+            text-align: center;
+            padding: 30px;
+            color: white;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            color: black;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        input {
+            padding: 12px;
+            margin: 8px;
+            width: 80%;
+            border: 1px solid #aaa;
+            border-radius: 8px;
+        }
+
+        button, a {
+            padding: 12px;
+            margin: 8px;
+            border: none;
+            border-radius: 8px;
+            background: #4a00e0;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            background: #eeeeee;
+            border-radius: 10px;
+            overflow-wrap: anywhere;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>localStorage Demonstration</h1>
+
+        <input type="text" id="key" placeholder="Enter key">
+        <input type="text" id="value" placeholder="Enter value">
+
+        <br>
+
+        <button onclick="saveData()">Save Data</button>
+        <button onclick="readData()">Read Data</button>
+        <button onclick="removeData()">Remove Data</button>
+        <button onclick="clearData()">Clear All</button>
+
+        <div id="output">Enter a key and value.</div>
+
+        <br>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        function saveData() {
+            let key = document.getElementById("key").value;
+            let value = document.getElementById("value").value;
+
+            if (key === "") {
+                alert("Please enter a key.");
+                return;
+            }
+
+            localStorage.setItem(key, value);
+            document.getElementById("output").textContent =
+                "Data saved successfully.";
+        }
+
+        function readData() {
+            let key = document.getElementById("key").value;
+            let value = localStorage.getItem(key);
+
+            document.getElementById("output").textContent =
+                value === null ? "No data found." : "Value: " + value;
+        }
+
+        function removeData() {
+            let key = document.getElementById("key").value;
+
+            localStorage.removeItem(key);
+            document.getElementById("output").textContent =
+                "Data removed successfully.";
+        }
+
+        function clearData() {
+            localStorage.clear();
+            document.getElementById("output").textContent =
+                "All localStorage data has been cleared.";
+        }
+    </script>
+</body>
+</html>

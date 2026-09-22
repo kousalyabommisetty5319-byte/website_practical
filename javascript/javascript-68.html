@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Elements Dynamically</title>
+</head>
+<body>
+
+    <h1>Add New Elements Dynamically</h1>
+
+    <input type="text" id="itemInput" placeholder="Enter an item">
+    <button onclick="addItem()">Add Item</button>
+
+    <ul id="itemList"></ul>
+
+    <br>
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+
+    <script>
+        function addItem() {
+            let input = document.getElementById("itemInput");
+            let itemText = input.value.trim();
+
+            if (itemText === "") {
+                alert("Please enter an item.");
+                return;
+            }
+
+            let newItem = document.createElement("li");
+            newItem.textContent = itemText;
+
+            document.getElementById("itemList").appendChild(newItem);
+
+            input.value = "";
+        }
+    </script>
+
+</body>
+</html>

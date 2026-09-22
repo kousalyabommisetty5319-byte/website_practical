@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Offline Events</title>
+<style>
+body {
+    font-family: Arial;
+    background: #f5f3ff;
+    padding: 40px;
+    text-align: center;
+}
+.box {
+    background: white;
+    max-width: 550px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+}
+#status {
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+a {
+    display: block;
+    margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>Network Status Monitor</h2>
+
+<div id="status"></div>
+
+<p id="message"></p>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+</div>
+
+<script>
+let statusBox = document.getElementById("status");
+let message = document.getElementById("message");
+
+function updateStatus() {
+    if (navigator.onLine) {
+        statusBox.innerHTML = "You are ONLINE";
+        statusBox.style.backgroundColor = "#bbf7d0";
+        statusBox.style.color = "green";
+
+        message.innerHTML =
+            "Internet connection is available.";
+    } else {
+        statusBox.innerHTML = "You are OFFLINE";
+        statusBox.style.backgroundColor = "#fecaca";
+        statusBox.style.color = "red";
+
+        message.innerHTML =
+            "Please check your internet connection.";
+    }
+}
+
+window.addEventListener("online", function() {
+    updateStatus();
+    message.innerHTML = "The browser is back online!";
+});
+
+window.addEventListener("offline", function() {
+    updateStatus();
+    message.innerHTML = "The browser has gone offline!";
+});
+
+updateStatus();
+</script>
+
+</body>
+</html>

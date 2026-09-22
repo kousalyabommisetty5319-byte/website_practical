@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #eef2ff;
+            padding: 30px;
+        }
+
+        form {
+            background-color: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #0002;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 48%;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="text-align:center;">Student Registration</h1>
+
+    <form>
+
+        <label>Full Name:</label>
+        <input type="text" placeholder="Enter your name">
+
+        <label>Email:</label>
+        <input type="email" placeholder="Enter your email">
+
+        <label>Password:</label>
+        <input type="password" placeholder="Enter password">
+
+        <label>Date of Birth:</label>
+        <input type="date">
+
+        <label>Phone Number:</label>
+        <input type="tel" placeholder="Enter phone number">
+
+        <label>Gender:</label><br>
+
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+        <input type="radio" name="gender"> Other
+
+        <br><br>
+
+        <label>Course:</label>
+
+        <select>
+            <option>Select Course</option>
+            <option>CSE</option>
+            <option>ECE</option>
+            <option>EEE</option>
+            <option>Mechanical</option>
+        </select>
+
+        <label>Address:</label>
+
+        <textarea rows="4" placeholder="Enter address"></textarea>
+
+        <input type="checkbox">
+        I agree to the terms and conditions.
+
+        <br><br>
+
+        <input type="submit" value="Register">
+        <input type="reset" value="Reset">
+
+    </form>
+
+    <br>
+
+    <center>
+        <a href="../index/index.html">Home</a> |
+        <a href="index.html">HTML Programs</a>
+    </center>
+
+</body>
+</html>

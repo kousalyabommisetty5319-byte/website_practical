@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change HTML Content</title>
+</head>
+<body>
+
+<div id="content">This is normal text.</div>
+
+<button onclick="changeContent()">Change Content</button>
+<br>
+<a href="../index/index.html">🏠 Home</a>
+<a href="index.html">⬅️ Back to JavaScript Programs</a>
+<script>
+function changeContent() {
+    document.getElementById("content").innerHTML =
+        "<b>Bold Text</b><br><i>Italic Text</i>";
+}
+</script>
+
+</body>
+</html>

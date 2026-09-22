@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Country State City Dropdown</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        select {
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<a href="../index/index.html">🏠 Home</a>
+<a href="index.html">⬅️ Back to JavaScript Programs</a>
+<h2>Country → State → City</h2>
+
+<select id="country">
+    <option value="">Select Country</option>
+    <option value="India">India</option>
+    <option value="USA">USA</option>
+</select>
+
+<select id="state">
+    <option value="">Select State</option>
+</select>
+
+<select id="city">
+    <option value="">Select City</option>
+</select>
+
+<script>
+const locations = {
+    India: {
+        AndhraPradesh: ["Vijayawada", "Visakhapatnam"],
+        Telangana: ["Hyderabad", "Warangal"]
+    },
+
+    USA: {
+        California: ["Los Angeles", "San Francisco"],
+        Texas: ["Dallas", "Austin"]
+    }
+};
+
+const country = document.getElementById("country");
+const state = document.getElementById("state");
+const city = document.getElementById("city");
+
+country.addEventListener("change", function() {
+    state.innerHTML = '<option value="">Select State</option>';
+    city.innerHTML = '<option value="">Select City</option>';
+
+    let states = locations[country.value] || {};
+
+    Object.keys(states).forEach(function(stateName) {
+        let option = document.createElement("option");
+
+        option.value = stateName;
+        option.textContent = stateName;
+
+        state.appendChild(option);
+    });
+});
+
+state.addEventListener("change", function() {
+    city.innerHTML = '<option value="">Select City</option>';
+
+    let cities = locations[country.value]?.[state.value] || [];
+
+    cities.forEach(function(cityName) {
+        let option = document.createElement("option");
+
+        option.value = cityName;
+        option.textContent = cityName;
+
+        city.appendChild(option);
+    });
+});
+</script>
+
+</body>
+</html>

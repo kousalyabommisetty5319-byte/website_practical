@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Event Listeners</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f7fb;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #4f46e5;
+            color: white;
+            cursor: pointer;
+        }
+
+        #output {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Multiple Event Listeners</h1>
+
+    <p>
+        <a href="../index/index.html">⬅ Back to Main Index</a>
+        <a href="index.html">💻 JavaScript Programs</a
+    </p>
+
+    <button id="myButton">Click Me</button>
+
+    <p id="output">Click the button.</p>
+
+</div>
+
+<script>
+
+    let button = document.getElementById("myButton");
+    let output = document.getElementById("output");
+
+    button.addEventListener("click", function() {
+        output.innerHTML = "First event listener executed.";
+    });
+
+    button.addEventListener("click", function() {
+        output.innerHTML += "<br>Second event listener executed.";
+    });
+
+    button.addEventListener("mouseover", function() {
+        output.innerHTML += "<br>Mouse is over the button.";
+    });
+
+</script>
+
+</body>
+</html>

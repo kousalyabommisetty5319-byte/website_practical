@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Selection Methods</title>
+</head>
+<body>
+
+    <h1 id="mainHeading">Original Heading</h1>
+
+    <p class="info">Paragraph 1</p>
+    <p class="info">Paragraph 2</p>
+    <p class="info">Paragraph 3</p>
+
+    <button onclick="useMethods()">Run DOM Methods</button>
+
+    <br><br>
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+
+    <script>
+        function useMethods() {
+            let heading = document.getElementById("mainHeading");
+
+            heading.textContent = "Changed using getElementById()";
+
+            let paragraphs = document.getElementsByClassName("info");
+
+            for (let i = 0; i < paragraphs.length; i++) {
+                paragraphs[i].style.color = "green";
+                paragraphs[i].textContent =
+                    "Changed using getElementsByClassName()";
+            }
+        }
+    </script>
+
+</body>
+</html>

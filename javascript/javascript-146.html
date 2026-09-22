@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Show Hide Password</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<a href="../index/index.html">🏠 Home</a>
+<a href="index.html">⬅️ Back to JavaScript Programs</a>
+<h2>Show/Hide Password</h2>
+
+<input type="password" id="password" placeholder="Enter password">
+
+<button id="toggleButton">Show Password</button>
+
+<script>
+const password = document.getElementById("password");
+const toggleButton = document.getElementById("toggleButton");
+
+toggleButton.addEventListener("click", function() {
+    if (password.type === "password") {
+        password.type = "text";
+        toggleButton.textContent = "Hide Password";
+    } else {
+        password.type = "password";
+        toggleButton.textContent = "Show Password";
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin-top: 20px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Gender Selection Validation</h1>
+
+    <label>
+        <input type="radio" name="gender" value="Male">
+        Male
+    </label>
+
+    <label>
+        <input type="radio" name="gender" value="Female">
+        Female
+    </label>
+
+    <label>
+        <input type="radio" name="gender" value="Other">
+        Other
+    </label>
+
+    <br>
+
+    <button onclick="validateGender()">Submit</button>
+
+    <p id="message"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+    function validateGender() {
+
+        let gender = document.querySelector(
+            'input[name="gender"]:checked'
+        );
+
+        let message = document.getElementById("message");
+
+        if (gender === null) {
+            message.innerHTML = "Please select a gender.";
+            message.style.color = "red";
+        }
+        else {
+            message.innerHTML = "Selected gender: " + gender.value;
+            message.style.color = "green";
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

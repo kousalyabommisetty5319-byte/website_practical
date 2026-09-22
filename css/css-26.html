@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inheritance and Specificity</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            color: green;
+        }
+
+        p {
+            color: blue;
+        }
+
+        .special {
+            color: orange;
+        }
+
+        #unique {
+            color: red;
+        }
+
+        .box {
+            background-color: #eee;
+            padding: 30px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Inheritance and Specificity</h1>
+
+    <p>This paragraph gets its color from the element selector.</p>
+
+    <p class="special">
+        This paragraph uses a class selector.
+    </p>
+
+    <p id="unique">
+        This paragraph uses an ID selector.
+    </p>
+
+    <p>
+        ID selector has higher specificity than class and element selectors.
+    </p>
+
+    <a href="../index/index.html">Home</a> |
+    <a href="index.html">CSS Programs</a>
+
+</div>
+
+</body>
+</html>

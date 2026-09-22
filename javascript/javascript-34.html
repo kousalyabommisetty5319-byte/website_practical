@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript 34 - Stopwatch</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #e8f5e9;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            max-width: 450px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        #time {
+            font-size: 45px;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navigation">
+    <a href="../index/index.html">🏠 Home</a> |
+    <a href="index.html">💻 JavaScript Programs</a>
+</div>
+
+<div class="box">
+
+    <h1>Stopwatch</h1>
+
+    <div id="time">0</div>
+
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="reset()">Reset</button>
+
+</div>
+
+<script>
+let seconds = 0;
+let timer;
+
+function start() {
+    timer = setInterval(function() {
+        seconds++;
+        document.getElementById("time").innerHTML = seconds + " seconds";
+    }, 1000);
+}
+
+function stop() {
+    clearInterval(timer);
+}
+
+function reset() {
+    clearInterval(timer);
+    seconds = 0;
+    document.getElementById("time").innerHTML = "0";
+}
+</script>
+
+</body>
+</html

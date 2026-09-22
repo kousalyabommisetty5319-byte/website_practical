@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript 61 - Reverse String</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f3e5f5;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            background: #9c27b0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>Reverse a String</h1>
+
+    <input type="text" id="text" placeholder="Enter a string">
+
+    <button onclick="reverseString()">Reverse</button>
+
+    <div id="result"></div>
+
+    <div class="navigation">
+        <a href="../index/index.html">🏠 Home</a> |
+        <a href="index.html">💻 JavaScript Programs</a>
+    </div>
+</div>
+
+<script>
+function reverseString() {
+    let text = document.getElementById("text").value;
+
+    let reversed = text.split("").reverse().join("");
+
+    document.getElementById("result").innerHTML =
+        "Reversed String: " + reversed;
+}
+</script>
+
+</body>
+</html>

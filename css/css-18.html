@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Animations</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #333;
+            margin: 80px auto;
+
+            animation: moveBox 3s infinite alternate;
+        }
+
+        @keyframes moveBox {
+
+            0% {
+                transform: translateX(-150px);
+            }
+
+            50% {
+                transform: translateX(0);
+                border-radius: 50%;
+            }
+
+            100% {
+                transform: translateX(150px);
+                border-radius: 0;
+            }
+        }
+
+        a {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>CSS Animation</h1>
+
+<div class="box"></div>
+
+<a href="../index/index.html">Home</a> |
+<a href="index.html">CSS Programs</a>
+
+</body>
+</html>

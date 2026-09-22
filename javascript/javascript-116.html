@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #36d1dc, #5b86e5);
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        input, button {
+            padding: 12px;
+            margin: 8px;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+        }
+
+        button {
+            background: #5b86e5;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #eeeeee;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Student Marks Calculator</h1>
+
+        <input type="number" id="mark1" placeholder="Subject 1">
+        <input type="number" id="mark2" placeholder="Subject 2">
+        <input type="number" id="mark3" placeholder="Subject 3">
+        <input type="number" id="mark4" placeholder="Subject 4">
+        <input type="number" id="mark5" placeholder="Subject 5">
+
+        <br>
+
+        <button onclick="calculateGrade()">Calculate Grade</button>
+
+        <div id="result"></div>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        function calculateGrade() {
+            let marks = [
+                Number(document.getElementById("mark1").value),
+                Number(document.getElementById("mark2").value),
+                Number(document.getElementById("mark3").value),
+                Number(document.getElementById("mark4").value),
+                Number(document.getElementById("mark5").value)
+            ];
+
+            if (marks.some(mark => mark < 0 || mark > 100)) {
+                document.getElementById("result").textContent =
+                    "Enter marks between 0 and 100.";
+                return;
+            }
+
+            let total = marks.reduce((sum, mark) => sum + mark, 0);
+            let percentage = total / marks.length;
+            let grade;
+
+            if (percentage >= 90) {
+                grade = "A+";
+            } else if (percentage >= 80) {
+                grade = "A";
+            } else if (percentage >= 70) {
+                grade = "B";
+            } else if (percentage >= 60) {
+                grade = "C";
+            } else if (percentage >= 50) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+
+            document.getElementById("result").innerHTML = `
+                <p>Total Marks: ${total}</p>
+                <p>Percentage: ${percentage.toFixed(2)}%</p>
+                <p>Grade: ${grade}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

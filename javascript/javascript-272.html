@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Application</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e0f2f1;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 750px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 9px 14px;
+            margin: 5px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid gray;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #00796b;
+            color: white;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>CRUD Application using localStorage</h2>
+
+    <input type="text" id="name" placeholder="Name">
+
+    <input type="number" id="age" placeholder="Age">
+
+    <input type="text" id="course" placeholder="Course">
+
+    <br>
+
+    <button onclick="saveRecord()" id="saveButton">
+        Create Record
+    </button>
+
+    <button onclick="clearAll()">
+        Clear All
+    </button>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Course</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableBody"></tbody>
+
+    </table>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+let editIndex = -1;
+
+function saveRecord() {
+
+    let name = document.getElementById("name").value;
+    let age = document.getElementById("age").value;
+    let course = document.getElementById("course").value;
+
+    if (name === "" || age === "" || course === "") {
+        alert("Please fill all fields.");
+        return;
+    }
+
+    let records =
+        JSON.parse(localStorage.getItem("crudRecords")) || [];
+
+    let record = {
+        name: name,
+        age: age,
+        course: course
+    };
+
+    if (editIndex === -1) {
+
+        // CREATE
+        records.push(record);
+
+    } else {
+
+        // UPDATE
+        records[editIndex] = record;
+
+        editIndex = -1;
+
+        document.getElementById("saveButton").innerHTML =
+            "Create Record";
+    }
+
+    // SAVE
+    localStorage.setItem(
+        "crudRecords",
+        JSON.stringify(records)
+    );
+
+    clearInputs();
+
+    // READ
+    displayRecords();
+}
+
+function displayRecords() {
+
+    let records =
+        JSON.parse(localStorage.getItem("crudRecords")) || [];
+
+    let table = document.getElementById("tableBody");
+
+    table.innerHTML = "";
+
+    records.forEach(function(record, index) {
+
+        table.innerHTML += `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${record.name}</td>
+                <td>${record.age}</td>
+                <td>${record.course}</td>
+                <td>
+                    <button onclick="editRecord(${index})">
+                        Edit
+                    </button>
+
+                    <button onclick="deleteRecord(${index})">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        `;
+
+    });
+}
+
+function editRecord(index) {
+
+    let records =
+        JSON.parse(localStorage.getItem("crudRecords")) || [];
+
+    document.getElementById("name").value =
+        records[index].name;
+
+    document.getElementById("age").value =
+        records[index].age;
+
+    document.getElementById("course").value =
+        records[index].course;
+
+    editIndex = index;
+
+    document.getElementById("saveButton").innerHTML =
+        "Update Record";
+}
+
+function deleteRecord(index) {
+
+    let records =
+        JSON.parse(localStorage.getItem("crudRecords")) || [];
+
+    records.splice(index, 1);
+
+    localStorage.setItem(
+        "crudRecords",
+        JSON.stringify(records)
+    );
+
+    displayRecords();
+}
+
+function clearInputs() {
+
+    document.getElementById("name").value = "";
+    document.getElementById("age").value = "";
+    document.getElementById("course").value = "";
+}
+
+function clearAll() {
+
+    localStorage.removeItem("crudRecords");
+
+    editIndex = -1;
+
+    clearInputs();
+
+    document.getElementById("saveButton").innerHTML =
+        "Create Record";
+
+    displayRecords();
+}
+
+displayRecords();
+
+</script>
+
+</body>
+</html>

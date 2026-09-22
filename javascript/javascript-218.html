@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback Form</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #fff1f2;
+    padding: 40px;
+}
+
+.box {
+    background: white;
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #aaa;
+}
+
+h2 {
+    text-align: center;
+    color: #e11d48;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #e11d48;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+#result {
+    font-weight: bold;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Feedback Form</h2>
+
+<form id="form">
+
+<label>Name:</label>
+<input type="text" id="name">
+
+<label>Rating:</label>
+<select id="rating">
+    <option value="">Select Rating</option>
+    <option>Excellent</option>
+    <option>Good</option>
+    <option>Average</option>
+    <option>Poor</option>
+</select>
+
+<label>Feedback:</label>
+<textarea id="feedback"></textarea>
+
+<button type="submit">Submit Feedback</button>
+
+</form>
+
+<p id="result"></p>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+document.getElementById("form").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let rating = document.getElementById("rating").value;
+    let feedback = document.getElementById("feedback").value.trim();
+
+    let result = document.getElementById("result");
+
+    if (name === "") {
+        result.innerHTML = "Please enter your name.";
+        result.style.color = "red";
+    }
+    else if (rating === "") {
+        result.innerHTML = "Please select a rating.";
+        result.style.color = "red";
+    }
+    else if (feedback.length < 10) {
+        result.innerHTML = "Feedback must contain at least 10 characters.";
+        result.style.color = "red";
+    }
+    else {
+        result.innerHTML = "✓ Feedback submitted successfully!";
+        result.style.color = "green";
+    }
+
+});
+
+</script>
+
+</body>
+</html>

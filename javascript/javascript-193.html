@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 15px;
+        }
+
+        input {
+            padding: 12px;
+            width: 90%;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin-top: 15px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Email Validation</h1>
+
+    <input type="text" id="email" placeholder="Enter your email">
+
+    <br>
+
+    <button onclick="validateEmail()">Validate Email</button>
+
+    <p id="message"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+    function validateEmail() {
+
+        let email = document.getElementById("email").value.trim();
+        let message = document.getElementById("message");
+
+        let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (pattern.test(email)) {
+            message.innerHTML = "Valid email address!";
+            message.style.color = "green";
+        }
+        else {
+            message.innerHTML = "Invalid email address.";
+            message.style.color = "red";
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

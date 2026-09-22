@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form Validation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px gray;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4b0082;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            box-sizing: border-box;
+            border: 2px solid #b39ddb;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 20px;
+            background: #4b0082;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            margin: 15px 5px;
+            padding: 10px;
+            background: #4b0082;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🔐 Login Form</h1>
+
+    <form id="loginForm" novalidate>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter username">
+        <span class="error" id="usernameError"></span>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter password">
+        <span class="error" id="passwordError"></span>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p class="success" id="successMessage"></p>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">⬅️ Back to JavaScript Programs</a>
+</div>
+
+<script>
+    const loginForm = document.getElementById("loginForm");
+
+    loginForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        document.getElementById("usernameError").textContent = "";
+        document.getElementById("passwordError").textContent = "";
+        document.getElementById("successMessage").textContent = "";
+
+        let isValid = true;
+
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value;
+
+        if (username === "") {
+            document.getElementById("usernameError").textContent =
+                "Please enter your username.";
+            isValid = false;
+        } else if (username.length < 4) {
+            document.getElementById("usernameError").textContent =
+                "Username must contain at least 4 characters.";
+            isValid = false;
+        }
+
+        if (password === "") {
+            document.getElementById("passwordError").textContent =
+                "Please enter your password.";
+            isValid = false;
+        } else if (password.length < 8) {
+            document.getElementById("passwordError").textContent =
+                "Password must contain at least 8 characters.";
+            isValid = false;
+        }
+
+        if (isValid) {
+            document.getElementById("successMessage").textContent =
+                "Login validation successful!";
+            loginForm.reset();
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Confirmation</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #ecfdf5;
+    padding: 40px;
+}
+
+.box {
+    background: white;
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #aaa;
+}
+
+h2 {
+    text-align: center;
+    color: #059669;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #059669;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+#result {
+    font-weight: bold;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Registration Form</h2>
+
+<form id="form">
+
+<label>Username:</label>
+<input type="text" id="username" required>
+
+<label>Password:</label>
+<input type="password" id="password" required>
+
+<label>Confirm Password:</label>
+<input type="password" id="confirmPassword" required>
+
+<button type="submit">Register</button>
+
+</form>
+
+<p id="result"></p>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+document.getElementById("form").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+    let result = document.getElementById("result");
+
+    if (password === confirmPassword) {
+        result.innerHTML = "✓ Registration successful!";
+        result.style.color = "green";
+    } else {
+        result.innerHTML = "✗ Passwords do not match";
+        result.style.color = "red";
+    }
+
+});
+
+</script>
+
+</body>
+</html>

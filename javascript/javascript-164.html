@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>keyup Event</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #fff8e1;
+            padding: 40px;
+        }
+
+        input {
+            padding: 15px;
+            font-size: 18px;
+            width: 300px;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+    <h1>keyup Event</h1>
+
+    <input
+        type="text"
+        placeholder="Type something"
+        onkeyup="keyUpMessage(event)">
+
+    <h2 id="result">Type and release a key</h2>
+
+    <script>
+        function keyUpMessage(event) {
+            document.getElementById("result").textContent =
+                "Key released: " + event.key;
+        }
+    </script>
+
+</body>
+</html>

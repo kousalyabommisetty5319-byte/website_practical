@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Homepage</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        .hero {
+            height: 500px;
+            background-image: url("https://picsum.photos/1200/600?travel");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+        }
+
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .destination {
+            padding: 30px;
+            background-color: #eee;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 700px) {
+            .destinations {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .links {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Explore World</h1>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Destinations</a>
+            <a href="#">Packages</a>
+            <a href="#">Contact</a>
+        </nav>
+
+    </header>
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Explore New Places</h1>
+
+            <p>Discover beautiful destinations around the world.</p>
+
+        </div>
+
+    </section>
+
+    <section class="destinations">
+
+        <div class="destination">
+            <h2>Paris</h2>
+            <p>Explore the city of lights.</p>
+        </div>
+
+        <div class="destination">
+            <h2>Tokyo</h2>
+            <p>Experience modern Japanese culture.</p>
+        </div>
+
+        <div class="destination">
+            <h2>Dubai</h2>
+            <p>Discover amazing architecture.</p>
+        </div>
+
+    </section>
+
+    <div class="links">
+        <a href="../index/index.html">Home</a> |
+        <a href="index.html">CSS Programs</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS 64 - Transitions</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .box {
+            width: 200px;
+            height: 100px;
+            margin: 40px auto;
+            background: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            transition: all 0.5s ease;
+        }
+
+        .box:hover {
+            width: 300px;
+            transform: scale(1.1);
+            border-radius: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            border: none;
+            background: #333;
+            color: white;
+            cursor: pointer;
+
+            transition: transform 0.3s, padding 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.2);
+            padding: 18px 35px;
+        }
+
+        .back {
+            display: block;
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>CSS Transitions</h1>
+
+<div class="box">
+    Hover Me
+</div>
+
+<button>Hover Button</button>
+
+<a class="back" href="index.html">← Back to CSS Programs</a>
+<a href="../index/index.html">🏠 Home</a>
+
+</body>
+</html>

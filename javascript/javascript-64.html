@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript 64 - Word Count</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #e8f5e9;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        textarea {
+            width: 80%;
+            height: 100px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Count Number of Words</h1>
+
+    <textarea id="text" placeholder="Enter a sentence"></textarea>
+    <br>
+
+    <button onclick="countWords()">Count Words</button>
+
+    <div id="result"></div>
+
+    <div class="navigation">
+        <a href="../index/index.html">🏠 Home</a> |
+        <a href="index.html">💻 JavaScript Programs</a>
+    </div>
+
+</div>
+
+<script>
+
+function countWords() {
+
+    let text = document.getElementById("text").value.trim();
+
+    if (text === "") {
+        document.getElementById("result").innerHTML =
+            "Number of words = 0";
+        return;
+    }
+
+    let words = text.split(/\s+/);
+
+    document.getElementById("result").innerHTML =
+        "Number of words = " + words.length;
+}
+
+</script>
+
+</body>
+</html>

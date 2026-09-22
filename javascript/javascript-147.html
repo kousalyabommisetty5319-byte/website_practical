@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Show Hide Content</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<a href="../index/index.html">🏠 Home</a>
+<a href="index.html">⬅️ Back to JavaScript Programs</a>
+<h2>Show/Hide Content</h2>
+
+<button id="contentButton">Hide Content</button>
+
+<p id="content">
+    This is the content that can be shown or hidden using JavaScript.
+</p>
+
+<script>
+const content = document.getElementById("content");
+const contentButton = document.getElementById("contentButton");
+
+contentButton.addEventListener("click", function() {
+    content.hidden = !content.hidden;
+
+    if (content.hidden) {
+        contentButton.textContent = "Show Content";
+    } else {
+        contentButton.textContent = "Hide Content";
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Message</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+
+        #success {
+            color: green;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        #error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Successful Form Submission</h1>
+
+    <form id="form">
+
+        <input type="text" id="name" placeholder="Enter name">
+
+        <input type="email" id="email" placeholder="Enter email">
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <p id="error"></p>
+
+    <p id="success"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+    document.getElementById("form").addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+            let name =
+                document.getElementById("name").value.trim();
+
+            let email =
+                document.getElementById("email").value.trim();
+
+            let error =
+                document.getElementById("error");
+
+            let success =
+                document.getElementById("success");
+
+            error.innerHTML = "";
+            success.innerHTML = "";
+
+            if (name === "" || email === "") {
+
+                error.innerHTML =
+                    "Please fill in all fields.";
+
+                return;
+
+            }
+
+            success.innerHTML =
+                "✓ Form submitted successfully!";
+
+            document.getElementById("form").reset();
+
+        }
+    );
+
+</script>
+
+</body>
+</html>

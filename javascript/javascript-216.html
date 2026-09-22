@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Admission Form</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #fefce8;
+    padding: 30px;
+}
+
+.box {
+    background: white;
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #aaa;
+}
+
+h2 {
+    text-align: center;
+    color: #ca8a04;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #ca8a04;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+#result {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>College Admission Form</h2>
+
+<form id="form">
+
+<label>Student Name:</label>
+<input type="text" id="name">
+
+<label>Email:</label>
+<input type="email" id="email">
+
+<label>Mobile:</label>
+<input type="text" id="mobile">
+
+<label>Age:</label>
+<input type="number" id="age">
+
+<label>Course:</label>
+<select id="course">
+    <option value="">Select Course</option>
+    <option>B.Tech CSE</option>
+    <option>B.Tech ECE</option>
+    <option>BCA</option>
+    <option>B.Sc</option>
+</select>
+
+<button type="submit">Submit Admission Form</button>
+
+</form>
+
+<p id="result"></p>
+
+<a href="../index/index.html">⬅ Back to Main Index</a>
+<a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+document.getElementById("form").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let mobile = document.getElementById("mobile").value.trim();
+    let age = document.getElementById("age").value;
+    let course = document.getElementById("course").value;
+    let result = document.getElementById("result");
+
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let mobilePattern = /^[6-9][0-9]{9}$/;
+
+    if (name === "") {
+        result.innerHTML = "Please enter student name.";
+        result.style.color = "red";
+    }
+    else if (!emailPattern.test(email)) {
+        result.innerHTML = "Please enter a valid email.";
+        result.style.color = "red";
+    }
+    else if (!mobilePattern.test(mobile)) {
+        result.innerHTML = "Please enter a valid mobile number.";
+        result.style.color = "red";
+    }
+    else if (age < 17 || age > 30) {
+        result.innerHTML = "Age must be between 17 and 30.";
+        result.style.color = "red";
+    }
+    else if (course === "") {
+        result.innerHTML = "Please select a course.";
+        result.style.color = "red";
+    }
+    else {
+        result.innerHTML = "✓ Admission form submitted successfully!";
+        result.style.color = "green";
+    }
+
+});
+
+</script>
+
+</body>
+</html>

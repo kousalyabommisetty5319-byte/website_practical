@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        input, select, button {
+            padding: 12px;
+            margin: 8px;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+        }
+
+        button {
+            background: #0072ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #eeeeee;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Currency Converter</h1>
+
+        <input type="number" id="amount" placeholder="Enter amount">
+
+        <br>
+
+        <select id="fromCurrency">
+            <option value="USD">USD</option>
+            <option value="INR">INR</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+        </select>
+
+        <select id="toCurrency">
+            <option value="INR">INR</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+        </select>
+
+        <br>
+
+        <button onclick="convertCurrency()">Convert</button>
+
+        <div id="result">Enter the amount to convert.</div>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        async function convertCurrency() {
+            let amount = Number(document.getElementById("amount").value);
+            let from = document.getElementById("fromCurrency").value;
+            let to = document.getElementById("toCurrency").value;
+            let result = document.getElementById("result");
+
+            if (amount <= 0) {
+                result.textContent = "Enter a valid amount.";
+                return;
+            }
+
+            if (from === to) {
+                result.textContent = amount + " " + from +
+                    " = " + amount + " " + to;
+                return;
+            }
+
+            result.textContent = "Converting...";
+
+            try {
+                let response = await fetch(
+                    "https://api.frankfurter.app/latest?amount=" +
+                    amount +
+                    "&from=" +
+                    from +
+                    "&to=" +
+                    to
+                );
+
+                let data = await response.json();
+
+                result.textContent =
+                    amount + " " + from + " = " +
+                    data.rates[to] + " " + to;
+            } catch (error) {
+                result.textContent =
+                    "Unable to fetch exchange rate.";
+            }
+        }
+    </script>
+</body>
+</html>

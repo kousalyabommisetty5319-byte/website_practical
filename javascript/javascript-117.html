@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shopping Cart</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff8008, #ffc837);
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .product {
+            background: #eeeeee;
+            padding: 15px;
+            border-radius: 10px;
+            width: 180px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            background: #ff8008;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #cart {
+            margin-top: 25px;
+            padding: 20px;
+            background: #eeeeee;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Simple Shopping Cart</h1>
+
+        <div class="products">
+            <div class="product">
+                <h3>Book</h3>
+                <p>₹200</p>
+                <button onclick="addToCart('Book', 200)">
+                    Add
+                </button>
+            </div>
+
+            <div class="product">
+                <h3>Bag</h3>
+                <p>₹600</p>
+                <button onclick="addToCart('Bag', 600)">
+                    Add
+                </button>
+            </div>
+
+            <div class="product">
+                <h3>Watch</h3>
+                <p>₹1000</p>
+                <button onclick="addToCart('Watch', 1000)">
+                    Add
+                </button>
+            </div>
+        </div>
+
+        <div id="cart">
+            <h2>Cart Items</h2>
+            <div id="cartItems"></div>
+            <h3>Total: ₹<span id="total">0</span></h3>
+            <button onclick="clearCart()">Clear Cart</button>
+        </div>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({
+                name: name,
+                price: price
+            });
+
+            displayCart();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            displayCart();
+        }
+
+        function clearCart() {
+            cart = [];
+            displayCart();
+        }
+
+        function displayCart() {
+            let cartItems = document.getElementById("cartItems");
+            let total = 0;
+
+            cartItems.innerHTML = "";
+
+            cart.forEach(function (item, index) {
+                total += item.price;
+
+                let p = document.createElement("p");
+
+                p.innerHTML =
+                    item.name + " - ₹" + item.price +
+                    " <button onclick='removeItem(" + index + ")'>" +
+                    "Remove</button>";
+
+                cartItems.appendChild(p);
+            });
+
+            document.getElementById("total").textContent = total;
+        }
+    </script>
+</body>
+</html>

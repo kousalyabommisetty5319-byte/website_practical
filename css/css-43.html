@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Fit and Object Position</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 300px;
+            height: 200px;
+            border: 2px solid #333;
+        }
+
+        .box img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .cover img {
+            object-fit: cover;
+        }
+
+        .contain img {
+            object-fit: contain;
+        }
+
+        .position img {
+            object-fit: cover;
+            object-position: right;
+        }
+
+        a {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Object Fit and Object Position</h1>
+
+    <div class="container">
+
+        <div>
+            <h3>Object Fit: Cover</h3>
+
+            <div class="box cover">
+                <img src="https://picsum.photos/500/300?1"
+                     alt="Cover">
+            </div>
+        </div>
+
+        <div>
+            <h3>Object Fit: Contain</h3>
+
+            <div class="box contain">
+                <img src="https://picsum.photos/500/300?2"
+                     alt="Contain">
+            </div>
+        </div>
+
+        <div>
+            <h3>Object Position: Right</h3>
+
+            <div class="box position">
+                <img src="https://picsum.photos/500/300?3"
+                     alt="Position">
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+
+    <a href="../index/index.html">Home</a> |
+    <a href="index.html">CSS Programs</a>
+
+</body>
+</html>

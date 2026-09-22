@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onclick Event</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #e3f2fd;
+            padding: 40px;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+    <h1>onclick Event</h1>
+
+    <button onclick="showMessage()">Click Me</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        function showMessage() {
+            document.getElementById("result").textContent =
+                "The button was clicked!";
+        }
+    </script>
+
+</body>
+</html>

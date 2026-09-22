@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Object</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            text-align: center;
+            padding: 30px;
+            color: white;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            color: black;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        button, a {
+            padding: 12px;
+            margin: 8px;
+            border: none;
+            border-radius: 8px;
+            background: #11998e;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #output {
+            margin: 20px 0;
+            padding: 20px;
+            background: #eeeeee;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>History Object Demonstration</h1>
+
+        <p>History length: <strong id="historyLength"></strong></p>
+
+        <button onclick="showHistory()">Show History Length</button>
+        <button onclick="addHistory()">Add History Entry</button>
+        <button onclick="goBack()">Go Back</button>
+        <button onclick="goForward()">Go Forward</button>
+
+        <div id="output">Click a button to see the result.</div>
+
+        <br>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        function showHistory() {
+            document.getElementById("historyLength").textContent =
+                history.length;
+
+            document.getElementById("output").textContent =
+                "Number of pages in browser history: " + history.length;
+        }
+
+        function addHistory() {
+            history.pushState(
+                { page: "demo" },
+                "",
+                "#history-demo"
+            );
+
+            document.getElementById("output").textContent =
+                "A new history entry was added.";
+            showHistory();
+        }
+
+        function goBack() {
+            history.back();
+        }
+
+        function goForward() {
+            history.forward();
+        }
+
+        showHistory();
+    </script>
+</body>
+</html>

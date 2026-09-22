@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Tooltip</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        #tooltip {
+            background-color: black;
+            color: white;
+            padding: 8px;
+            margin-left: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<a href="../index/index.html">🏠 Home</a>
+<a href="index.html">⬅️ Back to JavaScript Programs</a>
+<h2>Dynamic Tooltip Example</h2>
+
+<button id="myButton">Hover Over Me</button>
+
+<script>
+const button = document.getElementById("myButton");
+
+const tooltip = document.createElement("span");
+
+tooltip.id = "tooltip";
+tooltip.textContent = "This tooltip was created dynamically!";
+tooltip.hidden = true;
+
+document.body.appendChild(tooltip);
+
+button.addEventListener("mouseenter", function() {
+    tooltip.hidden = false;
+});
+
+button.addEventListener("mouseleave", function() {
+    tooltip.hidden = true;
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Counter</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e8f5e9;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 550px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        .count {
+            font-size: 40px;
+            font-weight: bold;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #388e3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Visitor Counter</h2>
+
+    <p>This page counts the number of visits using browser storage.</p>
+
+    <div class="count" id="count">0</div>
+
+    <p>Visits</p>
+
+    <button onclick="resetCounter()">Reset Counter</button>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+let visits = localStorage.getItem("visitorCount");
+
+if (visits === null) {
+    visits = 1;
+} else {
+    visits = parseInt(visits) + 1;
+}
+
+localStorage.setItem("visitorCount", visits);
+
+document.getElementById("count").innerHTML = visits;
+
+function resetCounter() {
+
+    localStorage.removeItem("visitorCount");
+
+    location.reload();
+}
+
+</script>
+
+</body>
+</html>

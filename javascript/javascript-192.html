@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 15px;
+        }
+
+        input {
+            padding: 12px;
+            width: 90%;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin-top: 15px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Mobile Number Validation</h1>
+
+    <p>Enter a 10-digit Indian mobile number.</p>
+
+    <input type="text" id="mobile" placeholder="Enter mobile number">
+
+    <br>
+
+    <button onclick="validateMobile()">Validate</button>
+
+    <p id="message"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+    function validateMobile() {
+
+        let mobile = document.getElementById("mobile").value.trim();
+        let message = document.getElementById("message");
+
+        let pattern = /^[6-9][0-9]{9}$/;
+
+        if (pattern.test(mobile)) {
+            message.innerHTML = "Valid mobile number!";
+            message.style.color = "green";
+        }
+        else {
+            message.innerHTML =
+                "Invalid number. Enter 10 digits starting from 6–9.";
+            message.style.color = "red";
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

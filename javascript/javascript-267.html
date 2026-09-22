@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporary Form Data</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #fff3e0;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 550px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 8px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #f57c00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Temporary Form Data</h2>
+
+    <form id="myForm">
+
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <input type="email" id="email" placeholder="Enter your email">
+
+        <textarea id="message" placeholder="Enter your message"></textarea>
+
+        <br>
+
+        <button type="button" onclick="saveData()">Save Temporarily</button>
+
+        <button type="button" onclick="clearData()">Clear Data</button>
+
+    </form>
+
+    <p id="result"></p>
+
+    <a href="../index/index.html">⬅ Back to Main Index</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+</div>
+
+<script>
+
+function saveData() {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    sessionStorage.setItem("formName", name);
+    sessionStorage.setItem("formEmail", email);
+    sessionStorage.setItem("formMessage", message);
+
+    document.getElementById("result").innerHTML =
+        "Form data saved temporarily.";
+}
+
+function loadData() {
+
+    document.getElementById("name").value =
+        sessionStorage.getItem("formName") || "";
+
+    document.getElementById("email").value =
+        sessionStorage.getItem("formEmail") || "";
+
+    document.getElementById("message").value =
+        sessionStorage.getItem("formMessage") || "";
+}
+
+function clearData() {
+
+    sessionStorage.removeItem("formName");
+    sessionStorage.removeItem("formEmail");
+    sessionStorage.removeItem("formMessage");
+
+    document.getElementById("myForm").reset();
+
+    document.getElementById("result").innerHTML =
+        "Temporary data cleared.";
+}
+
+window.onload = loadData;
+
+</script>
+
+</body>
+</html>

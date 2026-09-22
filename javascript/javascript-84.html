@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Events</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px gray;
+        }
+
+        h1 {
+            color: #4b0082;
+        }
+
+        input {
+            width: 80%;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #764ba2;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .output {
+            background: #f0e6ff;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        a {
+            display: inline-block;
+            margin: 15px 5px;
+            padding: 12px 18px;
+            background: #4b0082;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        a:hover {
+            background: #764ba2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>⌨️ Keyboard Events Demonstration</h1>
+
+        <p>Click inside the input box and press any key.</p>
+
+        <input type="text" id="keyboardInput"
+               placeholder="Type something here...">
+
+        <div class="output">
+            <p>
+                <strong>Key Down:</strong>
+                <span id="keyDownOutput">None</span>
+            </p>
+
+            <p>
+                <strong>Key Up:</strong>
+                <span id="keyUpOutput">None</span>
+            </p>
+
+            <p>
+                <strong>Typed Text:</strong>
+                <span id="textOutput">None</span>
+            </p>
+        </div>
+
+        <a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+    </div>
+
+    <script>
+        const input = document.getElementById("keyboardInput");
+
+        const keyDownOutput =
+            document.getElementById("keyDownOutput");
+
+        const keyUpOutput =
+            document.getElementById("keyUpOutput");
+
+        const textOutput =
+            document.getElementById("textOutput");
+
+        input.addEventListener("keydown", function(event) {
+            keyDownOutput.textContent = event.key;
+        });
+
+        input.addEventListener("keyup", function(event) {
+            keyUpOutput.textContent = event.key;
+        });
+
+        input.addEventListener("input", function() {
+            textOutput.textContent = input.value;
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Element</title>
+</head>
+<body>
+
+<h2>Create a New Element</h2>
+
+<button onclick="createElementDemo()">Add Paragraph</button>
+
+<div id="container"></div>
+<a href="../index/index.html">🏠 Home</a>
+        <a href="index.html">⬅️ Back to JavaScript Programs</a>
+<script>
+function createElementDemo() {
+    let paragraph = document.createElement("p");
+
+    paragraph.textContent = "This paragraph was created dynamically.";
+
+    document.getElementById("container").appendChild(paragraph);
+}
+</script>
+
+</body>
+</html>

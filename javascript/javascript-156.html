@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage To-Do Items</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #e8f5e9;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            display: inline-block;
+            width: 450px;
+        }
+
+        input {
+            padding: 10px;
+            width: 60%;
+        }
+
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        li {
+            list-style: none;
+            background: #f1f8e9;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index/index.html">🏠 Home</a>
+    <a href="index.html">💻 JavaScript Programs</a
+
+    <div class="container">
+        <h1>Manage To-Do List</h1>
+
+        <input type="text" id="taskInput" placeholder="Enter a task">
+        <button onclick="addTask()">Add</button>
+
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        function addTask() {
+            const taskInput = document.getElementById("taskInput");
+            const taskText = taskInput.value.trim();
+
+            if (taskText === "") {
+                alert("Please enter a task");
+                return;
+            }
+
+            const listItem = document.createElement("li");
+
+            const taskSpan = document.createElement("span");
+            taskSpan.textContent = taskText;
+
+            const editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+
+            editButton.onclick = function () {
+                const updatedTask = prompt(
+                    "Edit your task:",
+                    taskSpan.textContent
+                );
+
+                if (updatedTask !== null && updatedTask.trim() !== "") {
+                    taskSpan.textContent = updatedTask.trim();
+                }
+            };
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+
+            deleteButton.onclick = function () {
+                listItem.remove();
+            };
+
+            listItem.appendChild(taskSpan);
+            listItem.appendChild(editButton);
+            listItem.appendChild(deleteButton);
+
+            document.getElementById("taskList").appendChild(listItem);
+
+            taskInput.value = "";
+        }
+    </script>
+
+</body>
+</html>
